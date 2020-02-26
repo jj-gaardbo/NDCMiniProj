@@ -90,6 +90,19 @@
     opacity: 0;
     visibility: hidden;
   }
+/*
+  img{
+    transition: all 0.3s ease;
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    filter: blur(2px);
+  }
+
+  &:hover img{
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    filter: blur(0px);
+  }*/
 }
 
 .skew-2-right{
