@@ -54,8 +54,18 @@ module.exports = {
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-            { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
-            { test: /\.mp4$/, loader: 'file-loader'}
+            { test: /\.mp4$/, loader: 'file-loader'},
+            {
+                test: /\.(jpg|png|jpeg)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[hash].[ext]",
+                    },
+                },
+            },
+            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+            { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
         ]
     },
     plugins: [

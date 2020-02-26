@@ -3,6 +3,13 @@ import Title from "./Title.jsx";
 import Frame from "./Frame.jsx";
 import Hub from "./Hub.jsx";
 
+import imageBg1 from '../images/background1.jpg'
+import imageBg2 from '../images/background2.jpg'
+import imageP1 from '../images/person1.png'
+import imageP2 from '../images/person2.png'
+import dust from '../images/dust2.png'
+import smoke from '../images/smoke.png'
+
 export default class MainWrapper extends React.Component {
 
     constructor(props) {
@@ -45,7 +52,7 @@ export default class MainWrapper extends React.Component {
         return (
 
             <main className={
-                this.state.lockScroll ? 'App clearfix no-scroll' : 'App clearfix'
+                this.state.lockScroll ? 'App clearfix no-scroll container-fluid' : 'App clearfix container-fluid'
             }>
                 <Hub handleAudioOn={this.handleAudioOn} audioOn={this.state.audioOn}/>
 
@@ -53,36 +60,134 @@ export default class MainWrapper extends React.Component {
 
                 <div className="snap">
 
-                    <Frame
-                        index={0}
-                        handleLock={this.handleLock}
-                        backgroundSrc={require('../images/background2.jpg')}
-                        backgroundPos={{top:'0%', left:'0%'}}
-                        backgroundSize={{width: '100%'}}
-                        middlegroundSrc={require('../images/person1.png')}
-                        middlegroundPos={{top:'30%', left:'50%'}}
-                        middlegroundSize={{width: '10%'}}
-                        foregroundSrc={require('../images/dust.png')}
-                        foregroundPos={{top:'0%', left:'0%'}}
-                        foregroundSize={{width: '100%'}}
-                    />
+                    <div className="row">
+
+                        <div className="col-lg-6 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={0}
+                                handleLock={this.handleLock}
+                                backgroundSrc={imageBg1}
+                                backgroundPos={{top:'0%', left:'-10%'}}
+                                backgroundSize={{width: '100%'}}
+                                middlegroundSrc={imageP1}
+                                middlegroundPos={{top:'30%', left:'5%'}}
+                                middlegroundSize={{width: '10%'}}
+                                foregroundSrc={dust}
+                                foregroundPos={{top:'0%', left:'0%'}}
+                                foregroundSize={{width: '100%'}}
+                            >
+{/*                                <div className="interactive" style={{left: '80%',top: '80%'}}>
+                                    <a href={"http://google.com"} target={"_blank"}>Click Here</a>
+                                </div>*/}
+                            </Frame>
+                        </div>
+
+                        <div className="col-lg-6 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={1}
+                                handleLock={this.handleLock}
+                                backgroundSrc={imageBg1}
+                                backgroundPos={{top:'0%', left:'0%'}}
+                                backgroundSize={{width: '110%'}}
+                                middlegroundSrc={imageP2}
+                                middlegroundPos={{top:'-15%', left:'5%'}}
+                                middlegroundSize={{width: '30%'}}
+                                foregroundSrc={smoke}
+                                foregroundPos={{top:'0%', left:'0%'}}
+                                foregroundSize={{width: '100%'}}/>
+                        </div>
+
+                    </div>
 
                 </div>
 
                 <div className="snap">
 
-                    <Frame
-                        index={1}
-                        handleLock={this.handleLock}
-                        backgroundSrc={require('../images/background1.jpg')}
-                        backgroundPos={{top:'0%', left:'0%'}}
-                        backgroundSize={{width: '110%'}}
-                        middlegroundSrc={require('../images/person2.png')}
-                        middlegroundPos={{top:'5%', left:'5%'}}
-                        middlegroundSize={{width: '30%'}}
-                        foregroundSrc={require('../images/smoke.png')}
-                        foregroundPos={{top:'0%', left:'0%'}}
-                        foregroundSize={{width: '100%'}}/>
+                    <div className="row">
+
+                        <div className="col-lg-12 window skew-2-right">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={1}
+                                handleLock={this.handleLock}
+                                backgroundSrc={imageBg2}
+                                backgroundPos={{top:'0%', left:'0%'}}
+                                backgroundSize={{width: '110%'}}
+                                middlegroundSrc={imageP2}
+                                middlegroundPos={{top:'5%', left:'5%'}}
+                                middlegroundSize={{width: '30%'}}
+                                foregroundSrc={dust}
+                                foregroundPos={{top:'0%', left:'0%'}}
+                                foregroundSize={{width: '100%'}}/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="snap">
+
+                    <div className="row">
+
+                        <div className="col-lg-4 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={0}
+                                handleLock={this.handleLock}
+                                backgroundSrc={imageBg2}
+                                backgroundPos={{top:'0%', left:'-40%'}}
+                                backgroundSize={{width: '100%'}}
+                                middlegroundSrc={imageP2}
+                                middlegroundPos={{top:'30%', left:'0%'}}
+                                middlegroundSize={{width: '10%'}}
+                                foregroundSrc={smoke}
+                                foregroundPos={{top:'0%', left:'-20%'}}
+                                foregroundSize={{width: '100%'}}
+                            />
+                        </div>
+
+                        <div className="col-lg-4 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={1}
+                                handleLock={this.handleLock}
+                                backgroundSrc={imageBg1}
+                                backgroundPos={{top:'0%', left:'0%'}}
+                                backgroundSize={{width: '110%'}}
+                                middlegroundSrc={imageP1}
+                                middlegroundPos={{top:'30%', left:'-15%'}}
+                                middlegroundSize={{width: '30%'}}
+                                foregroundSrc={smoke}
+                                foregroundPos={{top:'0%', left:'0%'}}
+                                foregroundSize={{width: '100%'}}/>
+                        </div>
+
+                        <div className="col-lg-4 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={0}
+                                handleLock={this.handleLock}
+                                backgroundSrc={imageBg2}
+                                backgroundPos={{top:'0%', left:'0%'}}
+                                backgroundSize={{width: '100%'}}
+                                middlegroundSrc={imageP2}
+                                middlegroundPos={{top:'30%', left:'50%'}}
+                                middlegroundSize={{width: '10%'}}
+                                foregroundSrc={dust}
+                                foregroundPos={{top:'0%', left:'0%'}}
+                                foregroundSize={{width: '100%'}}
+                            />
+                        </div>
+
+                    </div>
 
                 </div>
 

@@ -19,6 +19,7 @@ export default class Frame extends React.Component {
     };
 
     render() {
+        const children = this.props.children;
         return (
             <VizSensor
                 onChange={this.onChange}
@@ -35,6 +36,9 @@ export default class Frame extends React.Component {
                     foregroundPos={this.props.foregroundPos}
                     foregroundSize={this.props.foregroundSize}
                 />
+
+                {children}
+
                 </div>
             </VizSensor>
         )
