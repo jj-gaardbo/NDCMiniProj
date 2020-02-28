@@ -25,7 +25,9 @@ const ModalElement = (props) => {
         <div className={"modal-button"}>
             <div onClick={toggle}>{buttonElement}</div>
             <Modal isOpen={modal} toggle={toggle} className={className} style={style}>
-                <ModalHeader toggle={toggle}>{title}</ModalHeader>
+                {title !== "" &&
+                    <ModalHeader toggle={toggle}>{title}</ModalHeader>
+                }
                 <ModalBody>
                     {props.children}
                 </ModalBody>

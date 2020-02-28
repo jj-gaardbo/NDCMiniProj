@@ -80,7 +80,7 @@ export default class MainWrapper extends React.Component {
                                 foregroundSize={{width: '100%'}}
                             >
                                 <div className="interactive" style={{left: '80%',top: '80%'}}>
-                                    <ModalElement size={{width:'600px',height:'200px'}} pos={{top:'calc(50% - 100px)', left:'calc(50% - 300px)'}} className={"modal-element"} title={"HEADING"} buttonElement={<h1>TESTING</h1>}><p>This is a child</p></ModalElement>
+                                    <ModalElement size={{width:'600px',height:'200px'}} pos={{top:'calc(50% - 100px)', left:'calc(50% - 300px)'}} className={"modal-element"} buttonElement={<h1>TESTING</h1>}><p>This is a child</p></ModalElement>
                                 </div>
                             </Frame>
                         </div>
