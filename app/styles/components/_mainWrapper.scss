@@ -5,6 +5,9 @@
   padding: 0;
   width: 100vw;
   scroll-snap-type: y mandatory;
+  scroll-snap-stop: unset;
+  scroll-snap-align:initial;
+  /*scroll-padding-top: 5vh;*/
   -ms-overflow-style: none;
   border: 10px solid #000;
 }
@@ -118,6 +121,36 @@
 }
 
 .interactive{
-  position: relative;
+  position: absolute;
   z-index: 98;
+}
+
+.lift{
+  margin-top: -20px;
+  border-bottom: 50px solid #000;
+  position: relative;
+}
+
+
+
+.modal-element{
+  border: 20px solid #000;
+  margin: 0;
+  font-family: 'ComicBook', arial, sans-serif;
+
+  .modal-content{
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: #ffffff;
+
+    .modal-header{
+      border: none;
+      font-family: 'ComicBook', arial, sans-serif!important;
+    }
+
+    .modal-body{
+      font-family: 'ComicBook', arial, sans-serif!important;
+    }
+  }
 }

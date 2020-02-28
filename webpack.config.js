@@ -75,6 +75,10 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'manifest.json' },
             { from: 'favicon.ico' }
-        ])
+        ]),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
     ]
 };
