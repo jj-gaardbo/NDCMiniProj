@@ -114,7 +114,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={1}
+                                index={2}
                                 handleLock={this.handleLock}
                                 backgroundSrc={imageBg2}
                                 backgroundPos={{top:'0%', left:'0%'}}
@@ -139,7 +139,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={0}
+                                index={3}
                                 handleLock={this.handleLock}
                                 backgroundSrc={imageBg2}
                                 backgroundPos={{top:'0%', left:'-40%'}}
@@ -157,7 +157,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={1}
+                                index={4}
                                 handleLock={this.handleLock}
                                 backgroundSrc={imageBg1}
                                 backgroundPos={{top:'0%', left:'0%'}}
@@ -174,7 +174,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={0}
+                                index={5}
                                 handleLock={this.handleLock}
                                 backgroundSrc={imageBg2}
                                 backgroundPos={{top:'0%', left:'0%'}}
