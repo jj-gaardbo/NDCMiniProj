@@ -1,0 +1,16 @@
+.modal-element{
+  border: 20px solid #000;
+  margin: 0;
+  font-family: 'ComicBook', arial, sans-serif;
+
+  .modal-content{
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: #ffffff;
+
+    .modal-body{
+      font-family: 'ComicBook', arial, sans-serif!important;
+    }
+  }
+}

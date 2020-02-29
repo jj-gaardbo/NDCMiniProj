@@ -34,40 +34,6 @@
   width: 100%;
 }
 
-.mouse-parallax-image{
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  height: 110vh;
-  width: 110vw;
-  left: -20px;
-  top: -20px;
-  img{
-    min-width: 110%;
-    min-height: 110%;
-  }
-}
-
-
-.mouse-parallax-bg{
-  position: absolute;
-}
-
-.mouse-parallax-mg{
-  position: absolute;
-}
-
-.mouse-parallax-fg{
-  position: absolute;
-}
-
-.hub{
-  z-index: 99;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
 
 .window .overlay{
   display: block;
@@ -133,19 +99,3 @@
 
 
 
-.modal-element{
-  border: 20px solid #000;
-  margin: 0;
-  font-family: 'ComicBook', arial, sans-serif;
-
-  .modal-content{
-    height: 100%;
-    border-radius: 0;
-    border: none;
-    background-color: #ffffff;
-
-    .modal-body{
-      font-family: 'ComicBook', arial, sans-serif!important;
-    }
-  }
-}

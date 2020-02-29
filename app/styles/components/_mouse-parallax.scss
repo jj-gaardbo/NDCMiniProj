@@ -1,0 +1,26 @@
+.mouse-parallax-image{
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  height: 110vh;
+  width: 110vw;
+  left: -20px;
+  top: -20px;
+  img{
+    min-width: 110%;
+    min-height: 110%;
+  }
+}
+
+
+.mouse-parallax-bg{
+  position: absolute;
+}
+
+.mouse-parallax-mg{
+  position: absolute;
+}
+
+.mouse-parallax-fg{
+  position: absolute;
+}
