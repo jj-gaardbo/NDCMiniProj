@@ -21,9 +21,21 @@ const ModalElement = (props) => {
         left: pos.left
     };
 
+    let element;
+    switch (buttonElement.type) {
+        case 'img':
+            element = React.createElement('img', {
+                src: buttonElement.props.src.default,
+                alt: buttonElement.props.alt,
+                style: buttonElement.props.style,
+                className: "interactive-element"
+            });
+            break;
+    }
+
     return (
         <div className={"modal-button"}>
-            <div onClick={toggle}>{buttonElement}</div>
+            <div onClick={toggle}>{element}</div>
             <Modal isOpen={modal} toggle={toggle} className={className} style={style}>
                 {title !== "" &&
                     <ModalHeader toggle={toggle}>{title}</ModalHeader>

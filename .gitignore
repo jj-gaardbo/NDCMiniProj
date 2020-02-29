@@ -42,3 +42,7 @@ yarn.lock
 yarn-error.log
 
 syntax: regexp
+
+app/components/video/
+
+app/components/audio/

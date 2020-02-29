@@ -7,10 +7,10 @@ import imageBg1 from '../images/background1.jpg'
 import imageBg2 from '../images/background2.jpg'
 import imageP1 from '../images/person1.png'
 import imageP2 from '../images/person2.png'
+import video1 from './video/boat.mp4'
 import dust from '../images/dust2.png'
 import smoke from '../images/smoke.png'
 import ModalElement from "./Modal.jsx";
-
 
 export default class MainWrapper extends React.Component {
 
@@ -55,7 +55,7 @@ export default class MainWrapper extends React.Component {
             <main className={
                 this.state.lockScroll ? 'App clearfix no-scroll container-fluid' : 'App clearfix container-fluid'
             }>
-                <Hub handleAudioOn={this.handleAudioOn} audioOn={this.state.audioOn}/>
+                {/*<Hub handleAudioOn={this.handleAudioOn} audioOn={this.state.audioOn}/>*/}
 
                 <Title />
 
@@ -78,9 +78,28 @@ export default class MainWrapper extends React.Component {
                                 foregroundSrc={dust}
                                 foregroundPos={{top:'0%', left:'0%'}}
                                 foregroundSize={{width: '100%'}}
+                                text={[{
+                                    index: 0,
+                                    pos: {top:'5%', left:'5%'},
+                                    html: '<p>This was the first audio test</p>'
+                                },{
+                                    index: 1,
+                                    pos: {top:'80%', left:'20%'},
+                                    html: '<p>I was very happy when I finally got it to work!</p>'
+                                }]}
                             >
-                                <div className="interactive" style={{left: '80%',top: '80%'}}>
-                                    <ModalElement size={{width:'600px',height:'200px'}} pos={{top:'calc(50% - 100px)', left:'calc(50% - 300px)'}} className={"modal-element"} buttonElement={<h1>TESTING</h1>}><p>This is a child</p></ModalElement>
+                                <div className="interactive" style={{left: '80%',top: '10%'}}>
+                                    <ModalElement
+                                        size={{width:'700px',height:'auto'}}
+                                        pos={{top:'calc(20% - 100px)', left:'calc(50% - 300px)'}}
+                                        className={"modal-element clearfix"}
+                                        buttonElement={<img style={{width:'100px'}} src={require('../images/butter.gif')} alt="Butterfly"/>}>
+                                        <p>You pressed a butterfly button!</p>
+                                        <p>Here is a link to <a href="http://google.com" target={"_blank"}>Google</a></p>
+                                        <iframe width="420" height="315"
+                                                src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+                                        </iframe>
+                                    </ModalElement>
                                 </div>
                             </Frame>
                         </div>
@@ -99,7 +118,32 @@ export default class MainWrapper extends React.Component {
                                 middlegroundSize={{width: '30%'}}
                                 foregroundSrc={smoke}
                                 foregroundPos={{top:'0%', left:'0%'}}
-                                foregroundSize={{width: '100%'}}/>
+                                foregroundSize={{width: '100%'}}
+                                text={[{
+                                        index: 0,
+                                        pos: {top:'5%', left:'5%'},
+                                        html: '<p>What?!</p>',
+                                        type: 'speech-bottom-right'
+                                    },
+                                    {
+                                        index: 1,
+                                        pos: {top:'20%', right:'5%'},
+                                        html: '<p>The?!</p>',
+                                        type: 'speech-bottom-left'
+                                    },
+                                    {
+                                        index: 2,
+                                        pos: {top:'40%', left:'5%'},
+                                        html: '<p>Actual?!</p>',
+                                        type: 'speech-top-right'
+                                    },
+                                    {
+                                        index: 3,
+                                        pos: {bottom:'20%', right:'10%'},
+                                        html: '<p>FUUUCK?!</p>',
+                                        type: 'speech-top-left'
+                                    }
+                                ]}/>
                         </div>
 
                     </div>
@@ -116,15 +160,12 @@ export default class MainWrapper extends React.Component {
                             <Frame
                                 index={2}
                                 handleLock={this.handleLock}
-                                backgroundSrc={imageBg2}
-                                backgroundPos={{top:'0%', left:'0%'}}
-                                backgroundSize={{width: '110%'}}
-                                middlegroundSrc={imageP2}
-                                middlegroundPos={{top:'5%', left:'5%'}}
-                                middlegroundSize={{width: '30%'}}
-                                foregroundSrc={dust}
-                                foregroundPos={{top:'0%', left:'0%'}}
-                                foregroundSize={{width: '100%'}}/>
+                                videoURL={require('./video/flens.mp4')}
+                                text={[{
+                                    index: 0,
+                                    pos: {bottom:'15%', left:'40%'},
+                                    html: '<p>We had just recorded a music video which received good response</p>',
+                                }]}/>
                         </div>
 
                     </div>
@@ -150,24 +191,21 @@ export default class MainWrapper extends React.Component {
                                 foregroundSrc={smoke}
                                 foregroundPos={{top:'0%', left:'-20%'}}
                                 foregroundSize={{width: '100%'}}
-                            />
+                                text={[]}/>
                         </div>
 
                         <div className="col-lg-4 window skew-4-left">
                             <div className="overlay"></div>
-
                             <Frame
                                 index={4}
                                 handleLock={this.handleLock}
-                                backgroundSrc={imageBg1}
-                                backgroundPos={{top:'0%', left:'0%'}}
-                                backgroundSize={{width: '110%'}}
-                                middlegroundSrc={imageP1}
-                                middlegroundPos={{top:'30%', left:'-15%'}}
-                                middlegroundSize={{width: '30%'}}
-                                foregroundSrc={smoke}
-                                foregroundPos={{top:'0%', left:'0%'}}
-                                foregroundSize={{width: '100%'}}/>
+                                videoURL={require('./video/flens.mp4')}
+                                text={[{
+                                    index: 0,
+                                    pos: {top:'5%', left:'5%'},
+                                    html: '<p>We had just recorded <br> a music video <br> which received good response</p>',
+                                }]}
+                                />
                         </div>
 
                         <div className="col-lg-4 window skew-4-left">

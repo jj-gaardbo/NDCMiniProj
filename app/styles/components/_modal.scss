@@ -1,7 +1,6 @@
 .modal-element{
   border: 20px solid #000;
   margin: 0;
-  font-family: 'ComicBook', arial, sans-serif;
 
   .modal-content{
     height: 100%;
@@ -10,7 +9,28 @@
     background-color: #ffffff;
 
     .modal-body{
-      font-family: 'ComicBook', arial, sans-serif!important;
+      font-size: 1.5em;
+
+      p{margin-bottom:10px;}
+
+      iframe{
+        width: 100%;
+      }
     }
+  }
+}
+
+.interactive-element{
+  -webkit-filter: drop-shadow(5px 5px 0 #000)
+  drop-shadow(-5px -5px 0 #000);
+  filter: drop-shadow(5px 5px 0 #000)
+  drop-shadow(-5px -5px 0 #000);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover{
+    transform: scale(1.5);
+/*    -webkit-filter: drop-shadow(5px 5px 2px rgba(0,0,0,0.5));
+    filter: drop-shadow(5px 5px 2px rgba(0,0,0,0.5));*/
   }
 }

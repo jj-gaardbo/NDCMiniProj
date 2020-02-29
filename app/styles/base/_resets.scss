@@ -45,7 +45,9 @@ table {
 html, body{
 	height: 100vh;
 	overflow: hidden;
-	font-family: 'ComicBook', Arial, sans-serif;
+	h1,h2,h3,h4,h5,h6,p,b,strong,li,i,span{
+		font-family: 'ComicBook', Arial, sans-serif!important;
+	}
 }
 
 .clearfix::after {

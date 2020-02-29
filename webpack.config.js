@@ -56,7 +56,14 @@ module.exports = {
             { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
             { test: /\.mp4$/, loader: 'file-loader'},
             {
-                test: /\.(jpg|png|jpeg)$/,
+                test: /\.mp3$/,
+                loader: 'file',
+                query: {
+                    name: '[hash].[ext]'
+                }
+            },
+            {
+                test: /\.(jpg|png|jpeg|gif|svg)$/,
                 use: {
                     loader: "file-loader",
                     options: {
@@ -64,8 +71,10 @@ module.exports = {
                     },
                 },
             },
-            { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-            { test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+            { test: /\.eot$/, loader: 'url-loader?limit=100000&mimetype=application/vnd.ms-fontobject' },
+            { test: /\.woff2$/, loader: 'url-loader?limit=100000&mimetype=application/font-woff2' },
+            { test: /\.woff$/, loader: 'url-loader?limit=100000&mimetype=application/font-woff' },
+            { test: /\.ttf$/, loader: 'url-loader?limit=100000&mimetype=application/font-ttf' },
         ]
     },
     plugins: [
@@ -80,5 +89,5 @@ module.exports = {
             $: "jquery",
             jQuery: "jquery"
         })
-    ]
+    ],
 };

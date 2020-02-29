@@ -1,7 +1,9 @@
+@import 'base/font-faces';
 @import 'base/resets';
-@import 'app/styles/fonts/font-faces';
 @import 'app/styles/components/mainWrapper';
+@import 'app/styles/components/frame-main';
 @import 'app/styles/components/title';
 @import 'app/styles/components/mouse-parallax';
 @import 'app/styles/components/hub';
 @import 'app/styles/components/modal';
+@import 'app/styles/components/text-frame';
