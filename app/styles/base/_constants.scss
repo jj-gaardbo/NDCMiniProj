@@ -1,0 +1,14 @@
+$xs:'max-width: 576px';
+$sm: 'max-width: 576px';
+$md: 'max-width: 768px';
+$lg: 'max-width: 992px';
+$xl: 'max-width: 1200px';
+$xxl: 'min-width: 1366px';
+
+@mixin queryThis($var){
+  @media ($var) {
+    @content;
+  }
+}
+
+

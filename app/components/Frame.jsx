@@ -12,8 +12,8 @@ export default class Frame extends React.Component {
         super(props);
         this.state = {
             index: props.index,
-            wait: 1000,
-            timeout: 1000,
+            wait: 1500,
+            timeout: 500,
             timerID:0,
             imgViz: false,
             hovered: false,
@@ -68,6 +68,7 @@ export default class Frame extends React.Component {
                         }
                         else if(textFrames.length === self.state.played.length){
                             self.setState({playingIndex: self.state.playingIndex+1});
+                            $(thisNode).siblings('.overlay').addClass("played");
                         }
                     });
                 }
