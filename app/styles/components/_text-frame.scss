@@ -17,9 +17,17 @@
   top: 10px;
   z-index: 24;
   background-color: #ffffff;
-  font-size: 1.7em;
+  font-size: 1.6em;
   left: 40px;
   @include getShadow();
+
+  &.yellow{
+    background-color: darkorange;
+    font-size: 2.5em;
+    p{
+      font-family: ComicBook-BoldItalic, Arial,sans-serif!important;
+    }
+  }
 
   &.speech-top-right{
     &>div.point{
@@ -29,7 +37,6 @@
       position: absolute;
       background-color: #fff;
       display: block;
-      border-radius: 40%;
       box-sizing: border-box;
 
       &:after,
@@ -79,11 +86,14 @@
       background-color: #fff;
       border: 5px solid #000;
       display: block;
-      border-radius: 40%;
+      border-radius: 25%;
       box-sizing: border-box;
       padding: 35px;
       margin: -20px;
       @include getShadow();
+      p{
+        font-family: 'ComicBook-Italic', Arial,sans-serif!important;
+      }
     }
 
   }
@@ -96,7 +106,6 @@
       position: absolute;
       background-color: #fff;
       display: block;
-      border-radius: 40%;
       box-sizing: border-box;
 
       &:after,
@@ -146,11 +155,14 @@
       background-color: #fff;
       border: 5px solid #000;
       display: block;
-      border-radius: 40%;
+      border-radius: 25%;
       box-sizing: border-box;
       padding: 35px;
       margin: -20px;
       @include getShadow();
+      p{
+        font-family: 'ComicBook-Italic', Arial,sans-serif!important;
+      }
     }
 
   }
@@ -213,11 +225,14 @@
       background-color: #fff;
       border: 5px solid #000;
       display: block;
-      border-radius: 40%;
+      border-radius: 25%;
       box-sizing: border-box;
       padding: 35px;
       margin: -20px;
       @include getShadow();
+      p{
+        font-family: 'ComicBook-Italic', Arial,sans-serif!important;
+      }
     }
 
   }
@@ -280,11 +295,14 @@
       background-color: #fff;
       border: 5px solid #000;
       display: block;
-      border-radius: 40%;
+      border-radius: 25%;
       box-sizing: border-box;
       padding: 35px;
       margin: -20px;
       @include getShadow();
+      p{
+        font-family: 'ComicBook-Italic', Arial,sans-serif!important;
+      }
     }
 
   }

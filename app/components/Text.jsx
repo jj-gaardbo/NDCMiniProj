@@ -42,12 +42,12 @@ export default class TextFrame extends React.Component {
         return (
             <div
                 ref={'text_ref_'+this.props.index}
-                className={`text-frame clearfix${this.state.isVisible ? " visible" : " "} ${this.props.type ? this.props.type : "regular"}`}
+                className={`text-frame clearfix${this.state.isVisible ? " visible" : " "} ${this.props.type ? this.props.type : "regular"} ${this.props.color ? this.props.color : ""}`}
                 style={style}
                 data-index={this.props.index}
             >
                 {this.props.type &&
-                    <div className={`point ${this.props.type ? this.props.type : ""}`}>HERE</div>
+                    <div className={`point ${this.props.type ? this.props.type : ""}`} />
                 }
                 <span dangerouslySetInnerHTML={{__html: this.props.html}} />
                 {this.props.sound &&

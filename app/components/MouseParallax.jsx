@@ -8,38 +8,65 @@ const trans3 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
 
 export default function MouseParallax(imageProps) {
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+
+
+    let styleBg = {};
+    let styleMg = {};
+    let styleFg = {};
+
+
+    if(imageProps.backgroundSrc){
+        styleBg = {
+            left: imageProps.backgroundPos.left,
+            top:imageProps.backgroundPos.top,
+            width: imageProps.backgroundSize.width,
+            height: 'auto'
+        };
+    }
+
+    if(imageProps.middlegroundSrc) {
+        styleMg = {
+            left: imageProps.middlegroundPos.left,
+            top: imageProps.middlegroundPos.top,
+            width: imageProps.middlegroundSize.width,
+            height: 'auto'
+        };
+    }
+
+    if(imageProps.foregroundSrc){
+        styleFg = {
+            left: imageProps.foregroundPos.left,
+            top:imageProps.foregroundPos.top,
+            width: imageProps.foregroundSize.width,
+            height: 'auto'
+        };
+    }
+
     return (
         <div className="mouse-parallax-container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-            <animated.div className="mouse-parallax-image background-image" style={{transform: props.xy.interpolate(trans1)}}>
-                <div className={"mouse-parallax-bg"} style={{
-                    left: imageProps.backgroundPos.left,
-                    top:imageProps.backgroundPos.top,
-                    width: imageProps.backgroundSize.width,
-                    height: 'auto'
-                }}>
-                    <img src={imageProps.backgroundSrc} alt=""/>
-                </div>
-            </animated.div>
-            <animated.div className="mouse-parallax-image middleground-image" style={{transform: props.xy.interpolate(trans2)}}>
-                <div className={"mouse-parallax-mg"} style={{
-                    left: imageProps.middlegroundPos.left,
-                    top:imageProps.middlegroundPos.top,
-                    width: imageProps.middlegroundSize.width,
-                    height: 'auto'
-                }}>
-                    <img src={imageProps.middlegroundSrc} alt=""/>
-                </div>
-            </animated.div>
-            <animated.div className="mouse-parallax-image foreground-image" style={{transform: props.xy.interpolate(trans3)}}>
-                <div className={"mouse-parallax-fg"} style={{
-                    left: imageProps.foregroundPos.left,
-                    top:imageProps.foregroundPos.top,
-                    width: imageProps.foregroundSize.width,
-                    height: 'auto'
-                }}>
-                    <img src={imageProps.foregroundSrc} alt=""/>
-                </div>
-            </animated.div>
+            {imageProps.backgroundSrc &&
+                <animated.div className="mouse-parallax-image background-image" style={{transform: props.xy.interpolate(trans1)}}>
+                    <div className={"mouse-parallax-bg"} style={styleBg}>
+                        <img src={imageProps.backgroundSrc} alt=""/>
+                    </div>
+                </animated.div>
+            }
+
+            {imageProps.middlegroundSrc &&
+                <animated.div className="mouse-parallax-image middleground-image" style={{transform: props.xy.interpolate(trans2)}}>
+                    <div className={"mouse-parallax-mg"} style={styleMg}>
+                        <img src={imageProps.middlegroundSrc} alt=""/>
+                    </div>
+                </animated.div>
+            }
+
+            {imageProps.foregroundSrc &&
+                <animated.div className="mouse-parallax-image foreground-image" style={{transform: props.xy.interpolate(trans3)}}>
+                    <div className={"mouse-parallax-fg"} style={styleFg}>
+                        <img src={imageProps.foregroundSrc} alt=""/>
+                    </div>
+                </animated.div>
+            }
         </div>
     )
 }

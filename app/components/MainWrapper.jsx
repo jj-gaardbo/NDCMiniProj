@@ -3,6 +3,11 @@ import Title from "./Title.jsx";
 import Frame from "./Frame.jsx";
 import Hub from "./Hub.jsx";
 
+import backgroundBirth from '../images/bg/first2.png'
+import backgroundSwingBg from '../images/bg/swing_bg-comic2.png'
+import backgroundSwingFg from '../images/bg/swing_fg2-comic.png'
+import backgroundMicrophone from '../images/bg/microphone.png'
+
 import imageBg1 from '../images/background1.jpg'
 import imageBg2 from '../images/background2.jpg'
 import imageP1 from '../images/person1.png'
@@ -63,85 +68,114 @@ export default class MainWrapper extends React.Component {
 
                     <div className="row lift">
 
-                        <div className="col-lg-6 window skew-4-left">
+                        <div className="col-lg-6 window skew-2-right">
                             <div className="overlay"></div>
 
                             <Frame
                                 index={0}
                                 handleLock={this.handleLock}
-                                backgroundSrc={imageBg1}
-                                backgroundPos={{top:'0%', left:'-10%'}}
-                                backgroundSize={{width: '100%'}}
-                                middlegroundSrc={imageP1}
-                                middlegroundPos={{top:'30%', left:'5%'}}
-                                middlegroundSize={{width: '10%'}}
+                                backgroundSrc={backgroundBirth}
+                                backgroundPos={{top:'0%', left:'0%'}}
+                                backgroundSize={{width: '110%'}}
                                 foregroundSrc={dust}
                                 foregroundPos={{top:'0%', left:'0%'}}
                                 foregroundSize={{width: '100%'}}
+                                text={[
+                                    {
+                                        index: 0,
+                                        pos: {top:'5%', left:'5%'},
+                                        html: '<p>1989</p>',
+                                        color: 'yellow'
+                                    },
+                                    {
+                                        index: 1,
+                                        pos: {bottom:'15%', right:'5%'},
+                                        html: '<p>A year after the storm a child was born</p>'
+                                    }
+                                ]}
+                            >
+
+                            </Frame>
+                        </div>
+
+                        <div className="col-lg-6 window skew-2-right">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={1}
+                                handleLock={this.handleLock}
+                                backgroundSrc={backgroundBirth}
+                                backgroundPos={{top:'-23%', left:'-30%'}}
+                                backgroundSize={{width: '70%'}}
+                                foregroundSrc={dust}
+                                foregroundPos={{top:'-20%', left:'-30%'}}
+                                foregroundSize={{width: '100%'}}
+                                text={[
+                                    {
+                                        index: 0,
+                                        pos: {bottom:'15%', left:'5%'},
+                                        html: '<p>His father filmed him in his crib.</p>'
+                                    },
+                                    {
+                                        index: 1,
+                                        pos: {top:'5%', right:'5%'},
+                                        html: '<p>Our camera has just returned <br>from being repaired, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
+                                        type: 'speech-top-left'
+                                    }
+                                ]}
+                            >
+
+                            </Frame>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="snap">
+
+                    <div className="row lift">
+
+                        <div className="col-lg-6 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={2}
+                                handleLock={this.handleLock}
+                                backgroundSrc={backgroundSwingBg}
+                                backgroundPos={{top:'0%', left:'-10%'}}
+                                backgroundSize={{width: '10%'}}
+                                middlegroundSrc={backgroundSwingFg}
+                                middlegroundPos={{top:'0%', left:'-10%'}}
+                                middlegroundSize={{width: '10%'}}
+                                foregroundSrc={dust}
+                                foregroundPos={{top:'0%', left:'0%'}}
+                                foregroundSize={{width: '50%'}}
                                 text={[{
                                     index: 0,
                                     pos: {top:'5%', left:'5%'},
-                                    html: '<p>This was the first audio test</p>'
+                                    html: '<p>He was a very happy child and he was growing fast.</p>'
                                 },{
                                     index: 1,
                                     pos: {top:'80%', left:'20%'},
-                                    html: '<p>I was very happy when I finally got it to work!</p>'
+                                    html: '<p>His parents installed a swing he could jump around in.</p>'
                                 }]}
-                            >
-                                <div className="interactive" style={{left: '80%',top: '10%'}}>
-                                    <ModalElement
-                                        size={{width:'700px',height:'auto'}}
-                                        pos={{top:'calc(20% - 100px)', left:'calc(50% - 300px)'}}
-                                        className={"modal-element clearfix"}
-                                        buttonElement={<img style={{width:'100px'}} src={require('../images/butter.gif')} alt="Butterfly"/>}>
-                                        <p>You pressed a butterfly button!</p>
-                                        <p>Here is a link to <a href="http://google.com" target={"_blank"}>Google</a></p>
-                                        <iframe width="420" height="315"
-                                                src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
-                                        </iframe>
-                                    </ModalElement>
-                                </div>
-                            </Frame>
+                            />
                         </div>
 
                         <div className="col-lg-6 window skew-4-left">
                             <div className="overlay"></div>
 
                             <Frame
-                                index={1}
+                                index={3}
                                 handleLock={this.handleLock}
-                                backgroundSrc={imageBg1}
-                                backgroundPos={{top:'0%', left:'0%'}}
-                                backgroundSize={{width: '110%'}}
-                                middlegroundSrc={imageP2}
-                                middlegroundPos={{top:'-15%', left:'5%'}}
-                                middlegroundSize={{width: '30%'}}
-                                foregroundSrc={smoke}
-                                foregroundPos={{top:'0%', left:'0%'}}
-                                foregroundSize={{width: '100%'}}
+                                backgroundSrc={backgroundMicrophone}
+                                backgroundPos={{top:'0%', left:'-10%'}}
+                                backgroundSize={{width: '10%'}}
                                 text={[{
                                         index: 0,
                                         pos: {top:'5%', left:'5%'},
-                                        html: '<p>What?!</p>',
-                                        type: 'speech-bottom-right'
-                                    },
-                                    {
-                                        index: 1,
-                                        pos: {top:'20%', right:'5%'},
-                                        html: '<p>The?!</p>',
-                                        type: 'speech-bottom-left'
-                                    },
-                                    {
-                                        index: 2,
-                                        pos: {top:'40%', left:'5%'},
-                                        html: '<p>Actual?!</p>',
-                                        type: 'speech-top-right'
-                                    },
-                                    {
-                                        index: 3,
-                                        pos: {bottom:'20%', right:'10%'},
-                                        html: '<p>FUUUCK?!</p>',
-                                        type: 'speech-top-left'
+                                        html: "<p>It wasn't long before he picked up the microphone.</p>"
                                     }
                                 ]}/>
                         </div>
@@ -158,14 +192,29 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={2}
+                                index={4}
                                 handleLock={this.handleLock}
                                 videoURL={require('./video/flens.mp4')}
                                 text={[{
                                     index: 0,
                                     pos: {bottom:'15%', left:'40%'},
                                     html: '<p>We had just recorded a music video which received good response</p>',
-                                }]}/>
+                                }]}>
+
+                                <div className="interactive" style={{left: '80%',top: '10%'}}>
+                                    <ModalElement
+                                        size={{width:'700px',height:'auto'}}
+                                        pos={{top:'calc(20% - 100px)', left:'calc(50% - 300px)'}}
+                                        className={"modal-element clearfix"}
+                                        buttonElement={<img style={{width:'100px'}} src={require('../images/butter.gif')} alt="Butterfly"/>}>
+                                        <p>You pressed a butterfly button!</p>
+                                        <p>Here is a link to <a href="http://google.com" target={"_blank"}>Google</a></p>
+                                        <iframe width="420" height="315"
+                                                src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0">
+                                        </iframe>
+                                    </ModalElement>
+                                </div>
+                            </Frame>
                         </div>
 
                     </div>
@@ -180,50 +229,55 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={3}
+                                index={5}
                                 handleLock={this.handleLock}
-                                backgroundSrc={imageBg2}
-                                backgroundPos={{top:'0%', left:'-40%'}}
+                                backgroundSrc={backgroundBirth}
+                                backgroundPos={{top:'-10%', left:'-40%'}}
+                                backgroundSize={{width: '80%'}}
+                                text={[{
+                                    index: 0,
+                                    pos: {top:'15%', left:'40%'},
+                                    html: '<p>His future was bright but <br>there was something strange happening</p>',
+                                }]}/>
+                        </div>
+
+                        <div className="col-lg-4 window skew-4-left">
+                            <div className="overlay"></div>
+                            <Frame
+                                index={6}
+                                handleLock={this.handleLock}
+                                backgroundSrc={backgroundMicrophone}
+                                backgroundPos={{top:'0%', left:'-20%'}}
+                                backgroundSize={{width: '30%'}}
+                                text={[{
+                                    index: 0,
+                                    pos: {bottom:'15%', left:'40%'},
+                                    html: '<p>He pronounced his name Agu Gagu</p>',
+                                }]}/>
+                        </div>
+
+                        <div className="col-lg-4 window skew-4-left">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={7}
+                                handleLock={this.handleLock}
+                                backgroundSrc={backgroundSwingBg}
+                                backgroundPos={{top:'-10%', left:'-30%'}}
                                 backgroundSize={{width: '100%'}}
-                                middlegroundSrc={imageP2}
-                                middlegroundPos={{top:'30%', left:'0%'}}
+                                middlegroundSrc={backgroundSwingFg}
+                                middlegroundPos={{top:'-10%', left:'-30%'}}
                                 middlegroundSize={{width: '10%'}}
                                 foregroundSrc={smoke}
                                 foregroundPos={{top:'0%', left:'-20%'}}
                                 foregroundSize={{width: '100%'}}
-                                text={[]}/>
-                        </div>
-
-                        <div className="col-lg-4 window skew-4-left">
-                            <div className="overlay"></div>
-                            <Frame
-                                index={4}
-                                handleLock={this.handleLock}
-                                videoURL={require('./video/flens.mp4')}
-                                text={[{
-                                    index: 0,
-                                    pos: {top:'5%', left:'5%'},
-                                    html: '<p>We had just recorded <br> a music video <br> which received good response</p>',
-                                }]}
-                                />
-                        </div>
-
-                        <div className="col-lg-4 window skew-4-left">
-                            <div className="overlay"></div>
-
-                            <Frame
-                                index={5}
-                                handleLock={this.handleLock}
-                                backgroundSrc={imageBg2}
-                                backgroundPos={{top:'0%', left:'0%'}}
-                                backgroundSize={{width: '100%'}}
-                                middlegroundSrc={imageP2}
-                                middlegroundPos={{top:'30%', left:'50%'}}
-                                middlegroundSize={{width: '10%'}}
-                                foregroundSrc={dust}
-                                foregroundPos={{top:'0%', left:'0%'}}
-                                foregroundSize={{width: '100%'}}
-                            />
+                                text={[
+                                    {
+                                        index: 0,
+                                        pos: {top:'5%', right:'5%'},
+                                        html: '<p>Op og stååååå!</p>',
+                                    }
+                                ]}/>
                         </div>
 
                     </div>

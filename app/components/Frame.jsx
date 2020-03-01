@@ -145,6 +145,7 @@ export default class Frame extends React.Component {
                 {this.state.text.map((textElement,i) =>
                     <TextFrame
                         id={'text-'+textElement.index}
+                        color={textElement.color}
                         sound={textElement.sound}
                         html={textElement.html}
                         index={textElement.index}
