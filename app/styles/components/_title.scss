@@ -6,4 +6,20 @@
     line-height: 100vh;
     font-size: 3.5em;
   }
+
+  button{
+    cursor: pointer;
+
+    img{
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover img{
+      -webkit-transform: scale(1.2,1.2);
+      -moz-transform: scale(1.2,1.2);
+      -ms-transform: scale(1.2,1.2);
+      -o-transform: scale(1.2,1.2);
+      transform: scale(1.2,1.2);
+    }
+  }
 }

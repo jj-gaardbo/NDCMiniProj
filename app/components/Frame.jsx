@@ -11,6 +11,7 @@ export default class Frame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            active:true,
             index: props.index,
             wait: 1500,
             timeout: 500,
@@ -29,9 +30,32 @@ export default class Frame extends React.Component {
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
         this.handleMouseLeave = this.handleMouseLeave.bind(this);
         this.revealText = this.revealText.bind(this);
-        this.revealSpeak = this.revealSpeak.bind(this);
         this.play = this.play.bind(this);
         this.stop = this.stop.bind(this);
+        this.prepareNextSpeak = this.prepareNextSpeak.bind(this);
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        let self = this;
+        $('.App').off('scroll').on('scroll', function(){
+            self.handleScroll();
+        });
+    }
+
+    handleScroll(){
+        if(!this.state.active){return;}
+        const thisNode = ReactDOM.findDOMNode(this);
+        let textFrames = $(thisNode).find('.text-frame');
+        if(textFrames){
+            for(let i = 0; i < textFrames.length; i++){
+                let textFrame = $($($(textFrames[i])[0])[0]);
+                textFrame.css({
+                    opacity: "1"
+                });
+            }
+            this.state.active = false;
+        }
     }
 
     getOrCreateRef(id) {
@@ -42,11 +66,19 @@ export default class Frame extends React.Component {
     }
 
     onChange(isVisible){
-        this.setState({imgViz: isVisible});
+        this.state.imgViz = isVisible;
         this.props.handleLock(isVisible,this.props.index);
+        if(!isVisible){
+            for (let i = 0; i < this.state.textReferences.length; i++){
+                if(this.state.textReferences['text-'+i].current.hasSound){
+                    this.state.textReferences['text-'+i].current.stop();
+                }
+            }
+        }
     };
 
     revealText(revealIndex){
+        if(!this.state.active){return;}
         let self = this;
         if($.inArray(revealIndex, self.state.played) !== -1){return;}
 
@@ -55,38 +87,28 @@ export default class Frame extends React.Component {
         if(textFrames){
             for(let i = 0; i < textFrames.length; i++){
                 let textFrame = $($($(textFrames[i])[0])[0]);
-                if(textFrame.data('index') === revealIndex){
-                    this.state.played.push(revealIndex);
+                if(textFrame.data('index') === revealIndex && !this.state.textReferences['text-'+revealIndex].current.state.isPlaying){
                     textFrame.animate({
                         opacity: "1"
-                    }, 300, function(){
-                        if(textFrames.length > 1 && textFrames.length !== self.state.played.length){
-                            setTimeout(function () {
-                                self.setState({playingIndex: self.state.playingIndex+1});
-                                self.revealText(self.state.playingIndex);
-                            }, self.state.wait);
-                        }
-                        else if(textFrames.length === self.state.played.length){
-                            self.setState({playingIndex: self.state.playingIndex+1});
-                            $(thisNode).siblings('.overlay').addClass("played");
+                    }, 500, function(){
+                        if(!self.state.textReferences['text-'+revealIndex].current.state.hasSound){
+                            self.prepareNextSpeak(revealIndex);
                         }
                     });
+
+
+                    if(textFrames.length === self.state.played.length){
+                        $(thisNode).siblings('.overlay').addClass("played");
+                    }
+                    this.state.played.push(revealIndex);
+                    this.state.textReferences['text-'+revealIndex].current.show();
                 }
             }
         }
     }
 
-    revealSpeak(revealIndex){
-        let currentRef = 'text-'+this.state.playingIndex;
-        if (this.state.textReferences.hasOwnProperty(currentRef)) {
-            this.state.textReferences[currentRef].current.show();
-        }
-
-        //console.log(this.props.text[revealIndex].props.children);
-    }
-
     play(){
-        this.setState({playing: true});
+        this.state.playing = true;
         if(this.props.text && this.props.text.length > 0){
             this.setState({text:this.props.text,playingIndex:0});
             this.revealText(this.state.playingIndex);
@@ -94,18 +116,31 @@ export default class Frame extends React.Component {
     }
 
     stop(){
-        this.setState({playing: false});
+        this.state.playing = false;
     }
 
     handleMouseEnter(){
-        this.setState({hovered: true});
+        this.state.hovered = true;
+
+        if(window.$globalState.textAudioPlaying){return;}
+
         this.state.timerID = setTimeout(() => this.play(), this.state.timeout);
     }
 
     handleMouseLeave(){
-        this.setState({hovered: false});
+        this.state.hovered = false;
         this.stop();
         clearTimeout(this.state.timerID);
+    }
+
+    prepareNextSpeak(index){
+        if(!this.state.active){return;}
+        let self = this;
+        let next = index+1;
+        setTimeout(function () {
+            self.revealText(next);
+            self.state.playingIndex = next;
+        }, self.state.wait);
     }
 
     render() {
@@ -145,6 +180,8 @@ export default class Frame extends React.Component {
 
                 {this.state.text.map((textElement,i) =>
                     <TextFrame
+                        audioOn={this.props.audioOn}
+                        prepareNextSpeak={this.prepareNextSpeak}
                         id={'text-'+textElement.index}
                         color={textElement.color}
                         sound={textElement.sound}

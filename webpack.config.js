@@ -57,7 +57,7 @@ module.exports = {
             { test: /\.mp4$/, loader: 'file-loader'},
             {
                 test: /\.mp3$/,
-                loader: 'file',
+                loader: 'file-loader',
                 query: {
                     name: '[hash].[ext]'
                 }

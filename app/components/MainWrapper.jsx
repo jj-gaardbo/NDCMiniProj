@@ -1,6 +1,8 @@
 import React from 'react';
 import Title from "./Title.jsx";
 import Frame from "./Frame.jsx";
+import Sound from 'react-sound';
+import $ from 'jquery';
 
 import backgroundBirth from '../images/bg/first2.png'
 import backgroundBirth2 from '../images/bg/birth2.png'
@@ -16,6 +18,12 @@ import dust from '../images/dust2.png'
 import smoke from '../images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
+import Hub from "./Hub.jsx";
+
+window.$globalState = {
+    audioOn: true,
+    textAudioPlaying: false
+};
 
 export default class MainWrapper extends React.Component {
 
@@ -24,13 +32,16 @@ export default class MainWrapper extends React.Component {
 
         this.state = {
             lockScroll: false,
+            audioOn: window.$globalState,
             frameIndex: -1,
-            audioOn: false
+            ready: false,
+            classNames: "App clearfix container-fluid no-scroll"
         };
 
         this.handleLock = this.handleLock.bind(this);
         this.handleAudioOn = this.handleAudioOn.bind(this);
         this.lockScroll = this.lockScroll.bind(this);
+        this.begin = this.begin.bind(this);
     }
 
     lockScroll(lock){
@@ -39,31 +50,42 @@ export default class MainWrapper extends React.Component {
 
     handleLock(isVisible, frameIndex){
         if(!this.state.audioOn){return;}
-
-        if(isVisible){
-            this.setState({frameIndex: frameIndex});
-            this.lockScroll(true);
-        }
     }
 
     handleAudioOn(){
         this.setState({audioOn: !this.state.audioOn}, function(){
-            if(this.state.audioOn === false){
-                this.lockScroll(false);
-            }
+            window.$globalState.audioOn = this.state.audioOn;
         });
     }
 
+    begin(){
+        this.setState({ready:true, classNames: "App clearfix container-fluid"});
+        $('.App').animate({
+            scrollTop: $('#start').offset().top
+        }, 1000);
+    }
+
     render() {
+
         return (
+            <main className={this.state.classNames}>
 
-            <main className={
-                this.state.lockScroll ? 'App clearfix no-scroll container-fluid' : 'App clearfix container-fluid'
-            }>
+                <Hub handleAudioOn={this.handleAudioOn} audioOn={this.state.audioOn}/>
 
-                <Title />
+                <Title begin={this.begin} />
 
-                <div className="snap">
+                {this.state.audioOn &&
+                <Sound    url={'./audio/soldier.mp3'}
+                          playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
+                          playFromPosition={0}
+                          volume={30}
+                          playbackRate={1}
+                          loop={true}
+                          muted="muted"
+                />
+                }
+
+                <div className="snap" id={'start'}>
 
                     <div className="row lift">
 
@@ -71,6 +93,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
+                                audioOn={this.state.audioOn}
                                 index={0}
                                 handleLock={this.handleLock}
                                 backgroundSrc={news}
@@ -89,12 +112,14 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 1,
                                         pos: {top:'14%', left:'5%'},
-                                        html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>'
+                                        html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>',
+                                        sound: './audio/frame_0_0.mp3'
                                     },
                                     {
                                         index: 2,
                                         pos: {bottom:'26%', right:'5%'},
-                                        html: '<p>The population of the Faroe Islands <br>were patiently waiting for the thunderstorm <br>to pass as it was moving east.</p>'
+                                        html: '<p>The population of the Faroe Islands <br>were patiently waiting for the thunderstorm <br>to pass as it was moving east.</p>',
+                                        sound: './audio/frame_0_1.mp3'
                                     }
 
                                 ]}
@@ -150,7 +175,8 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 1,
                                         pos: {bottom:'15%', right:'5%'},
-                                        html: '<p>A new member of global society is resting in <br>his home.</p>'
+                                        html: '<p>A new member of global society is resting in <br>his home.</p>',
+                                        sound: './audio/frame_0_1.mp3'
                                     }
                                 ]}
                             >
@@ -174,13 +200,15 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 0,
                                         pos: {top:'5%', right:'5%'},
-                                        html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>'
+                                        html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>',
+                                        sound: './audio/frame_0_0.mp3'
                                     },
                                     {
                                         index: 1,
                                         pos: {top:'23%', right:'5%'},
                                         html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
-                                        type: 'speech-bottom-right'
+                                        type: 'speech-bottom-right',
+                                        sound: './audio/frame_0_1.mp3'
                                     }
                                 ]}
                             >
@@ -214,11 +242,13 @@ export default class MainWrapper extends React.Component {
                                 text={[{
                                     index: 0,
                                     pos: {top:'5%', left:'5%'},
-                                    html: '<p>His mother ran her own daycare,<br> and his father was a teacher.</p>'
+                                    html: '<p>His mother ran her own daycare,<br> and his father was a teacher.</p>',
+                                    sound: './audio/frame_0_1.mp3'
                                 },{
                                     index: 1,
                                     pos: {top:'80%', left:'4%'},
-                                    html: '<p>His big brother spent a lot of time playing with him.</p>'
+                                    html: '<p>His big brother spent a lot of time playing with him.</p>',
+                                    sound: './audio/frame_0_0.mp3'
                                 }]}
                             />
                         </div>
@@ -422,8 +452,7 @@ export default class MainWrapper extends React.Component {
 
                 </div>
 
-            </main>
-
+        </main>
         )
     }
 }
