@@ -15,6 +15,7 @@ import news from '../images/news/news.png'
 import dust from '../images/dust2.png'
 import smoke from '../images/smoke.png'
 import ModalElement from "./Modal.jsx";
+import Breaker from "./Breaker.jsx";
 
 export default class MainWrapper extends React.Component {
 
@@ -75,21 +76,27 @@ export default class MainWrapper extends React.Component {
                                 backgroundSrc={news}
                                 backgroundPos={{top:'-25%', left:'-5%'}}
                                 backgroundSize={{width: '100%'}}
-                                middlegroundSrc={smoke}
-                                middlegroundPos={{top:'0%', left:'0%'}}
-                                middlegroundSize={{width: '100%'}}
+                                foregroundSrc={smoke}
+                                foregroundPos={{top:'-10%', left:'0%'}}
+                                foregroundSize={{width: '100%'}}
                                 text={[
                                     {
                                         index: 0,
                                         pos: {top:'5%', left:'5%'},
-                                        html: '<p>September 9th 1988</p>',
+                                        html: '<p>January 13th 1989</p>',
                                         color: 'yellow'
                                     },
                                     {
                                         index: 1,
-                                        pos: {top:'45%', left:'5%'},
-                                        html: '<p>It was a storm like no other. <br>Doomsday theories were running wild.</p>'
+                                        pos: {top:'14%', left:'5%'},
+                                        html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>'
+                                    },
+                                    {
+                                        index: 2,
+                                        pos: {bottom:'26%', right:'5%'},
+                                        html: '<p>The population of the Faroe Islands <br>were patiently waiting for the thunderstorm <br>to pass as it was moving east.</p>'
                                     }
+
                                 ]}
                             >
 
@@ -99,7 +106,7 @@ export default class MainWrapper extends React.Component {
                                         size={{}}
                                         pos={{top:'30%'}}
                                         className={"modal-dialog-centered modal-md clearfix"}
-                                        buttonElement={<img style={{width:'200px'}} src={require('../images/yellow_2.gif')} alt="Butterfly"/>}>
+                                        buttonElement={<img style={{width:'300px'}} src={require('../images/yellow_2.gif')} alt="Butterfly"/>}>
                                         <p>
                                             The first couple of years of my life I was living on the Faroe Islands.
                                         </p>
@@ -112,6 +119,10 @@ export default class MainWrapper extends React.Component {
                     </div>
 
                 </div>
+
+                <Breaker>
+                    <h1>Chapter 1: Childhood</h1>
+                </Breaker>
 
                 <div className="snap">
 
@@ -139,7 +150,7 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 1,
                                         pos: {bottom:'15%', right:'5%'},
-                                        html: '<p>A new member of society is resting in <br>his home on the Faroe Islands</p>'
+                                        html: '<p>A new member of global society is resting in <br>his home.</p>'
                                     }
                                 ]}
                             >
@@ -203,11 +214,11 @@ export default class MainWrapper extends React.Component {
                                 text={[{
                                     index: 0,
                                     pos: {top:'5%', left:'5%'},
-                                    html: '<p>Shortly after he became old enough to cause trouble,<br> so his parents constrained him by installing <br>a swing, so he could entertain himself.</p>'
+                                    html: '<p>His mother ran her own daycare,<br> and his father was a teacher.</p>'
                                 },{
                                     index: 1,
                                     pos: {top:'80%', left:'4%'},
-                                    html: '<p>This was before the iPad.</p>'
+                                    html: '<p>His big brother spent a lot of time playing with him.</p>'
                                 }]}
                             />
                         </div>
@@ -283,7 +294,7 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 1,
                                         pos: {bottom:'15%', left:'5%'},
-                                        html: '<p>...they packed up their lives and moved to Denmark.</p>'
+                                        html: '<p>...they packed up their lives and moved to Denmark. He was 5 years old.</p>'
                                     }
                                 ]}
                             >
@@ -294,6 +305,10 @@ export default class MainWrapper extends React.Component {
                     </div>
 
                 </div>
+
+                <Breaker>
+                    <h1>Chapter 2: Second childhood</h1>
+                </Breaker>
 
                 <div className="snap">
 
