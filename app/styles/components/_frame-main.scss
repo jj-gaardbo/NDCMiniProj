@@ -1,5 +1,12 @@
 .frame-main{
   position:static;
+  width: 100%;
+  height: 100%;
+/*
+  &:hover > .overlay{
+    opacity: 0;
+    visibility: hidden;
+  }*/
 
   .background-video{
     position: absolute;

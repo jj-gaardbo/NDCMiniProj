@@ -11,6 +11,8 @@ import backgroundSwingFg from '../images/bg/swing_fg2-comic.png'
 import backgroundMicrophone from '../images/bg/microphone.png'
 import backgroundFaroe from '../images/bg/faroe.png'
 import backgroundSailing from '../images/bg/travel.png'
+import backgroundReading from '../images/bg/reading.png'
+import backgroundTeacher from '../images/bg/teacher.png'
 
 import news from '../images/news/news.png'
 
@@ -19,11 +21,14 @@ import smoke from '../images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Hub from "./Hub.jsx";
+import Continue from "../images/continue.png";
+import Panel from "./Panel.jsx";
 
 window.$globalState = {
     audioOn: true,
     textAudioPlaying: false
 };
+
 
 export default class MainWrapper extends React.Component {
 
@@ -75,10 +80,10 @@ export default class MainWrapper extends React.Component {
                 <Title begin={this.begin} />
 
                 {this.state.audioOn &&
-                <Sound    url={'./audio/soldier.mp3'}
+                <Sound    url={'./audio/building_nightmares.mp3'}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
-                          volume={30}
+                          volume={10}
                           playbackRate={1}
                           loop={true}
                           muted="muted"
@@ -124,7 +129,6 @@ export default class MainWrapper extends React.Component {
 
                                 ]}
                             >
-
                                 <div className="interactive" style={{left: '80%',top: '7%'}}>
                                     <ModalElement
                                         title={'Faroe Islands.'}
@@ -140,9 +144,7 @@ export default class MainWrapper extends React.Component {
 
                             </Frame>
                         </div>
-
                     </div>
-
                 </div>
 
                 <Breaker>
@@ -176,7 +178,7 @@ export default class MainWrapper extends React.Component {
                                         index: 1,
                                         pos: {bottom:'15%', right:'5%'},
                                         html: '<p>A new member of global society is resting in <br>his home.</p>',
-                                        sound: './audio/frame_0_1.mp3'
+                                        sound: './audio/frame_1_0.mp3'
                                     }
                                 ]}
                             >
@@ -201,14 +203,14 @@ export default class MainWrapper extends React.Component {
                                         index: 0,
                                         pos: {top:'5%', right:'5%'},
                                         html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>',
-                                        sound: './audio/frame_0_0.mp3'
+                                        sound: './audio/frame_2_0.mp3'
                                     },
                                     {
                                         index: 1,
                                         pos: {top:'23%', right:'5%'},
                                         html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
                                         type: 'speech-bottom-right',
-                                        sound: './audio/frame_0_1.mp3'
+                                        sound: './audio/frame_2_1.mp3'
                                     }
                                 ]}
                             >
@@ -224,17 +226,17 @@ export default class MainWrapper extends React.Component {
 
                     <div className="row lift">
 
-                        <div className="col-lg-6 window skew-4-left">
+                        <div className="col-lg-4 window skew-4-left">
                             <div className="overlay"></div>
 
                             <Frame
                                 index={3}
                                 handleLock={this.handleLock}
                                 backgroundSrc={backgroundSwingBg}
-                                backgroundPos={{top:'0%', left:'-10%'}}
+                                backgroundPos={{top:'0%', left:'-20%'}}
                                 backgroundSize={{width: '10%'}}
                                 middlegroundSrc={backgroundSwingFg}
-                                middlegroundPos={{top:'0%', left:'-10%'}}
+                                middlegroundPos={{top:'0%', left:'-20%'}}
                                 middlegroundSize={{width: '10%'}}
                                 foregroundSrc={dust}
                                 foregroundPos={{top:'0%', left:'0%'}}
@@ -243,17 +245,17 @@ export default class MainWrapper extends React.Component {
                                     index: 0,
                                     pos: {top:'5%', left:'5%'},
                                     html: '<p>His mother ran her own daycare,<br> and his father was a teacher.</p>',
-                                    sound: './audio/frame_0_1.mp3'
+                                    sound: './audio/frame_3_0.mp3'
                                 },{
                                     index: 1,
-                                    pos: {top:'80%', left:'4%'},
-                                    html: '<p>His big brother spent a lot of time playing with him.</p>',
-                                    sound: './audio/frame_0_0.mp3'
+                                    pos: {bottom:'10%', left:'2%'},
+                                    html: '<p>His big brother spent a lot <br> of time playing with him.</p>',
+                                    sound: './audio/frame_3_1.mp3'
                                 }]}
                             />
                         </div>
 
-                        <div className="col-lg-6 window skew-4-left">
+                        <div className="col-lg-8 window skew-4-left">
                             <div className="overlay"></div>
 
                             <Frame
@@ -265,7 +267,8 @@ export default class MainWrapper extends React.Component {
                                 text={[{
                                         index: 0,
                                         pos: {top:'5%', left:'5%'},
-                                        html: "<p>He was very proud, when he started to be able to <br> pronounce his name almost correctly.</p>"
+                                        html: "<p>He was very proud, when he started to be able to <br> pronounce his name almost correctly.</p>",
+                                        sound: './audio/frame_4_0.mp3'
                                     }
                                 ]}/>
                         </div>
@@ -294,7 +297,8 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 0,
                                         pos: {top:'5%', left:'5%'},
-                                        html: '<p>His childhood was good on the islands. <br> But due to his father being offered a job...</p>'
+                                        html: '<p>His childhood was good on the islands. <br> But due to his father being offered a job...</p>',
+                                        sound: './audio/frame_5_0.mp3'
                                     }
                                 ]}
                             >
@@ -324,7 +328,8 @@ export default class MainWrapper extends React.Component {
                                     {
                                         index: 1,
                                         pos: {bottom:'15%', left:'5%'},
-                                        html: '<p>...they packed up their lives and moved to Denmark. He was 5 years old.</p>'
+                                        html: '<p>...they packed up their lives and moved to Denmark. He was 5 years old.</p>',
+                                        sound: './audio/frame_6_0.mp3'
                                     }
                                 ]}
                             >
@@ -344,11 +349,64 @@ export default class MainWrapper extends React.Component {
 
                     <div className="row lift">
 
-                        <div className="col-lg-12 window skew-2-right">
+                        <div className="col-lg-8 window skew-4-left">
                             <div className="overlay"></div>
 
                             <Frame
                                 index={7}
+                                handleLock={this.handleLock}
+                                backgroundSrc={backgroundReading}
+                                backgroundPos={{top:'-35%', left:'-5%'}}
+                                backgroundSize={{width: '40%'}}
+                                text={[{
+                                    index: 0,
+                                    pos: {top:'1%', right:'2%'},
+                                    html: '<p>He wasn`t the best student in primary in school.</p>',
+                                    sound: './audio/frame_7_0.mp3'
+                                }]}/>
+                        </div>
+
+                        <div className="col-lg-4 window skew-4-left">
+                            <div className="overlay"></div>
+                            <Frame
+                                index={8}
+                                handleLock={this.handleLock}
+                                backgroundSrc={backgroundTeacher}
+                                backgroundPos={{top:'-35%', left:'-2%'}}
+                                backgroundSize={{width: '50%'}}
+                                foregroundSrc={dust}
+                                foregroundPos={{top:'0%', left:'-20%'}}
+                                foregroundSize={{width: '60%'}}
+                                text={[
+                                    {
+                                        index: 0,
+                                        pos: {top:'1%', right:'2%'},
+                                        html: '<p>Upon retiring his teacher held a speech for his class.</p>',
+                                        sound: './audio/frame_8_0.mp3'
+                                    },
+                                    {
+                                        index: 1,
+                                        pos: {top:'60%', left:'40%'},
+                                        html: '<p>He has now become <br> a famous song writer.</p>',
+                                        type: 'speech-top-left',
+                                        sound: './audio/frame_8_1.mp3'
+                                    }
+                                ]}/>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="snap">
+
+                    <div className="row lift">
+
+                        <div className="col-lg-12 window skew-2-right">
+                            <div className="overlay"></div>
+
+                            <Frame
+                                index={9}
                                 handleLock={this.handleLock}
                                 videoURL={require('./video/flens.mp4')}
                                 text={[{
@@ -391,7 +449,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={8}
+                                index={10}
                                 handleLock={this.handleLock}
                                 backgroundSrc={backgroundBirth}
                                 backgroundPos={{top:'-10%', left:'-40%'}}
@@ -406,7 +464,7 @@ export default class MainWrapper extends React.Component {
                         <div className="col-lg-4 window skew-4-left">
                             <div className="overlay"></div>
                             <Frame
-                                index={9}
+                                index={11}
                                 handleLock={this.handleLock}
                                 backgroundSrc={backgroundSwingBg}
                                 backgroundPos={{top:'-10%', left:'-30%'}}
@@ -436,7 +494,7 @@ export default class MainWrapper extends React.Component {
                             <div className="overlay"></div>
 
                             <Frame
-                                index={10}
+                                index={12}
                                 handleLock={this.handleLock}
                                 backgroundSrc={backgroundMicrophone}
                                 backgroundPos={{top:'0%', left:'-20%'}}

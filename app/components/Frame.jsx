@@ -13,7 +13,7 @@ export default class Frame extends React.Component {
         this.state = {
             active:true,
             index: props.index,
-            wait: 1500,
+            wait: 800,
             timeout: 500,
             timerID:0,
             imgViz: false,
@@ -145,10 +145,15 @@ export default class Frame extends React.Component {
 
     render() {
         const children = this.props.children;
+        let className = "frame-main";
+        className += " col-lg-"+this.props.bootstrap;
 
         return (
-            <div className={"frame-main"} data-index={this.props.index} onMouseEnter={this.handleMouseEnter}
+            <div className={className} data-index={this.props.index} onMouseEnter={this.handleMouseEnter}
                  onMouseLeave={this.handleMouseLeave}>
+
+                <div className="overlay"></div>
+
                 <VizSensor
                     onChange={this.onChange}
                 >
@@ -175,6 +180,7 @@ export default class Frame extends React.Component {
                         )}
 
                         {children}
+
                     </div>
                 </VizSensor>
 
