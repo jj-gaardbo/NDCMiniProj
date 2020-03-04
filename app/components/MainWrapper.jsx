@@ -356,11 +356,11 @@ export default class MainWrapper extends React.Component {
                                 index={7}
                                 handleLock={this.handleLock}
                                 backgroundSrc={backgroundReading}
-                                backgroundPos={{top:'-35%', left:'-5%'}}
+                                backgroundPos={{top:'-55%', left:'-5%'}}
                                 backgroundSize={{width: '40%'}}
                                 text={[{
                                     index: 0,
-                                    pos: {top:'1%', right:'2%'},
+                                    pos: {bottom:'10%', left:'2%'},
                                     html: '<p>He wasn`t the best student in primary in school.</p>',
                                     sound: './audio/frame_7_0.mp3'
                                 }]}/>
@@ -427,6 +427,9 @@ export default class MainWrapper extends React.Component {
                                         </p>
                                         <p>
                                             <a href="https://soundcloud.com/gaardbo" target={"_blank"}>Solo projects</a>
+                                        </p>
+                                        <p>
+                                            <a href="https://open.spotify.com/album/3nUhGWseFNMxiLcr7i5ha6?si=ujpPbneZTXmc6PUrqEaBnQ" target={"_blank"}>Spotify single</a>
                                         </p>
                                         <iframe width="420" height="315"
                                                 src="https://www.youtube.com/embed/0Ef1Ro7Dzsk?controls=0"
