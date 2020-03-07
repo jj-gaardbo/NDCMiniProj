@@ -145,11 +145,9 @@ export default class Frame extends React.Component {
 
     render() {
         const children = this.props.children;
-        let className = "frame-main";
-        className += " col-lg-"+this.props.bootstrap;
 
         return (
-            <div className={className} data-index={this.props.index} onMouseEnter={this.handleMouseEnter}
+            <div className={this.props.className} data-index={this.props.index} onMouseEnter={this.handleMouseEnter}
                  onMouseLeave={this.handleMouseLeave}>
 
                 <div className="overlay"></div>
