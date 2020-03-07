@@ -13,6 +13,8 @@ import backgroundFaroe from '../images/bg/faroe.png'
 import backgroundSailing from '../images/bg/travel.png'
 import backgroundReading from '../images/bg/reading.png'
 import backgroundTeacher from '../images/bg/teacher.png'
+import patternHTC from '../images/patterns/halftoneCenter.png'
+import patternHTTR from '../images/patterns/halftoneTopRight.png'
 
 import news from '../images/news/news.png'
 
@@ -235,12 +237,12 @@ export default class MainWrapper extends React.Component {
                                 backgroundSrc={backgroundSwingBg}
                                 backgroundPos={{top:'0%', left:'-20%'}}
                                 backgroundSize={{width: '10%'}}
-                                middlegroundSrc={backgroundSwingFg}
-                                middlegroundPos={{top:'0%', left:'-20%'}}
+                                middlegroundSrc={patternHTC}
+                                middlegroundPos={{top:'0%', left:'0%'}}
                                 middlegroundSize={{width: '10%'}}
-                                foregroundSrc={dust}
-                                foregroundPos={{top:'0%', left:'0%'}}
-                                foregroundSize={{width: '50%'}}
+                                foregroundSrc={backgroundSwingFg}
+                                foregroundPos={{top:'0%', left:'-20%'}}
+                                foregroundSize={{width: '10%'}}
                                 text={[{
                                     index: 0,
                                     pos: {top:'5%', left:'5%'},
@@ -361,7 +363,7 @@ export default class MainWrapper extends React.Component {
                                 text={[{
                                     index: 0,
                                     pos: {bottom:'10%', left:'2%'},
-                                    html: '<p>He wasn`t the best student in primary in school.</p>',
+                                    html: "<p>He wasn't the best student in primary in school.</p>",
                                     sound: './audio/frame_7_0.mp3'
                                 }]}/>
                         </div>
