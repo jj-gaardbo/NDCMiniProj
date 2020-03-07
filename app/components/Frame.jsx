@@ -147,8 +147,12 @@ export default class Frame extends React.Component {
         const children = this.props.children;
 
         return (
-            <div className={this.props.className} data-index={this.props.index} onMouseEnter={this.handleMouseEnter}
-                 onMouseLeave={this.handleMouseLeave}>
+            <div
+                ref={'frame-'+this.props.index}
+                className={this.props.className}
+                data-index={this.props.index}
+                onMouseEnter={this.handleMouseEnter}
+                onMouseLeave={this.handleMouseLeave}>
 
                 <div className="overlay"></div>
 
@@ -199,7 +203,6 @@ export default class Frame extends React.Component {
                     />
                 )}
 
-            })
 
             </div>
         )
