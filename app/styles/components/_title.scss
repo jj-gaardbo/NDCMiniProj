@@ -51,23 +51,4 @@
       color: #fff;
     }
   }
-
-  button.start-sound{
-    &:before{
-      content: 'With sound';
-    }
-  }
-
-  button.start-sound-autoscroll{
-    &:before{
-      content: 'Enjoy the ride';
-    }
-  }
-
-  button.start-free{
-    &:before{
-      content: 'Roam free';
-    }
-  }
-
 }
