@@ -1,9 +1,8 @@
 import React from 'react';
 import Title from "./Title.jsx";
-import Frame from "./Frame.jsx";
 import Sound from 'react-sound';
 import $ from 'jquery';
-
+import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import backgroundBirth from '../images/bg/first2.png'
 import backgroundBirth2 from '../images/bg/birth2.png'
 import backgroundSwingBg from '../images/bg/swing_bg-comic2.png'
@@ -22,13 +21,12 @@ import dust from '../images/dust2.png'
 import smoke from '../images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
-import Hub from "./Hub.jsx";
-import Continue from "../images/continue.png";
 import Panel from "./Panel.jsx";
 
 window.$globalState = {
     audioOn: true,
-    textAudioPlaying: false
+    textAudioPlaying: false,
+    autoScroll: false
 };
 
 
@@ -39,16 +37,27 @@ export default class MainWrapper extends React.Component {
 
         this.state = {
             lockScroll: false,
-            audioOn: window.$globalState,
+            audioOn: window.$globalState.audioOn,
             frameIndex: -1,
             ready: false,
-            classNames: "App clearfix container-fluid no-scroll"
+            classNames: "App clearfix container-fluid no-scroll",
+            sectionReferences: {},
+            backgroundMusicVolume: 25
         };
 
         this.handleLock = this.handleLock.bind(this);
         this.handleAudioOn = this.handleAudioOn.bind(this);
         this.lockScroll = this.lockScroll.bind(this);
         this.begin = this.begin.bind(this);
+        this.next = this.next.bind(this);
+        this.getOrCreateRef = this.getOrCreateRef.bind(this);
+    }
+
+    getOrCreateRef(id) {
+        if (!this.state.sectionReferences.hasOwnProperty(id)) {
+            this.state.sectionReferences[id] = React.createRef();
+        }
+        return this.state.sectionReferences[id];
     }
 
     lockScroll(lock){
@@ -65,11 +74,39 @@ export default class MainWrapper extends React.Component {
         });
     }
 
-    begin(){
-        this.setState({ready:true, classNames: "App clearfix container-fluid"});
+    begin(setting){
+
+        switch(setting){
+            case 'sound':
+                window.$globalState.audioOn = true;
+                this.setState({ready:true, classNames: "App clearfix container-fluid", audioOn:true});
+                break;
+            case 'no-sound':
+                window.$globalState.audioOn = false;
+                this.setState({ready:true, classNames: "App clearfix container-fluid no-sound", audioOn:false});
+                break;
+            case 'auto':
+                window.$globalState.audioOn = true;
+                window.$globalState.autoScroll = true;
+                this.setState({ready:true, classNames: "App clearfix container-fluid auto-scroll no-scroll", audioOn:true,lockScroll:true});
+                break;
+        }
+
         $('.App').animate({
             scrollTop: $('#start').offset().top
-        }, 1000);
+        }, 1500);
+    }
+
+    next(index){
+        if(window.$globalState.autoScroll){
+            let next = index+1;
+            let selector = '[data-panel-index="'+next+'"]';
+            if(typeof $(selector).offset() !== "undefined"){
+                $('.App').animate({
+                    scrollTop: $(selector).offset().top + (window.innerHeight*next)
+                }, 1500);
+            }
+        }
     }
 
     render() {
@@ -77,22 +114,20 @@ export default class MainWrapper extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Hub handleAudioOn={this.handleAudioOn} audioOn={this.state.audioOn}/>
-
                 <Title begin={this.begin} />
 
                 {this.state.audioOn &&
                 <Sound    url={'./audio/building_nightmares.mp3'}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
-                          volume={10}
+                          volume={this.state.backgroundMusicVolume}
                           playbackRate={1}
                           loop={true}
                           muted="muted"
                 />
                 }
 
-                <Panel id={"start"} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -141,13 +176,14 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Breaker>
+                <Breaker ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} >
                     <h1>Chapter 1: Childhood</h1>
                 </Breaker>
 
-                <Panel frames={[
+                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next}  frames={[
                     {
                         className: "col-lg-6 window skew-2-right",
+                        audioOn: this.state.audioOn,
                         index: 1,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundBirth2,
@@ -173,6 +209,7 @@ export default class MainWrapper extends React.Component {
                     },
                     {
                         className: "col-lg-6 window skew-2-right",
+                        audioOn: this.state.audioOn,
                         index: 2,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundBirth,
@@ -199,9 +236,10 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel frames={[
+                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next}  frames={[
                     {
                         className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 3,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundSwingBg,
@@ -226,6 +264,7 @@ export default class MainWrapper extends React.Component {
                         }]
                     },{
                         className: "col-lg-8 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 4,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundMicrophone,
@@ -241,9 +280,10 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel frames={[
+                <Panel ref={this.getOrCreateRef('section-4')}  index={4} handleDone={this.next}  frames={[
                     {
                         className: "col-lg-8 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 5,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundFaroe,
@@ -262,6 +302,7 @@ export default class MainWrapper extends React.Component {
                         ]
                     },{
                         className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 6,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundSailing,
@@ -287,13 +328,14 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Breaker>
+                <Breaker ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} >
                     <h1>Chapter 2: Second childhood</h1>
                 </Breaker>
 
-                <Panel frames={[
+                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next}  frames={[
                     {
                         className: "col-lg-8 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 7,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundReading,
@@ -307,6 +349,7 @@ export default class MainWrapper extends React.Component {
                         }]
                     },{
                         className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 8,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundTeacher,
@@ -333,11 +376,10 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-
-
-                <Panel frames={[
+                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next}  frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
+                        audioOn: this.state.audioOn,
                         index: 9,
                         handleLock: this.handleLock,
                         videoURL: require('./video/flens.mp4'),
@@ -373,9 +415,10 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel frames={[
+                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next}  frames={[
                     {
                         className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
                         index: 10,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundBirth,

@@ -301,6 +301,11 @@
   }
 }
 
+.no-sound .text-frame{
+  opacity: 1;
+}
+
+
 .skew-4-left .text-frame{
   transform: skew(-4deg) rotate(-1deg);
   -webkit-transform: skew(-4deg) rotate(-1deg);

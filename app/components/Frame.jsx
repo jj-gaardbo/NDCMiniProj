@@ -23,7 +23,8 @@ export default class Frame extends React.Component {
             played: [],
             text: [],
             textReferences: {},
-            videoID:""
+            videoID:"",
+            done: false
         };
 
         this.onChange = this.onChange.bind(this);
@@ -79,11 +80,13 @@ export default class Frame extends React.Component {
 
     revealText(revealIndex){
         if(!this.state.active){return;}
+
         let self = this;
         if($.inArray(revealIndex, self.state.played) !== -1){return;}
 
         const thisNode = ReactDOM.findDOMNode(this);
         let textFrames = $(thisNode).find('.text-frame');
+
         if(textFrames){
             for(let i = 0; i < textFrames.length; i++){
                 let textFrame = $($($(textFrames[i])[0])[0]);
@@ -96,47 +99,60 @@ export default class Frame extends React.Component {
                         }
                     });
 
-
                     if(textFrames.length === self.state.played.length){
                         $(thisNode).siblings('.overlay').addClass("played");
                     }
                     this.state.played.push(revealIndex);
-                    this.state.textReferences['text-'+revealIndex].current.show();
+                    self.state.textReferences['text-'+revealIndex].current.show();
                 }
             }
         }
     }
 
     play(){
+        if(window.$globalState.textAudioPlaying){return;}
         this.state.playing = true;
         if(this.props.text && this.props.text.length > 0){
             this.setState({text:this.props.text,playingIndex:0});
-            this.revealText(this.state.playingIndex);
+            this.state.timerID = setTimeout(() => this.revealText(this.state.playingIndex), this.state.timeout);
         }
     }
 
     stop(){
         this.state.playing = false;
+        clearTimeout(this.state.timerID);
     }
 
     handleMouseEnter(){
         this.state.hovered = true;
-
-        if(window.$globalState.textAudioPlaying){return;}
-
-        this.state.timerID = setTimeout(() => this.play(), this.state.timeout);
     }
 
     handleMouseLeave(){
         this.state.hovered = false;
-        this.stop();
-        clearTimeout(this.state.timerID);
+    }
+
+    textCount(){
+        let size = 0, key;
+        for (key in this.state.textReferences) {
+            if (this.state.textReferences.hasOwnProperty(key)) size++;
+        }
+        return size;
     }
 
     prepareNextSpeak(index){
         if(!this.state.active){return;}
         let self = this;
         let next = index+1;
+
+        if(this.textCount() === next){
+            this.setState({done:true});
+            this.stop();
+            const thisNode = ReactDOM.findDOMNode(this);
+            $(thisNode).siblings('.overlay').addClass("played");
+            this.props.onFinished();
+            return;
+        }
+
         setTimeout(function () {
             self.revealText(next);
             self.state.playingIndex = next;
@@ -154,7 +170,7 @@ export default class Frame extends React.Component {
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}>
 
-                <div className="overlay"></div>
+                <div className="overlay"/>
 
                 <VizSensor
                     onChange={this.onChange}
@@ -186,9 +202,9 @@ export default class Frame extends React.Component {
                     </div>
                 </VizSensor>
 
-                {this.state.text.map((textElement,i) =>
+                {this.props.text.map((textElement,i) =>
                     <TextFrame
-                        audioOn={this.props.audioOn}
+                        audioOn={this.state.audioOn}
                         prepareNextSpeak={this.prepareNextSpeak}
                         id={'text-'+textElement.index}
                         color={textElement.color}

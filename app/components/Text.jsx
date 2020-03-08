@@ -68,7 +68,7 @@ export default class TextFrame extends React.Component {
                 <span dangerouslySetInnerHTML={{__html: this.props.html}} />
                 {this.props.sound &&
                     <div className="sound-component">
-                        <SpeakSound handleSpeakFinished={this.handleSpeakFinished} ref={this.sound} index={this.props.index} url={this.props.sound} />
+                        <SpeakSound audioOn={this.props.audioOn} handleSpeakFinished={this.handleSpeakFinished} ref={this.sound} index={this.props.index} url={this.props.sound} />
                     </div>
                 }
             </div>

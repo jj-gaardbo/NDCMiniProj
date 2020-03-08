@@ -9,15 +9,11 @@ export default class SpeakSound extends React.Component {
         this.state = {
             playStatus: Sound.status.PAUSED,
             position: 0,
-            volume: 50,
+            volume: 30,
             playbackRate: 1,
             loop: false,
             isPlaying: false
         };
-
-        if(!window.$globalState.audioOn){
-            this.state.volume = 0;
-        }
 
         this.play = this.play.bind(this);
         this.stop = this.stop.bind(this);
@@ -26,7 +22,6 @@ export default class SpeakSound extends React.Component {
         this.handleSongPlaying = this.handleSongPlaying.bind(this);
         this.handleSongFinishedPlaying = this.handleSongFinishedPlaying.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
-        this.handleMute = this.handleMute.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -101,6 +96,7 @@ export default class SpeakSound extends React.Component {
                       loop={this.state.loop}
                       muted="muted"
             />
+
         )
     }
 }

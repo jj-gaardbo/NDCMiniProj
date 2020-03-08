@@ -9,9 +9,27 @@
 
   button{
     cursor: pointer;
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+
+    &:focus, &:active {
+      outline: none;
+      -moz-outline-style: none;
+    }
+
 
     img{
+      left:0;
+      top:0;
       transition: transform 0.3s ease;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &:hover{
+      font-size: 2em;
     }
     
     &:hover img{
@@ -22,4 +40,34 @@
       transform: scale(1.2,1.2);
     }
   }
+}
+
+.title{
+  button{
+    position: absolute;
+    p{
+      position: absolute;
+      z-index: 2;
+      color: #fff;
+    }
+  }
+
+  button.start-sound{
+    &:before{
+      content: 'With sound';
+    }
+  }
+
+  button.start-sound-autoscroll{
+    &:before{
+      content: 'Enjoy the ride';
+    }
+  }
+
+  button.start-free{
+    &:before{
+      content: 'Roam free';
+    }
+  }
+
 }
