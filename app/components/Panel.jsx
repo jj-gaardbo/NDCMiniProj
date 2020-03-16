@@ -2,6 +2,7 @@ import React from 'react';
 import Continue from "../images/continue.png";
 import $ from "jquery";
 import Frame from "./Frame.jsx";
+import AmbienceSound from "./AmbienceSound.jsx";
 
 export default class Panel extends React.Component {
 
@@ -18,7 +19,10 @@ export default class Panel extends React.Component {
             done:false,
             played: 0,
             lastFrame: false,
-            hasFinished: false
+            hasFinished: false,
+            hasSound: false,
+            ambiancePlaying: false,
+            ambianceReference: {}
         };
 
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
@@ -31,17 +35,23 @@ export default class Panel extends React.Component {
         this.goToNextSection =  this.goToNextSection.bind(this);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        let self = this;
-        $('.App').off('scroll').on('scroll', function(){
-            self.handleScroll();
-        });
+    componentDidMount() {
+        if(typeof this.props.ambiance !== "undefined" && !this.state.ambiancePlaying){
+            this.setState({hasSound:true});
+        }
     }
 
-    getOrCreateRef(id) {
-        if (!this.state.frameReferences.hasOwnProperty(id)) {
+    getOrCreateRef(id, ambiance = false) {
+        if(ambiance){
+            if(!this.state.ambianceReference.hasOwnProperty(id)){
+                this.state.ambianceReference[id] = React.createRef();
+            }
+            return this.state.ambianceReference[id];
+        } else if (!this.state.frameReferences.hasOwnProperty(id)) {
             this.state.frameReferences[id] = React.createRef();
         }
+
+
         return this.state.frameReferences[id];
     }
 
@@ -62,8 +72,15 @@ export default class Panel extends React.Component {
         this.state.playing = true;
         if(this.props.frames && this.props.frames.length > 0){
             let currentFrame = this.state.frameReferences[Object.keys(this.state.frameReferences)[this.state.playingIndex]];
-            currentFrame.current.play();
-            this.state.played++;
+            if(typeof currentFrame !== 'undefined'){
+                currentFrame.current.play();
+                this.state.played++;
+            }
+        }
+
+        if(typeof this.props.ambiance !== 'undefined' && this.props.audioOn){
+            this.state.ambianceReference['ambiance-0'].current.play();
+            this.state.ambiancePlaying = true;
         }
 
         if(this.state.played === this.props.frames.length){
@@ -148,9 +165,20 @@ export default class Panel extends React.Component {
                     </Frame>
                 ))}
 
-                <div className={`continue ${this.state.hasFinished ? " display" : ""}`} onClick={this.goToNextSection}>
-                    <img src={Continue} alt="Continue"/>
-                </div>
+                {this.props.audioOn && !window.$globalState.autoScroll &&
+                    <div className={`continue ${this.state.hasFinished ? " display" : ""}`} onClick={this.goToNextSection}>
+                        <img src={Continue} alt="Continue"/>
+                    </div>
+                }
+
+                {this.props.audioOn && this.props.ambiance &&
+                    <AmbienceSound
+                        ref={this.getOrCreateRef('ambiance-0', true)}
+                        volume={this.props.ambianceVolume}
+                        audioOn={this.props.audioOn}
+                        index={this.props.index}
+                        url={this.props.ambiance}/>
+                }
 
             </div>
         )

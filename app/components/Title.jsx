@@ -36,19 +36,19 @@ export default class Title extends React.Component {
         return (
             <div className="title snap clearfix">
                 <h1>"This is going to be the title"</h1>
-                <button style={{width:'250px', bottom:'40%', left:'50%', marginLeft:'-100px'}} type={'button'} onClick={this.handleSound} className={'start-sound'}>
+                <button style={{bottom:'40%', left:'50%', marginLeft:'-100px'}} type={'button'} onClick={this.handleSound} className={'start-sound'}>
                     <img src={butterfly2} alt="Blue butterfly"/>
-                    <p>With sound</p>
+                    <p>Sound</p>
                 </button>
 
-                <button style={{width:'250px', bottom:'20%', right:'20%'}} type={'button'} onClick={this.handleAutoScroll} className={'start-sound-autoscroll'}>
+                <button style={{bottom:'30%', right:'20%'}} type={'button'} onClick={this.handleAutoScroll} className={'start-sound-autoscroll'}>
                     <img src={butterfly} alt="Green butterfly"/>
-                    <p>Auto scroll</p>
+                    <p>Sound + Auto scroll</p>
                 </button>
 
-                <button style={{width:'250px', top:'10%', left:'20%'}} type={'button'} onClick={this.handleNoSound} className={'start-free'}>
+                <button style={{top:'10%', left:'20%'}} type={'button'} onClick={this.handleNoSound} className={'start-free'}>
                     <img src={butterfly3} alt="Yellow butterfly"/>
-                    <p>Free roam</p>
+                    <p>No sound</p>
                 </button>
             </div>
         )

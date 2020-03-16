@@ -80,7 +80,6 @@ export default class Frame extends React.Component {
 
     revealText(revealIndex){
         if(!this.state.active){return;}
-
         let self = this;
         if($.inArray(revealIndex, self.state.played) !== -1){return;}
 
@@ -152,7 +151,6 @@ export default class Frame extends React.Component {
             this.props.onFinished();
             return;
         }
-
         setTimeout(function () {
             self.revealText(next);
             self.state.playingIndex = next;

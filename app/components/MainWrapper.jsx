@@ -2,16 +2,18 @@ import React from 'react';
 import Title from "./Title.jsx";
 import Sound from 'react-sound';
 import $ from 'jquery';
-import ScrollLock, { TouchScrollable } from 'react-scrolllock';
 import backgroundBirth from '../images/bg/first2.png'
 import backgroundBirth2 from '../images/bg/birth2.png'
 import backgroundSwingBg from '../images/bg/swing_bg-comic2.png'
 import backgroundSwingFg from '../images/bg/swing_fg2-comic.png'
-import backgroundMicrophone from '../images/bg/microphone.png'
+import backgroundMicrophone from '../images/bg/micNewbg.png'
+import foregroundMicrophone from '../images/bg/micNewfg.png'
 import backgroundFaroe from '../images/bg/faroe.png'
 import backgroundSailing from '../images/bg/travel.png'
 import backgroundReading from '../images/bg/reading.png'
 import backgroundTeacher from '../images/bg/teacher.png'
+import musicConcert1 from '../images/music/concert.jpg'
+import musicConcert2 from '../images/music/concert2.jpg'
 import patternHTC from '../images/patterns/halftoneCenter.png'
 import patternHTTR from '../images/patterns/halftoneTopRight.png'
 
@@ -26,6 +28,7 @@ import Panel from "./Panel.jsx";
 window.$globalState = {
     audioOn: true,
     textAudioPlaying: false,
+    ambiencePlaying:false,
     autoScroll: false
 };
 
@@ -42,7 +45,7 @@ export default class MainWrapper extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 25
+            backgroundMusicVolume: 5
         };
 
         this.handleLock = this.handleLock.bind(this);
@@ -79,7 +82,7 @@ export default class MainWrapper extends React.Component {
         switch(setting){
             case 'sound':
                 window.$globalState.audioOn = true;
-                this.setState({ready:true, classNames: "App clearfix container-fluid", audioOn:true});
+                this.setState({ready:true, classNames: "App clearfix container-fluid no-scroll", audioOn:true});
                 break;
             case 'no-sound':
                 window.$globalState.audioOn = false;
@@ -127,7 +130,7 @@ export default class MainWrapper extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -176,11 +179,11 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Breaker ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} >
+                <Breaker ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} audioOn={this.state.audioOn} >
                     <h1>Chapter 1: Childhood</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next}  frames={[
+                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/lullaby.mp3'} ambianceVolume={10} frames={[
                     {
                         className: "col-lg-6 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -236,7 +239,7 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next}  frames={[
+                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next} audioOn={this.state.audioOn}   frames={[
                     {
                         className: "col-lg-4 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -269,7 +272,13 @@ export default class MainWrapper extends React.Component {
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundMicrophone,
                         backgroundPos: {top:'0%', left:'-10%'},
-                        backgroundSize: {width: '10%'},
+                        backgroundSize: {width: '100%'},
+                        middlegroundSrc: patternHTTR,
+                        middlegroundPos: {top: '-50%', left: '0%'},
+                        middlegroundSize: {width: '70%'},
+                        foregroundSrc: foregroundMicrophone,
+                        foregroundPos: {top:'-10%', left:'-10%'},
+                        foregroundSize: {width: '1%'},
                         text: [{
                             index: 0,
                             pos: {top:'5%', left:'5%'},
@@ -280,11 +289,11 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-4')}  index={4} handleDone={this.next}  frames={[
+                <Panel ref={this.getOrCreateRef('section-4')}  index={4} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/seagulls.mp3'} ambianceVolume={100} id={'start'} frames={[
                     {
                         className: "col-lg-8 window skew-4-left",
                         audioOn: this.state.audioOn,
-                        index: 5,
+                        index:0,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundFaroe,
                         backgroundPos: {top: '-33%', left: '-20%'},
@@ -303,7 +312,7 @@ export default class MainWrapper extends React.Component {
                     },{
                         className: "col-lg-4 window skew-4-left",
                         audioOn: this.state.audioOn,
-                        index: 6,
+                        index: 1,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundSailing,
                         backgroundPos: {top:'0%', left:'-42%'},
@@ -328,11 +337,11 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Breaker ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} >
+                <Breaker ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} audioOn={this.state.audioOn}  >
                     <h1>Chapter 2: Second childhood</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next}  frames={[
+                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-8 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -376,11 +385,54 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next}  frames={[
+                <Panel ref={this.getOrCreateRef('section-7')} id={'start'} index={7} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/concert.mp3'} ambianceVolume={10} frames={[
+                    {
+                        className: "col-lg-6 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 9,
+                        handleLock: this.handleLock,
+                        backgroundSrc: musicConcert1,
+                        backgroundPos: {top:'-10%', left:'-20%'},
+                        backgroundSize: {width: '80%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top:'0%', left:'-20%'},
+                        foregroundSize: {width: '100%'},
+                        text:[{
+                            index: 0,
+                            pos: {top:'2%', left:'4%'},
+                            html: '<p>It was an amazing gig.</p>',
+                        }]
+                    },{
+                        className: "col-lg-6 window skew-4-left",
+                        index: 10,
+                        handleLock: this.handleLock,
+                        backgroundSrc: musicConcert2,
+                        backgroundPos: {top:'-10%', left:'-30%'},
+                        backgroundSize: {width: '100%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top:'0%', left:'-20%'},
+                        foregroundSize: {width: '100%'},
+                        text:[
+                            {
+                                index: 0,
+                                pos: {top:'1%', right:'2%'},
+                                html: '<p>It was the first time warming up for <br> a bigger artist.</p>',
+                            },
+                            {
+                                index: 1,
+                                pos: {top:'60%', left:'15%'},
+                                html: '<p>Fuck you all!</p>',
+                                type: 'speech-top-right'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
-                        index: 9,
+                        index: 11,
                         handleLock: this.handleLock,
                         videoURL: require('./video/flens.mp4'),
                         text: [{
@@ -415,62 +467,6 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next}  frames={[
-                    {
-                        className: "col-lg-4 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index: 10,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundBirth,
-                        backgroundPos: {top:'-10%', left:'-40%'},
-                        backgroundSize: {width: '80%'},
-                        text:[{
-                            index: 0,
-                            pos: {top:'2%', left:'4%'},
-                            html: '<p>He was not an ordinary baby.</p>',
-                        }]
-                    },{
-                        className: "col-lg-4 window skew-4-left",
-                        index: 11,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundSwingBg,
-                        backgroundPos: {top:'-10%', left:'-30%'},
-                        backgroundSize: {width: '100%'},
-                        middlegroundSrc: backgroundSwingFg,
-                        middlegroundPos: {top:'-10%', left:'-30%'},
-                        middlegroundSize: {width: '10%'},
-                        foregroundSrc: smoke,
-                        foregroundPos: {top:'0%', left:'-20%'},
-                        foregroundSize: {width: '100%'},
-                        text:[
-                            {
-                                index: 0,
-                                pos: {top:'1%', right:'2%'},
-                                html: '<p>Where was this guy going?</p>',
-                            },
-                            {
-                                index: 1,
-                                pos: {top:'60%', left:'15%'},
-                                html: '<p>AAaaahhhahaha! Gagaa</p>',
-                                type: 'speech-top-left'
-                            }
-                        ]
-                    },{
-                        className: "col-lg-4 window skew-4-left",
-                        index: 12,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundMicrophone,
-                        backgroundPos: {top:'0%', left:'-20%'},
-                        backgroundSize: {width: '30%'},
-                        text: [
-                            {
-                                index: 0,
-                                pos: {bottom:'15%', right:'7%'},
-                                html: '<p>Did he have a musical career in his future?</p>'
-                            }
-                        ]
-                    }
-                ]}/>
         </main>
         )
     }
