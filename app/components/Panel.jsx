@@ -47,12 +47,10 @@ export default class Panel extends React.Component {
                 this.state.ambianceReference[id] = React.createRef();
             }
             return this.state.ambianceReference[id];
-        } else if (!this.state.frameReferences.hasOwnProperty(id)) {
+        } else {
             this.state.frameReferences[id] = React.createRef();
+            return this.state.frameReferences[id];
         }
-
-
-        return this.state.frameReferences[id];
     }
 
     frameCount(){
@@ -109,10 +107,15 @@ export default class Panel extends React.Component {
         if(!this.state.active){return;}
         let self = this;
         this.state.playing = true;
-        setTimeout(function () {
+        if(this.state.lastFrame){
             self.state.playingIndex++;
             self.play();
-        }, self.state.wait);
+        } else {
+            setTimeout(function () {
+                self.state.playingIndex++;
+                self.play();
+            }, self.state.wait);
+        }
     }
 
     showContinueButton(){
