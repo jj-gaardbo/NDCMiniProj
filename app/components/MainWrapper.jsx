@@ -385,7 +385,7 @@ export default class MainWrapper extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')} id={'start'} index={7} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/concert.mp3'} ambianceVolume={10} frames={[
+                <Panel ref={this.getOrCreateRef('section-7')} id={'start'} index={7} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/concert.mp3'} ambianceVolume={5} frames={[
                     {
                         className: "col-lg-6 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -401,7 +401,7 @@ export default class MainWrapper extends React.Component {
                             index: 0,
                             pos: {top:'2%', left:'4%'},
                             html: '<p>It was an amazing gig.</p>',
-                            sound: './audio/frame_8_1.mp3'
+                            sound: './audio/frame_9_0.mp3'
                         }]
                     },{
                         className: "col-lg-6 window skew-4-left",
@@ -418,14 +418,14 @@ export default class MainWrapper extends React.Component {
                                 index: 0,
                                 pos: {top:'1%', right:'2%'},
                                 html: '<p>It was the first time warming up for <br> a bigger artist.</p>',
-                                sound: './audio/frame_8_1.mp3'
+                                sound: './audio/frame_10_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'15%'},
                                 html: '<p>Fuck you all!</p>',
                                 type: 'speech-top-right',
-                                sound: './audio/frame_8_1.mp3'
+                                sound: './audio/frame_10_1.mp3'
                             }
                         ]
                     }
@@ -442,6 +442,7 @@ export default class MainWrapper extends React.Component {
                             index: 0,
                             pos: {bottom:'15%', right:'5%'},
                             html: '<p>We had just recorded a music video <br> which received good response</p>',
+                            sound: './audio/frame_11_0.mp3'
                         }],
                         children:(
                             <div className="interactive" style={{left: '80%',top: '10%'}}>

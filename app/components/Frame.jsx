@@ -46,7 +46,7 @@ export default class Frame extends React.Component {
 
     handleScroll(){
         if(!this.state.active){return;}
-        const thisNode = ReactDOM.findDOMNode(this);
+        /*const thisNode = ReactDOM.findDOMNode(this);
         let textFrames = $(thisNode).find('.text-frame');
         if(textFrames){
             for(let i = 0; i < textFrames.length; i++){
@@ -56,7 +56,7 @@ export default class Frame extends React.Component {
                 });
             }
             this.state.active = false;
-        }
+        }*/
     }
 
     getOrCreateRef(id) {

@@ -123,10 +123,11 @@ export default class Panel extends React.Component {
     }
 
     handleFinish(){
-        this.prepareNextFrame();
         if(this.state.lastFrame){
             this.showContinueButton();
         }
+
+        this.prepareNextFrame();
     }
 
     goToNextSection(){
