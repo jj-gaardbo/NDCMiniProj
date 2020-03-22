@@ -12,7 +12,8 @@ export default class AmbienceSound extends React.Component {
             volume: 0,
             playbackRate: 1,
             loop: true,
-            isPlaying: false
+            isPlaying: false,
+            fadeInterval: null
         };
 
         this.play = this.play.bind(this);
@@ -49,13 +50,20 @@ export default class AmbienceSound extends React.Component {
 
     play(){
         if(this.state.isPlaying){return;}
-        this.setState({playStatus:Sound.status.PLAYING});
+        this.setState({playStatus:Sound.status.PLAYING, volume:this.props.volume});
         window.$globalState.ambiencePlaying = true;
     }
 
     stop(){
-        this.setState({playStatus:Sound.status.STOPPED});
-        window.$globalState.ambiencePlaying = false;
+        let self = this;
+        let fadeInterval = setInterval(function(){
+            self.state.volume = self.state.volume-1;
+            if(parseInt(self.state.volume) <= 0){
+                self.setState({playStatus:Sound.status.STOPPED});
+                window.$globalState.ambiencePlaying = false;
+                clearInterval(fadeInterval);
+            }
+        }, 150);
     }
 
     pause(){
@@ -90,7 +98,7 @@ export default class AmbienceSound extends React.Component {
                       onPause={() => console.log('Paused')}
                       onResume={() => console.log('Resumed')}
                       onStop={() => console.log('Stopped')}
-                      volume={this.props.volume}
+                      volume={this.state.volume}
                       playbackRate={this.state.playbackRate}
                       loop={this.state.loop}
                       muted="muted"

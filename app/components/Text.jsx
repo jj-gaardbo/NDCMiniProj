@@ -37,6 +37,7 @@ export default class TextFrame extends React.Component {
     }
 
     handleSpeakFinished(index){
+        console.log("FINISHED", index);
         this.props.prepareNextSpeak(index);
         window.$globalState.textAudioPlaying = false;
     }

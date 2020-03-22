@@ -143,8 +143,9 @@ export default class Frame extends React.Component {
         let self = this;
         let next = index+1;
 
+        console.log("NEXT",next, "DONE");
         if(this.textCount() === next){
-            this.setState({done:true});
+            this.state.done = true;
             this.stop();
             const thisNode = ReactDOM.findDOMNode(this);
             $(thisNode).siblings('.overlay').addClass("played");

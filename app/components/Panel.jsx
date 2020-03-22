@@ -33,6 +33,7 @@ export default class Panel extends React.Component {
         this.frameCount = this.frameCount.bind(this);
         this.showContinueButton = this.showContinueButton.bind(this);
         this.goToNextSection =  this.goToNextSection.bind(this);
+        this.stop = this.stop.bind(this);
     }
 
     componentDidMount() {
@@ -61,12 +62,21 @@ export default class Panel extends React.Component {
         return size;
     }
 
+    stop(){
+        this.state.playing = false;
+        this.state.done = true;
+        if(!this.state.ambianceReference['ambiance-0']){return;}
+
+        this.state.ambianceReference['ambiance-0'].current.stop();
+    }
+
     play(){
         if(this.state.lastFrame){
-            this.setState({done:true});
+            this.state.done = true;
             this.props.handleDone(this.props.index);
             return;
         }
+
         this.state.playing = true;
         if(this.props.frames && this.props.frames.length > 0){
             let currentFrame = this.state.frameReferences[Object.keys(this.state.frameReferences)[this.state.playingIndex]];
@@ -119,12 +129,19 @@ export default class Panel extends React.Component {
     }
 
     showContinueButton(){
+        if(window.$globalState.autoScroll && this.state.lastFrame){
+            this.stop();
+            this.props.handleDone(this.props.index);
+            return;
+        }
+
         this.setState({hasFinished: true});
     }
 
     handleFinish(){
         if(this.state.lastFrame){
             this.showContinueButton();
+            return;
         }
 
         this.prepareNextFrame();

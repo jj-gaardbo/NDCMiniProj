@@ -29,7 +29,14 @@ window.$globalState = {
     audioOn: true,
     textAudioPlaying: false,
     ambiencePlaying:false,
-    autoScroll: false
+    autoScroll: false,
+    panelIndex: -1
+};
+
+const backgroundMusic = {
+    bn: './audio/building_nightmares.mp3',
+    wj: './audio/wonky_jazz.mp3',
+    so: './audio/soldier.mp3'
 };
 
 
@@ -45,7 +52,8 @@ export default class MainWrapper extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 5
+            backgroundMusicVolume: 10
+
         };
 
         this.handleLock = this.handleLock.bind(this);
@@ -114,13 +122,15 @@ export default class MainWrapper extends React.Component {
 
     render() {
 
+        let index = -1;
+
         return (
             <main className={this.state.classNames}>
 
                 <Title begin={this.begin} />
 
                 {this.state.audioOn &&
-                <Sound    url={'./audio/building_nightmares.mp3'}
+                <Sound    url={backgroundMusic.bn}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
                           volume={this.state.backgroundMusicVolume}
@@ -130,7 +140,7 @@ export default class MainWrapper extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+(index++))} index={(index++)} id={"start"} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -154,12 +164,6 @@ export default class MainWrapper extends React.Component {
                                 pos: {top: '14%', left: '5%'},
                                 html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>',
                                 sound: './audio/frame_0_0.mp3'
-                            },
-                            {
-                                index: 2,
-                                pos: {bottom: '26%', right: '5%'},
-                                html: '<p>The population of the Faroe Islands <br>were patiently waiting for the thunderstorm <br>to pass as it was moving east.</p>',
-                                sound: './audio/frame_0_1.mp3'
                             }
                         ],
                         children:(
@@ -437,7 +441,7 @@ export default class MainWrapper extends React.Component {
                         audioOn: this.state.audioOn,
                         index: 11,
                         handleLock: this.handleLock,
-                        videoURL: require('./video/flens.mp4'),
+                        videoURL: require('./video/flensCartoon.mp4'),
                         text: [{
                             index: 0,
                             pos: {bottom:'15%', right:'5%'},
