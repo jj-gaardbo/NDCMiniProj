@@ -25,22 +25,15 @@ import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
 
-window.$globalState = {
-    audioOn: true,
-    textAudioPlaying: false,
-    ambiencePlaying:false,
-    autoScroll: false,
-    panelIndex: -1
-};
-
 const backgroundMusic = {
     bn: './audio/building_nightmares.mp3',
     wj: './audio/wonky_jazz.mp3',
-    so: './audio/soldier.mp3'
+    so: './audio/soldier.mp3',
+    mp: './audio/maxpayne.mp3'
 };
 
 
-export default class MainWrapper extends React.Component {
+export default class Programmer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -140,7 +133,7 @@ export default class MainWrapper extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-'+(index++))} index={(index++)} id={"start"} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,

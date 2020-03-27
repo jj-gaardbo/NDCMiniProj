@@ -81,6 +81,7 @@ export default class Panel extends React.Component {
         if(this.props.frames && this.props.frames.length > 0){
             let currentFrame = this.state.frameReferences[Object.keys(this.state.frameReferences)[this.state.playingIndex]];
             if(typeof currentFrame !== 'undefined'){
+                console.log("PLAYING PANEL")
                 currentFrame.current.play();
                 this.state.played++;
             }
@@ -104,6 +105,8 @@ export default class Panel extends React.Component {
     }
 
     handleMouseLeave(){
+        if(this.state.playing){return;}
+
         this.state.active = false;
     }
 

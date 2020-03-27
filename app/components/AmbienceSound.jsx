@@ -13,7 +13,8 @@ export default class AmbienceSound extends React.Component {
             playbackRate: 1,
             loop: true,
             isPlaying: false,
-            fadeInterval: null
+            fadeInterval: null,
+            fade: false
         };
 
         this.play = this.play.bind(this);
@@ -56,14 +57,21 @@ export default class AmbienceSound extends React.Component {
 
     stop(){
         let self = this;
-        let fadeInterval = setInterval(function(){
-            self.state.volume = self.state.volume-1;
-            if(parseInt(self.state.volume) <= 0){
-                self.setState({playStatus:Sound.status.STOPPED});
-                window.$globalState.ambiencePlaying = false;
-                clearInterval(fadeInterval);
-            }
-        }, 150);
+
+
+        if(self.state.fade){
+            let fadeInterval = setInterval(function(){
+                self.state.volume = self.state.volume-1;
+                if(parseInt(self.state.volume) <= 0){
+                    self.setState({playStatus:Sound.status.STOPPED});
+                    window.$globalState.ambiencePlaying = false;
+                    clearInterval(fadeInterval);
+                }
+            }, 150);
+        } else {
+            self.setState({playStatus:Sound.status.STOPPED});
+            window.$globalState.ambiencePlaying = false;
+        }
     }
 
     pause(){
