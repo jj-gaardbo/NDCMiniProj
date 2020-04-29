@@ -1,0 +1,14 @@
+.main-nav{
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  background-color: black;
+  padding: 20px;
+  width: 100vw;
+  ul{
+    li{
+      margin-right: 20px;
+      display: inline-block;
+    }
+  }
+}

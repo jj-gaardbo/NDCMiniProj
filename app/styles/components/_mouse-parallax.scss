@@ -24,3 +24,35 @@
 .mouse-parallax-fg{
   position: absolute;
 }
+
+.small-frame-top{
+  img{
+    width: 50%!important;
+    min-width: 50%!important;
+    min-height: 50%!important;
+  }
+}
+
+.small-frame-bottom{
+  .mouse-parallax-image{
+    bottom: -44%;
+    top: auto;
+  }
+  img{
+    width: 50%!important;
+    min-width: 50%!important;
+    min-height: 50%!important;
+  }
+}
+
+.small-frame-center{
+  .mouse-parallax-image{
+    bottom: -24%;
+    top: auto;
+  }
+  img{
+    width: 50%!important;
+    min-width: 50%!important;
+    min-height: 50%!important;
+  }
+}

@@ -33,7 +33,7 @@ export default class Main extends React.Component {
         return (
             <Router>
                 <div>
-                    <nav>
+                    <nav className={"main-nav"}>
                         <ul>
                             <li>
                                 <Link to="/">Home</Link>
