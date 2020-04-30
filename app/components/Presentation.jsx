@@ -1,6 +1,4 @@
 import React from 'react';
-import Title from "./Title.jsx";
-import Sound from 'react-sound';
 import $ from 'jquery';
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
@@ -8,8 +6,6 @@ import Panel from "./Panel.jsx";
 
 import backgroundFaroe from '../images/presentation/faroe.png'
 import backgroundSailing from '../images/presentation/travel.png'
-import backgroundReading from '../images/presentation/reading.png'
-import backgroundTeacher from '../images/presentation/teacher.png'
 import news from '../images/presentation/news.png'
 import working from "../images/presentation/working.png";
 import workConvoBg from "../images/presentation/workConversation_bg.png";
@@ -19,14 +15,6 @@ import dust from '../images/presentation/dust2.png'
 import smoke from '../images/presentation/smoke.png'
 import maxPayne from '../images/presentation/maxPayne.png'
 import musicConcert1 from '../images/music/concert.jpg'
-
-const backgroundMusic = {
-    bn: './audio/building_nightmares.mp3',
-    wj: './audio/wonky_jazz.mp3',
-    so: './audio/soldier.mp3',
-    mp: './audio/maxpayne.mp3'
-};
-
 
 export default class Presentation extends React.Component {
 
@@ -134,8 +122,7 @@ export default class Presentation extends React.Component {
                             {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
-                                html: '<p>The idea is to use web technologies to <br> present a portfolio in a creative way <br> for future job search.</p>',
-                                sound: './audio/frame_0_0.mp3'
+                                html: '<p>The idea is to use web technologies to <br> present a portfolio in a different way <br> for future job search.</p>'
                             }
                         ]
                     }
@@ -143,7 +130,7 @@ export default class Presentation extends React.Component {
 
                 <Panel ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
-                        className: "col-lg-8 window skew-4-left",
+                        className: "col-lg-7 window skew-4-left",
                         audioOn: this.state.audioOn,
                         index: 7,
                         handleLock: this.handleLock,
@@ -156,33 +143,30 @@ export default class Presentation extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'10%', left:'2%'},
-                            html: "<p>The aesthetic inspiration came from<br> the cutscenes from the old <br>Max Payne games.</p>",
-                            sound: './audio/frame_7_0.mp3'
+                            html: "<p>The aesthetic inspiration came from<br> the cutscenes from the old <br>Max Payne games.</p>"
                         }]
                     },{
-                        className: "col-lg-4 window skew-4-left",
+                        className: "col-lg-5 window skew-4-left",
                         audioOn: this.state.audioOn,
                         index: 8,
                         handleLock: this.handleLock,
                         backgroundSrc: musicConcert1,
-                        backgroundPos: {top:'-15%', left:'-20%'},
-                        backgroundSize: {width: '50%'},
+                        backgroundPos: {top:'-15%', left:'-22%'},
+                        backgroundSize: {width: '30%'},
                         foregroundSrc: dust,
                         foregroundPos: {top:'0%', left:'-20%'},
                         foregroundSize: {width: '60%'},
                         text: [
                             {
                                 index: 0,
-                                pos: {top:'1%', right:'2%'},
-                                html: "<p>By applying a heavy <br> cartoon-like filter on <br> real images, the frames can <br> be quickly created.</p>",
-                                sound: './audio/frame_8_0.mp3'
+                                pos: {top:'1%', left:'0%'},
+                                html: "<p>By applying a heavy <br> cartoon-like filter on <br> real images, the frames are <br> not too difficult to create.</p>"
                             },
                             {
                                 index: 1,
-                                pos: {top:'60%', left:'12%'},
+                                pos: {top:'45%', left:'9%'},
                                 html: '<p>I was photoshopped</p>',
-                                type: 'speech-top-right',
-                                sound: './audio/frame_8_1.mp3'
+                                type: 'speech-top-right'
                             }
                         ]
                     }
@@ -208,7 +192,7 @@ export default class Presentation extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '0%', left: '5%'},
-                                html: "<p>I created a framework for <br> building this type of web based graphic novel...</p>"
+                                html: "<p>I created a framework for building this <br>type of web based graphic novel...</p>"
                             },
                             {
                                 index: 0,
@@ -217,16 +201,14 @@ export default class Presentation extends React.Component {
                             }
                         ],
                         children:(
-                            <div className="interactive" style={{left: '70%', top: '17%'}}>
+                            <div className="interactive" style={{left: '7%', top: '67%'}}>
                                 <ModalElement
                                     title={'Interactivity'}
                                     size={{}}
                                     pos={{top: '30%'}}
                                     className={"modal-dialog-centered modal-lg clearfix"}
                                     buttonElement={<img style={{width: '130px'}} src={require('../images/yellow_2.gif')} alt="Butterfly"/>}>
-                                    <p>
-                                        Using web technologies there will also be traditional and known interactivity. Such as these modal windows and the parallax mouse movement effect.
-                                    </p>
+                                    <p>- Modal windows <br/> <br/>- Links <br/> <br/>- Parallax mouse movement provides depth<br/><br/>- Scroll snap feature controls the users scrolling <br/><br/>- Routings for possible branching</p>
                                 </ModalElement>
                             </div>
                         )
@@ -240,13 +222,13 @@ export default class Presentation extends React.Component {
                         backgroundPos: {top: '0%', left: '0%'},
                         backgroundSize: {width: '100%'},
                         foregroundSrc: workConvoFg,
-                        foregroundPos: {top: '-15%', left: '-5%'},
+                        foregroundPos: {top: '-25%', left: '-5%'},
                         foregroundSize: {width: '100%'},
                         text: [
                             {
                                 index: 0,
                                 pos: {top: '30%', left: '30%'},
-                                html: "<p>I am also considering<br> adding sound and speech. <br>But that is not the first priority.</p>",
+                                html: "<p>I am also considering<br> adding music, background noise and speech. <br>The functionality is there.</p>",
                                 type: 'speech-bottom-left',
                             }
                         ]
@@ -273,14 +255,12 @@ export default class Presentation extends React.Component {
                             {
                                 index: 0,
                                 pos: {top:'5%', left:'5%'},
-                                html: '<p>It will include standard portfolio elements.</p>',
-                                sound: './audio/frame_5_0.mp3'
+                                html: '<p>It will include standard portfolio elements.</p>'
                             },
                             {
                                 index: 1,
                                 pos: {bottom:'10%', left:'5%'},
-                                html: '<p>... such as background, interests, working history etc.</p>',
-                                sound: './audio/frame_5_0.mp3'
+                                html: '<p>... such as background, interests, working history etc.</p>'
                             }
                         ]
                     },{
@@ -298,8 +278,7 @@ export default class Presentation extends React.Component {
                             {
                                 index: 0,
                                 pos: {bottom:'15%', left:'5%'},
-                                html: '<p>But these elements will <br>be mixed in with a fictional narrative.</p>',
-                                sound: './audio/frame_6_0.mp3'
+                                html: '<p>But these elements will <br>be mixed in with a <br>semi-fictional narrative.</p>'
                             }
                         ]
                     }
@@ -315,14 +294,12 @@ export default class Presentation extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'7%', left:'7%'},
-                            html: "<p>It will showcase various <br> projects, that I've been <br> involved in, within the <br>narrative.</p>",
-                            sound: './audio/frame_11_0.mp3'
+                            html: "<p>It will showcase various <br> projects, that I've been <br> involved in, within the <br>narrative.</p>"
                         },
                         {
                             index: 0,
                             pos: {bottom:'10%', right:'7%'},
-                            html: "<p>There will be <br> links to all of these <br> other projects.</p>",
-                            sound: './audio/frame_11_0.mp3'
+                            html: "<p>There will be <br> links to all of these <br> other projects.</p>"
                         }],
                         children:(
                             <div className="interactive" style={{right: '2%',top: '5%'}}>
