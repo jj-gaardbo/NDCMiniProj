@@ -35,9 +35,7 @@ module.exports = {
     entry: __dirname + '/app/App.js',
     output: {
         path: __dirname + '/dist',
-        filename: "bundle.js",
-        chunkFilename: '[name].js',
-        publicPath: '/'
+        filename: "bundle.js"
     },
     devServer: {
         contentBase: __dirname + "/dist/",

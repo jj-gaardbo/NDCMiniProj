@@ -1,12 +1,13 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link
 } from "react-router-dom";
 import Creative from "./Creative.jsx";
 import Programmer from "./Programmer.jsx";
+import Presentation from "./Presentation.jsx";
 
 window.$globalState = {
     audioOn: true,
@@ -44,6 +45,9 @@ export default class Main extends React.Component {
                             <li>
                                 <Link to="/programmer">Programmer</Link>
                             </li>
+                            <li>
+                                <Link to="/presentation">Presentation</Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -55,6 +59,9 @@ export default class Main extends React.Component {
                         </Route>
                         <Route path="/programmer">
                             <Programmer/>
+                        </Route>
+                        <Route path={"/presentation"}>
+                            <Presentation/>
                         </Route>
                     </Switch>
                 </div>

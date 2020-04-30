@@ -50,7 +50,7 @@
     bottom: -24%;
     top: auto;
   }
-  img{
+  img:not(.interactive-element){
     width: 50%!important;
     min-width: 50%!important;
     min-height: 50%!important;
