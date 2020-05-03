@@ -2,20 +2,6 @@ import React from 'react';
 import Title from "./Title.jsx";
 import Sound from 'react-sound';
 import $ from 'jquery';
-import backgroundBirth from './assets/images/bg/first2.png'
-import backgroundBirth2 from './assets/images/bg/birth2.png'
-import backgroundSwingBg from './assets/images/bg/swing_bg-comic2.png'
-import backgroundSwingFg from './assets/images/bg/swing_fg2-comic.png'
-import backgroundMicrophone from './assets/images/bg/micNewbg.png'
-import foregroundMicrophone from './assets/images/bg/micNewfg.png'
-import backgroundFaroe from './assets/images/bg/faroe.png'
-import backgroundSailing from './assets/images/bg/travel.png'
-import backgroundReading from './assets/images/bg/reading.png'
-import backgroundTeacher from './assets/images/bg/teacher.png'
-import musicConcert1 from './assets/images/music/concert.jpg'
-import musicConcert2 from './assets/images/music/concert2.jpg'
-import patternHTC from './assets/images/patterns/halftoneCenter.png'
-import patternHTTR from './assets/images/patterns/halftoneTopRight.png'
 
 import prepareBG from './assets/images/bg/prepareBackground.png'
 import prepareFG from './assets/images/bg/prepareForeground.png'
@@ -39,7 +25,6 @@ import news from './assets/images/news/news.png'
 import dust from './assets/images/dust2.png'
 import smoke from './assets/images/smoke.png'
 import ModalElement from "./Modal.jsx";
-import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
 
 const backgroundMusic = {
@@ -50,7 +35,7 @@ const backgroundMusic = {
 };
 
 
-export default class Programmer extends React.Component {
+export default class Episode_Programmer extends React.Component {
 
     constructor(props) {
         super(props);
@@ -137,7 +122,7 @@ export default class Programmer extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} />
+                <Title begin={this.begin} title={"Programmer"} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.bn}

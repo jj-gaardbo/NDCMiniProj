@@ -20,7 +20,7 @@ export default class Home extends React.Component {
     }
 
     redirectToStart(){
-        this.setState({ redirect: "/bg" });
+        this.setState({ redirect: "/background" });
     }
 
     handleSound(){

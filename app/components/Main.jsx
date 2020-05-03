@@ -5,9 +5,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import Creative from "./Creative.jsx";
-import Programmer from "./Programmer.jsx";
-import Presentation from "./Presentation.jsx";
+import Episode_Creative from "./Episode_Creative.jsx";
+import Episode_Programmer from "./Episode_Programmer.jsx";
 import Home from "./Home.jsx";
 import Episode_BG from "./Episode_BG.jsx";
 
@@ -50,14 +49,14 @@ export default class Main extends React.Component {
                         <Route exact path="/">
                             <Home />
                         </Route>
-                        <Route path="/bg">
+                        <Route path="/background">
                             <Episode_BG/>
                         </Route>
                         <Route path="/programmer">
-                            <Programmer/>
+                            <Episode_Programmer/>
                         </Route>
-                        <Route path={"/presentation"}>
-                            <Presentation/>
+                        <Route path={"/creative"}>
+                            <Episode_Creative/>
                         </Route>
                     </Switch>
                 </div>

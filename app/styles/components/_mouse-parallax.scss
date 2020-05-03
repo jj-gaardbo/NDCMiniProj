@@ -56,3 +56,12 @@
     min-height: 50%!important;
   }
 }
+
+.custom{
+  img{
+    min-width: 10%!important;
+    min-height: 10%!important;
+    width: inherit;
+    height: inherit;
+  }
+}

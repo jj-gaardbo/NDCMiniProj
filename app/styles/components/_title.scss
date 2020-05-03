@@ -37,6 +37,24 @@
       z-index: 1;
     }
 
+    &.branch-redirect{
+      width: 300px;
+
+      &.hover{
+        img{
+          transform: translateX(75px);
+        }
+      }
+      p{
+        color: $white;
+      }
+      position: absolute;
+      img{
+        transform: translateX(75px);
+      }
+    }
+
+
     &:hover{
       font-size: 1.3em;
     }

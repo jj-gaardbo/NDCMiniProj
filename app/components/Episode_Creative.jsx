@@ -33,7 +33,7 @@ const backgroundMusic = {
 };
 
 
-export default class Creative extends React.Component {
+export default class Episode_Creative extends React.Component {
 
     constructor(props) {
         super(props);
@@ -120,7 +120,7 @@ export default class Creative extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} title={"Creative path"} />
+                <Title begin={this.begin} title={"Creative"} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.mp}

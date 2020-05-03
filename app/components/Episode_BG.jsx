@@ -16,6 +16,12 @@ import backgroundSailing from './assets/images/bg/travel.png'
 import backgroundReading from './assets/images/bg/reading.png'
 import backgroundTeacher from './assets/images/bg/teacher.png'
 
+import backgroundTerminal from './assets/images/bg/terminal_bg.png'
+import foregroundTerminal from './assets/images/bg/terminal_fg2.png'
+
+import matrix from './assets/images/bg/the_matrix.png'
+import xraycat from './assets/images/bg/xraycat.png'
+
 import musicConcert1 from './assets/images/music/concert.jpg'
 import musicConcert2 from './assets/images/music/concert2.jpg'
 import patternHTC from './assets/images/patterns/halftoneCenter.png'
@@ -28,6 +34,7 @@ import smoke from './assets/images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
+import BreakerBranch from "./BreakerBranch.jsx";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -124,7 +131,7 @@ export default class Episode_BG extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} title={"Creative path"} />
+                <Title begin={this.begin} title={"Once upon a time..."} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.wj}
@@ -370,11 +377,37 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
+                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                    {
+                        className: "col-lg-12 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: backgroundTerminal,
+                        backgroundPos: {top:'0%', left:'0%'},
+                        backgroundSize: {width: '97%'},
+                        foregroundSrc: foregroundTerminal,
+                        foregroundPos: {top:'0%', left:'0%'},
+                        foregroundSize: {width: '90%'},
+                        text: [{
+                            index: 0,
+                            pos: {top:'8%', left:'2%'},
+                            html: "<p>His father's new job as a teacher on a bording school <br> gave him the opportunity to meet <br>a lot of different people with different skills.</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        },{
+                            index: 1,
+                            pos: {top:'8%', right:'2%'},
+                            html: "<p>He was fascinated by one guy <br> who knew how to navigate a computer terminal.</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        }]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
-                        index: 7,
+                        index: 0,
                         handleLock: this.handleLock,
                         backgroundSrc: backgroundLocationKlinkbySkole,
                         backgroundPos: {top:'0%', left:'0%'},
@@ -388,13 +421,13 @@ export default class Episode_BG extends React.Component {
                         {
                             index: 1,
                             pos: {top:'10%', right:'2%'},
-                            html: "<p>I spent the first years in <br>Denmark in a small local school.</p>",
+                            html: "<p>He spent the first years of his life in <br>Denmark in a small local school.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
                         }]
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-7 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
@@ -406,7 +439,7 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'10%', left:'2%'},
-                            html: "<p>He was a good student in primary school.</p>",
+                            html: "<p>He was a good student. And even though he was foreign <br> he picked up the danish language very quickly.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
@@ -437,6 +470,48 @@ export default class Episode_BG extends React.Component {
                         ]
                     }
                 ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                    {
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: xraycat,
+                        backgroundPos: {top:'0%', left:'-11%'},
+                        backgroundSize: {width: '90%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top:'0%', left:'0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [{
+                            index: 0,
+                            pos: {top:'10%', left:'2%'},
+                            html: "<p>He liked watching cartoons and loved to draw himself.</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        }]
+                    },{
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: matrix,
+                        backgroundPos: {top:'0%', left:'-16%'},
+                        backgroundSize: {width: '90%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top:'0%', left:'-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 1,
+                                pos: {bottom:'10%', left:'2%'},
+                                html: "<p>One of his favorite movies was The Matrix.</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <BreakerBranch header={"Choose a direction"} routeoneTitle={'Creative'} routetwoTitle={'Programmer'} routeone={'/creative'} routetwo={'/programmer'}/>
 
             </main>
         )
