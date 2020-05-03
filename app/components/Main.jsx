@@ -15,7 +15,7 @@ window.$globalState = {
     audioOn: true,
     textAudioPlaying: false,
     ambiencePlaying:false,
-    autoScroll: true,
+    autoScroll: false,
     panelIndex: -1
 };
 

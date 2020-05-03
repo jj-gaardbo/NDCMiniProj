@@ -7,7 +7,7 @@ export default class Title extends React.Component {
 
         this.state = {
           started: false,
-            timeout: 5000,
+            timeout: 3000,
             timer: null
         };
 
