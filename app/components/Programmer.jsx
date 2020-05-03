@@ -2,51 +2,51 @@ import React from 'react';
 import Title from "./Title.jsx";
 import Sound from 'react-sound';
 import $ from 'jquery';
-import backgroundBirth from '../images/bg/first2.png'
-import backgroundBirth2 from '../images/bg/birth2.png'
-import backgroundSwingBg from '../images/bg/swing_bg-comic2.png'
-import backgroundSwingFg from '../images/bg/swing_fg2-comic.png'
-import backgroundMicrophone from '../images/bg/micNewbg.png'
-import foregroundMicrophone from '../images/bg/micNewfg.png'
-import backgroundFaroe from '../images/bg/faroe.png'
-import backgroundSailing from '../images/bg/travel.png'
-import backgroundReading from '../images/bg/reading.png'
-import backgroundTeacher from '../images/bg/teacher.png'
-import musicConcert1 from '../images/music/concert.jpg'
-import musicConcert2 from '../images/music/concert2.jpg'
-import patternHTC from '../images/patterns/halftoneCenter.png'
-import patternHTTR from '../images/patterns/halftoneTopRight.png'
+import backgroundBirth from './assets/images/bg/first2.png'
+import backgroundBirth2 from './assets/images/bg/birth2.png'
+import backgroundSwingBg from './assets/images/bg/swing_bg-comic2.png'
+import backgroundSwingFg from './assets/images/bg/swing_fg2-comic.png'
+import backgroundMicrophone from './assets/images/bg/micNewbg.png'
+import foregroundMicrophone from './assets/images/bg/micNewfg.png'
+import backgroundFaroe from './assets/images/bg/faroe.png'
+import backgroundSailing from './assets/images/bg/travel.png'
+import backgroundReading from './assets/images/bg/reading.png'
+import backgroundTeacher from './assets/images/bg/teacher.png'
+import musicConcert1 from './assets/images/music/concert.jpg'
+import musicConcert2 from './assets/images/music/concert2.jpg'
+import patternHTC from './assets/images/patterns/halftoneCenter.png'
+import patternHTTR from './assets/images/patterns/halftoneTopRight.png'
 
-import prepareBG from '../images/bg/prepareBackground.png'
-import prepareFG from '../images/bg/prepareForeground.png'
-import prepareShirtFG from '../images/bg/prepareShirtForeground.png'
-import prepare2BG from '../images/bg/prepare2Background.png'
-import prepare2FG from '../images/bg/prepare2Foreground.png'
-import prepare3FG from '../images/bg/prepare3Foreground.png'
+import prepareBG from './assets/images/bg/prepareBackground.png'
+import prepareFG from './assets/images/bg/prepareForeground.png'
+import prepareShirtFG from './assets/images/bg/prepareShirtForeground.png'
+import prepare2BG from './assets/images/bg/prepare2Background.png'
+import prepare2FG from './assets/images/bg/prepare2Foreground.png'
+import prepare3FG from './assets/images/bg/prepare3Foreground.png'
 
-import readyWorkFG from '../images/bg/readyWorkForeground.png';
-import readyWorkBG from '../images/bg/readyWorkBackground.png';
+import readyWorkFG from './assets/images/bg/readyWorkForeground.png';
+import readyWorkBG from './assets/images/bg/readyWorkBackground.png';
 
-import working from '../images/working/working.png'
-import workConvoBg from '../images/working/workConversation_bg.png'
-import workConvoMg from '../images/working/workConversation_mg.png'
-import workConvoFg from '../images/working/workConversation_fg.png'
+import working from './assets/images/working/working.png'
+import workConvoBg from './assets/images/working/workConversation_bg.png'
+import workConvoMg from './assets/images/working/workConversation_mg.png'
+import workConvoFg from './assets/images/working/workConversation_fg.png'
 
-import news from '../images/news/news.png'
+import news from './assets/images/news/news.png'
 
 
 
-import dust from '../images/dust2.png'
-import smoke from '../images/smoke.png'
+import dust from './assets/images/dust2.png'
+import smoke from './assets/images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
 
 const backgroundMusic = {
-    bn: './audio/building_nightmares.mp3',
-    wj: './audio/wonky_jazz.mp3',
-    so: './audio/soldier.mp3',
-    mp: './audio/maxpayne.mp3'
+    bn: './assets/audio/building_nightmares.mp3',
+    wj: './assets/audio/wonky_jazz.mp3',
+    so: './assets/audio/soldier.mp3',
+    mp: './assets/audio/maxpayne.mp3'
 };
 
 
@@ -251,7 +251,7 @@ export default class Programmer extends React.Component {
                         audioOn: this.state.audioOn,
                         index: 11,
                         handleLock: this.handleLock,
-                        videoURL: require('./video/flensCartoon.mp4'),
+                        videoURL: require('./assets/video/flensCartoon.mp4'),
                         text: [{
                             index: 0,
                             pos: {bottom:'15%', right:'5%'},
@@ -264,7 +264,7 @@ export default class Programmer extends React.Component {
                                     size={{}}
                                     pos={{}}
                                     className={"modal-dialog-centered modal-lg clearfix"}
-                                    buttonElement={<img style={{width:'100px'}} src={require('../images/butter.gif')} alt="Butterfly"/>}>
+                                    buttonElement={<img style={{width:'100px'}} src={require('./assets/images/butter.gif')} alt="Butterfly"/>}>
                                     <p>
                                         <a href="https://soundcloud.com/flensop" target={"_blank"}>Flen$ O.P. projects</a>
                                     </p>
@@ -284,7 +284,7 @@ export default class Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-3')} index={3} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-3')} index={3} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -307,7 +307,7 @@ export default class Programmer extends React.Component {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
                                 html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>',
-                                sound: './audio/frame_0_0.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ],
                         children:(
@@ -317,7 +317,7 @@ export default class Programmer extends React.Component {
                                     size={{}}
                                     pos={{top: '30%'}}
                                     className={"modal-dialog-centered modal-md clearfix"}
-                                    buttonElement={<img style={{width: '300px'}} src={require('../images/yellow_2.gif')} alt="Butterfly"/>}>
+                                    buttonElement={<img style={{width: '300px'}} src={require('./assets/images/yellow_2.gif')} alt="Butterfly"/>}>
                                     <p>
                                         The first couple of years of my life I was living on the Faroe Islands.
                                     </p>

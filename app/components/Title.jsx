@@ -1,7 +1,7 @@
 import React from 'react';
-import butterfly from '../images/green.gif'
-import butterfly2 from '../images/blue2.gif'
-import butterfly3 from '../images/orange2.gif'
+import butterfly from './assets/images/green.gif'
+import butterfly2 from './assets/images/blue2.gif'
+import butterfly3 from './assets/images/orange2.gif'
 
 export default class Title extends React.Component {
 

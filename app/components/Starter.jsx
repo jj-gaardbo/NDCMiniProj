@@ -1,7 +1,7 @@
 import React from 'react';
-import butterfly from '../images/green.gif'
-import butterfly2 from '../images/blue2.gif'
-import butterfly3 from '../images/orange2.gif'
+import butterfly from './images/green.gif'
+import butterfly2 from './images/blue2.gif'
+import butterfly3 from './images/orange2.gif'
 import {Link} from "react-router-dom";
 
 export default class Title extends React.Component {

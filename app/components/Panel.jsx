@@ -1,5 +1,5 @@
 import React from 'react';
-import Continue from "../images/continue.png";
+import Continue from "./assets/images/continue.png";
 import $ from "jquery";
 import Frame from "./Frame.jsx";
 import AmbienceSound from "./AmbienceSound.jsx";

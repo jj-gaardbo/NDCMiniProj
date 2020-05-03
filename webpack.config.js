@@ -52,15 +52,28 @@ module.exports = {
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-            { test: /\.mp4$/, loader: 'file-loader'},
+            {
+                test: /\.mp4$/,
+                loader: 'file-loader',
+                query: {
+                    name: 'assets/[hash].[ext]'
+                }
+            },
             {
                 test: /\.mp3$/,
                 loader: 'file-loader',
                 query: {
-                    name: '[hash].[ext]'
+                    name: 'assets/[hash].[ext]'
                 }
             },
             {
+                test: /\.(jpg|png|jpeg|gif|svg)$/,
+                loader: 'file-loader',
+                query: {
+                    name: 'assets/[hash].[ext]'
+                }
+            },
+            /*{
                 test: /\.(jpg|png|jpeg|gif|svg)$/,
                 use: {
                     loader: "file-loader",
@@ -68,7 +81,7 @@ module.exports = {
                         name: "[hash].[ext]",
                     },
                 },
-            },
+            },*/
             { test: /\.eot$/, loader: 'url-loader?limit=100000&mimetype=application/vnd.ms-fontobject' },
             { test: /\.woff2$/, loader: 'url-loader?limit=100000&mimetype=application/font-woff2' },
             { test: /\.woff$/, loader: 'url-loader?limit=100000&mimetype=application/font-woff' },
@@ -81,7 +94,8 @@ module.exports = {
         new ModernizrWebpackPlugin(modernizrConfig),
         new CopyWebpackPlugin([
             { from: 'manifest.json' },
-            { from: 'favicon.ico' }
+            { from: 'favicon.ico' },
+            { from: 'components/assets/audio', to: 'assets/audio' }
         ]),
         new webpack.ProvidePlugin({
             $: "jquery",

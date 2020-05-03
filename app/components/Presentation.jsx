@@ -4,17 +4,17 @@ import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
 
-import backgroundFaroe from '../images/presentation/faroe.png'
-import backgroundSailing from '../images/presentation/travel.png'
-import news from '../images/presentation/news.png'
-import working from "../images/presentation/working.png";
-import workConvoBg from "../images/presentation/workConversation_bg.png";
-import workConvoFg from "../images/presentation/workConversation_fg.png";
-import butterfly3 from "../images/orange2.gif";
-import dust from '../images/presentation/dust2.png'
-import smoke from '../images/presentation/smoke.png'
-import maxPayne from '../images/presentation/maxPayne.png'
-import musicConcert1 from '../images/music/concert.jpg'
+import backgroundFaroe from './assets/images/presentation/faroe.png'
+import backgroundSailing from './assets/images/presentation/travel.png'
+import news from './assets/images/presentation/news.png'
+import working from "./assets/images/presentation/working.png";
+import workConvoBg from "./assets/images/presentation/workConversation_bg.png";
+import workConvoFg from "./assets/images/presentation/workConversation_fg.png";
+import butterfly3 from "./assets/images/orange2.gif";
+import dust from './assets/images/presentation/dust2.png'
+import smoke from './assets/images/presentation/smoke.png'
+import maxPayne from './assets/images/presentation/maxPayne.png'
+import musicConcert1 from './assets/images/music/concert.jpg'
 
 export default class Presentation extends React.Component {
 
@@ -96,11 +96,11 @@ export default class Presentation extends React.Component {
                     <h1>"Webbased graphic novel portfolio"</h1>
                     <button style={{top:'60%', left:'40%'}} type={'button'} onClick={this.begin} className={'start-free'}>
                         <img src={butterfly3} alt="Yellow butterfly"/>
-                        <p>Start</p>
+                        <p>Start this</p>
                     </button>
                 </div>
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -132,7 +132,7 @@ export default class Presentation extends React.Component {
                     {
                         className: "col-lg-7 window skew-4-left",
                         audioOn: this.state.audioOn,
-                        index: 7,
+                        index: 0,
                         handleLock: this.handleLock,
                         backgroundSrc: maxPayne,
                         backgroundPos: {top:'-12%', left:'-12%'},
@@ -148,7 +148,7 @@ export default class Presentation extends React.Component {
                     },{
                         className: "col-lg-5 window skew-4-left",
                         audioOn: this.state.audioOn,
-                        index: 8,
+                        index: 1,
                         handleLock: this.handleLock,
                         backgroundSrc: musicConcert1,
                         backgroundPos: {top:'-15%', left:'-22%'},
@@ -195,7 +195,7 @@ export default class Presentation extends React.Component {
                                 html: "<p>I created a framework for building this <br>type of web based graphic novel...</p>"
                             },
                             {
-                                index: 0,
+                                index: 1,
                                 pos: {bottom: '7%', right: '20%'},
                                 html: "<p>It is developed using ReactJS.</p>"
                             }
@@ -207,7 +207,7 @@ export default class Presentation extends React.Component {
                                     size={{}}
                                     pos={{top: '30%'}}
                                     className={"modal-dialog-centered modal-lg clearfix"}
-                                    buttonElement={<img style={{width: '130px'}} src={require('../images/yellow_2.gif')} alt="Butterfly"/>}>
+                                    buttonElement={<img style={{width: '130px'}} src={require('./assets/images/yellow_2.gif')} alt="Butterfly"/>}>
                                     <p>- Modal windows <br/> <br/>- Links <br/> <br/>- Parallax mouse movement provides depth<br/><br/>- Scroll snap feature controls the users scrolling <br/><br/>- Routings for possible branching</p>
                                 </ModalElement>
                             </div>
@@ -239,7 +239,7 @@ export default class Presentation extends React.Component {
                     <h1>Chapter 2: Narrative</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./audio/ambiance/seagulls.mp3'} ambianceVolume={100} id={'start'} frames={[
+                <Panel ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-8 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -288,16 +288,16 @@ export default class Presentation extends React.Component {
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
-                        index: 11,
+                        index: 0,
                         handleLock: this.handleLock,
-                        videoURL: require('./video/finalAnimation.mp4'),
+                        videoURL: require('./assets/video/finalAnimation.mp4'),
                         text: [{
                             index: 0,
                             pos: {bottom:'7%', left:'7%'},
                             html: "<p>It will showcase various <br> projects, that I've been <br> involved in, within the <br>narrative.</p>"
                         },
                         {
-                            index: 0,
+                            index: 1,
                             pos: {bottom:'10%', right:'7%'},
                             html: "<p>There will be <br> links to all of these <br> other projects.</p>"
                         }],
@@ -308,7 +308,7 @@ export default class Presentation extends React.Component {
                                     size={{}}
                                     pos={{}}
                                     className={"modal-dialog-centered modal-lg clearfix"}
-                                    buttonElement={<img style={{width:'200px'}} src={require('../images/butter.gif')} alt="Butterfly"/>}>
+                                    buttonElement={<img style={{width:'200px'}} src={require('./assets/images/butter.gif')} alt="Butterfly"/>}>
                                     <p>
                                         <a href="https://soundcloud.com/flensop" target={"_blank"}>Flen$ O.P. soundcloud</a>
                                     </p>
