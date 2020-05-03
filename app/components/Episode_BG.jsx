@@ -144,6 +144,7 @@ export default class Episode_BG extends React.Component {
                 />
                 }
 
+
                 <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
@@ -471,6 +472,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
+
                 <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-6 window skew-2-right custom",
@@ -502,7 +504,7 @@ export default class Episode_BG extends React.Component {
                         foregroundSize: {width: '100%'},
                         text: [
                             {
-                                index: 1,
+                                index: 0,
                                 pos: {bottom:'10%', left:'2%'},
                                 html: "<p>One of his favorite movies was The Matrix.</p>",
                                 sound: './assets/audio/frame_0_0.mp3'
@@ -511,7 +513,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <BreakerBranch header={"Choose a direction"} routeoneTitle={'Creativity'} routetwoTitle={'Software Development'} routeone={'/creative'} routetwo={'/programmer'}/>
+                <BreakerBranch ref={this.getOrCreateRef('section-10')}  index={10} header={"Choose a direction"} routeoneTitle={'Creativity'} routetwoTitle={'Software Development'} routeone={'/creative'} routetwo={'/programmer'}/>
 
             </main>
         )
