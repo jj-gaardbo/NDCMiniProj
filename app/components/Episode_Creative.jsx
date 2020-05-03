@@ -24,6 +24,12 @@ import smoke from './assets/images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
+import prepareBG from "./assets/images/bg/prepareBackground.png";
+import prepareShirtFG from "./assets/images/bg/prepareShirtForeground.png";
+import prepareFG from "./assets/images/bg/prepareForeground.png";
+import prepare2BG from "./assets/images/bg/prepare2Background.png";
+import prepare2FG from "./assets/images/bg/prepare2Foreground.png";
+import prepare3FG from "./assets/images/bg/prepare3Foreground.png";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -123,7 +129,7 @@ export default class Episode_Creative extends React.Component {
                 <Title begin={this.begin} title={"Creative"} />
 
                 {this.state.audioOn &&
-                <Sound    url={backgroundMusic.mp}
+                <Sound    url={backgroundMusic.so}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
                           volume={this.state.backgroundMusicVolume}
@@ -133,256 +139,141 @@ export default class Episode_Creative extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
-                        className: "col-lg-12 window skew-2-right",
+                        className: "col-lg-8 window skew-2-right",
                         audioOn: this.state.audioOn,
                         index: 0,
                         handleLock: this.handleLock,
-                        backgroundSrc: news,
-                        backgroundPos: {top: '-25%', left: '-5%'},
+                        backgroundSrc: prepareBG,
+                        backgroundPos: {top: '5%', left: '0%'},
                         backgroundSize: {width: '100%'},
-                        foregroundSrc: smoke,
-                        foregroundPos: {top: '-10%', left: '0%'},
-                        foregroundSize: {width: '100%'},
+                        foregroundSrc: prepareShirtFG,
+                        foregroundPos: {top: '0%', left: '0%'},
+                        foregroundSize: {width: '80%'},
                         text: [
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>January 13th 1989</p>',
+                                html: '<p>May 2015</p>',
                                 color: 'yellow'
                             },
                             {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
-                                html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
-                            }
-                        ],
-                        children:(
-                            <div className="interactive" style={{left: '80%', top: '7%'}}>
-                                <ModalElement
-                                    title={'Faroe Islands.'}
-                                    size={{}}
-                                    pos={{top: '30%'}}
-                                    className={"modal-dialog-centered modal-md clearfix"}
-                                    buttonElement={<img style={{width: '300px'}} src={require('./assets/images/yellow_2.gif')} alt="Butterfly"/>}>
-                                    <p>
-                                        The first couple of years of my life I was living on the Faroe Islands.
-                                    </p>
-                                </ModalElement>
-                            </div>
-                        )
-                    }
-                ]}/>
-
-                <Breaker ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} audioOn={this.state.audioOn} >
-                    <h1>Chapter 1: Childhood</h1>
-                </Breaker>
-
-                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/lullaby.mp3'} ambianceVolume={10} frames={[
+                                html: '<p>Tonight was the night. I was getting ready <br>to go out to do a concert, that we’d been preparing for<br> for a couple of weeks. <br> It was the first time warming up for a big artist.</p>',
+                            },
+                            {
+                                index: 2,
+                                pos: {bottom: '12%', left: '5%'},
+                                html: '<p>And the first time we got a taste of being professional <br>musicians even though we were still only getting payed with a free bar for the night.</p>'
+                            },
+                        ]
+                    },
                     {
-                        className: "col-lg-6 window skew-2-right",
+                        className: "col-lg-4 window skew-2-right",
                         audioOn: this.state.audioOn,
                         index: 1,
                         handleLock: this.handleLock,
-                        backgroundSrc: backgroundBirth2,
-                        backgroundPos: {top:'0%', left:'-12%'},
-                        backgroundSize: {width: '50%'},
-                        foregroundSrc: dust,
-                        foregroundPos: {top:'0%', left:'0%'},
-                        foregroundSize: {width: '100%'},
+                        backgroundSrc: prepareBG,
+                        backgroundPos: {top: '5%', left: '-10%'},
+                        backgroundSize: {width: '100%'},
+                        foregroundSrc: prepareFG,
+                        foregroundPos: {top: '10%', left: '-20%'},
+                        foregroundSize: {width: '40%'},
                         text: [
                             {
                                 index: 0,
-                                pos: {top:'5%', left:'5%'},
-                                html: '<p>October 22th 1989</p>',
-                                color: 'yellow'
+                                pos: {top: '5%', right: '5%'},
+                                html: '<p>It was a lot of fun doing this, but I’d recently been considering getting a proper education</p>'
                             },
                             {
                                 index: 1,
-                                pos: {bottom:'15%', right:'5%'},
-                                html: '<p>A new member of global society is resting in <br>his home.</p>',
-                                sound: './assets/audio/frame_1_0.mp3'
+                                pos: {bottom: '15%', right: '5%'},
+                                html: '<p>Maybe I wouldn’t have to struggle to pay the bills, if I had an actual job.</p>'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-1')} index={1} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-6 window skew-2-right",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: prepare2BG,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '100%'},
+                        foregroundSrc: prepare2FG,
+                        foregroundPos: {top: '-10%', left: '-20%'},
+                        foregroundSize: {width: '80%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: '<p>It was almost time to hit the road</p>'
                             }
                         ]
                     },
                     {
                         className: "col-lg-6 window skew-2-right",
                         audioOn: this.state.audioOn,
-                        index: 2,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundBirth,
-                        backgroundPos: {top:'-23%', left:'-30%'},
-                        backgroundSize: {width: '70%'},
-                        foregroundSrc: dust,
-                        foregroundPos: {top:'-20%', left:'-30%'},
-                        foregroundSize: {width: '100%'},
-                        text: [
-                        {
-                            index: 0,
-                            pos: {top:'5%', right:'5%'},
-                            html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>',
-                            sound: './assets/audio/frame_2_0.mp3'
-                        },
-                        {
-                            index: 1,
-                            pos: {top:'23%', right:'5%'},
-                            html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
-                            type: 'speech-bottom-right',
-                            sound: './assets/audio/frame_2_1.mp3'
-                        }
-                        ]
-                    }
-                ]}/>
-
-                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next} audioOn={this.state.audioOn}   frames={[
-                    {
-                        className: "col-lg-4 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index: 3,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundSwingBg,
-                        backgroundPos: {top: '0%', left: '-20%'},
-                        backgroundSize: {width: '10%'},
-                        middlegroundSrc: patternHTC,
-                        middlegroundPos: {top: '0%', left: '0%'},
-                        middlegroundSize: {width: '10%'},
-                        foregroundSrc: backgroundSwingFg,
-                        foregroundPos: {top: '0%', left: '-20%'},
-                        foregroundSize: {width: '10%'},
-                        text: [{
-                            index: 0,
-                            pos: {top: '5%', left: '5%'},
-                            html: '<p>His mother ran her own daycare,<br> and his father was a teacher.</p>',
-                            sound: './assets/audio/frame_3_0.mp3'
-                        }, {
-                            index: 1,
-                            pos: {bottom: '10%', left: '2%'},
-                            html: '<p>His big brother spent a lot <br> of time playing with him.</p>',
-                            sound: './assets/audio/frame_3_1.mp3'
-                        }]
-                    },{
-                        className: "col-lg-8 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index: 4,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundMicrophone,
-                        backgroundPos: {top:'0%', left:'-10%'},
-                        backgroundSize: {width: '100%'},
-                        middlegroundSrc: patternHTTR,
-                        middlegroundPos: {top: '-50%', left: '0%'},
-                        middlegroundSize: {width: '70%'},
-                        foregroundSrc: foregroundMicrophone,
-                        foregroundPos: {top:'-10%', left:'-10%'},
-                        foregroundSize: {width: '1%'},
-                        text: [{
-                            index: 0,
-                            pos: {top:'5%', left:'5%'},
-                            html: "<p>He was very proud, when he started to be able to <br> pronounce his name almost correctly.</p>",
-                            sound: './assets/audio/frame_4_0.mp3'
-                            }
-                        ]
-                    }
-                ]}/>
-
-                <Panel ref={this.getOrCreateRef('section-4')}  index={4} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/seagulls.mp3'} ambianceVolume={100} id={'start'} frames={[
-                    {
-                        className: "col-lg-8 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index:0,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundFaroe,
-                        backgroundPos: {top: '-33%', left: '-20%'},
-                        backgroundSize: {width: '70%'},
-                        foregroundSrc: dust,
-                        foregroundPos: {top:'-20%', left:'-30%'},
-                        foregroundSize: {width: '100%'},
-                        text: [
-                            {
-                                index: 0,
-                                pos: {top:'5%', left:'5%'},
-                                html: '<p>His childhood was good on the islands. <br> But due to his father being offered a job...</p>',
-                                sound: './assets/audio/frame_5_0.mp3'
-                            }
-                        ]
-                    },{
-                        className: "col-lg-4 window skew-4-left",
-                        audioOn: this.state.audioOn,
                         index: 1,
                         handleLock: this.handleLock,
-                        backgroundSrc: backgroundSailing,
-                        backgroundPos: {top:'0%', left:'-42%'},
-                        backgroundSize: {width: '50%'},
-                        foregroundSrc: dust,
-                        foregroundPos: {top:'0%', left:'0%'},
-                        foregroundSize: {width: '100%'},
+                        foregroundSrc: prepare3FG,
+                        foregroundPos: {top: '0%', left: '-5%'},
+                        foregroundSize: {width: '50%'},
                         text: [
                             {
                                 index: 0,
-                                pos: {top:'5%', left:'5%'},
-                                html: '<p>1995</p>',
-                                color: 'yellow'
-                            },
-                            {
-                                index: 1,
-                                pos: {bottom:'15%', left:'5%'},
-                                html: '<p>...they packed up their lives and moved to Denmark. He was 5 years old.</p>',
-                                sound: './assets/audio/frame_6_0.mp3'
+                                pos: {bottom: '15%', left: '5%'},
+                                html: '<p>My nerves were starting to fuck with my head. <br>My hands were shaking which made it difficult to tie my shoes.</p>'
                             }
                         ]
                     }
                 ]}/>
 
-                <Breaker ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} audioOn={this.state.audioOn}  >
-                    <h1>Chapter 2: Second childhood</h1>
-                </Breaker>
-
-                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
-                        className: "col-lg-8 window skew-4-left",
+                        className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
-                        index: 7,
+                        index: 11,
                         handleLock: this.handleLock,
-                        backgroundSrc: backgroundReading,
-                        backgroundPos: {top:'-55%', left:'-5%'},
-                        backgroundSize: {width: '40%'},
+                        videoURL: require('./assets/video/flensCartoon.mp4'),
                         text: [{
                             index: 0,
-                            pos: {bottom:'10%', left:'2%'},
-                            html: "<p>He wasn't the best student in primary in school.</p>",
-                            sound: './assets/audio/frame_7_0.mp3'
-                        }]
-                    },{
-                        className: "col-lg-4 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index: 8,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundTeacher,
-                        backgroundPos: {top:'-35%', left:'-2%'},
-                        backgroundSize: {width: '50%'},
-                        foregroundSrc: dust,
-                        foregroundPos: {top:'0%', left:'-20%'},
-                        foregroundSize: {width: '60%'},
-                        text: [
-                            {
-                                index: 0,
-                                pos: {top:'1%', right:'2%'},
-                                html: '<p>Upon retiring his teacher held a speech for his class.</p>',
-                                sound: './assets/audio/frame_8_0.mp3'
-                            },
-                            {
-                                index: 1,
-                                pos: {top:'60%', left:'40%'},
-                                html: '<p>He has now become <br> a famous song writer.</p>',
-                                type: 'speech-top-left',
-                                sound: './assets/audio/frame_8_1.mp3'
-                            }
-                        ]
+                            pos: {bottom:'15%', right:'5%'},
+                            html: '<p>I was exited about how the crowd would receive our newest release.</p>'
+                        }],
+                        children:(
+                            <div className="interactive" style={{left: '80%',top: '10%'}}>
+                                <ModalElement
+                                    title={'He has been making music for a long time now.'}
+                                    size={{}}
+                                    pos={{}}
+                                    className={"modal-dialog-centered modal-lg clearfix"}
+                                    buttonElement={<img style={{width:'100px'}} src={require('./assets/images/butter.gif')} alt="Butterfly"/>}>
+                                    <p>
+                                        <a href="https://soundcloud.com/flensop" target={"_blank"}>Flen$ O.P. projects</a>
+                                    </p>
+                                    <p>
+                                        <a href="https://soundcloud.com/gaardbo" target={"_blank"}>Solo projects</a>
+                                    </p>
+                                    <p>
+                                        <a href="https://open.spotify.com/album/3nUhGWseFNMxiLcr7i5ha6?si=ujpPbneZTXmc6PUrqEaBnQ" target={"_blank"}>Spotify single</a>
+                                    </p>
+                                    <iframe width="420" height="315"
+                                            src="https://www.youtube.com/embed/0Ef1Ro7Dzsk?controls=0"
+                                            allowFullScreen="allowfullscreen">
+                                    </iframe>
+                                </ModalElement>
+                            </div>
+                        )
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')} id={'start'} index={7} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/concert.mp3'} ambianceVolume={5} frames={[
+                <Panel ref={this.getOrCreateRef('section-3')} index={3} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/concert.mp3'} ambianceVolume={5} frames={[
                     {
                         className: "col-lg-6 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -425,46 +316,6 @@ export default class Episode_Creative extends React.Component {
                                 sound: './assets/audio/frame_10_1.mp3'
                             }
                         ]
-                    }
-                ]}/>
-
-                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} frames={[
-                    {
-                        className: "col-lg-12 window skew-2-right",
-                        audioOn: this.state.audioOn,
-                        index: 11,
-                        handleLock: this.handleLock,
-                        videoURL: require('./assets/video/flensCartoon.mp4'),
-                        text: [{
-                            index: 0,
-                            pos: {bottom:'15%', right:'5%'},
-                            html: '<p>We had just recorded a music video <br> which received good response</p>',
-                            sound: './assets/audio/frame_11_0.mp3'
-                        }],
-                        children:(
-                            <div className="interactive" style={{left: '80%',top: '10%'}}>
-                                <ModalElement
-                                    title={'He has been making music for a long time now.'}
-                                    size={{}}
-                                    pos={{}}
-                                    className={"modal-dialog-centered modal-lg clearfix"}
-                                    buttonElement={<img style={{width:'100px'}} src={require('./assets/images/butter.gif')} alt="Butterfly"/>}>
-                                    <p>
-                                        <a href="https://soundcloud.com/flensop" target={"_blank"}>Flen$ O.P. projects</a>
-                                    </p>
-                                    <p>
-                                        <a href="https://soundcloud.com/gaardbo" target={"_blank"}>Solo projects</a>
-                                    </p>
-                                    <p>
-                                        <a href="https://open.spotify.com/album/3nUhGWseFNMxiLcr7i5ha6?si=ujpPbneZTXmc6PUrqEaBnQ" target={"_blank"}>Spotify single</a>
-                                    </p>
-                                    <iframe width="420" height="315"
-                                            src="https://www.youtube.com/embed/0Ef1Ro7Dzsk?controls=0"
-                                            allowFullScreen="allowfullscreen">
-                                    </iframe>
-                                </ModalElement>
-                            </div>
-                        )
                     }
                 ]}/>
 
