@@ -33,7 +33,7 @@ const backgroundMusic = {
 };
 
 
-export default class Creative extends React.Component {
+export default class Episode_BG extends React.Component {
 
     constructor(props) {
         super(props);
@@ -123,7 +123,7 @@ export default class Creative extends React.Component {
                 <Title begin={this.begin} title={"Creative path"} />
 
                 {this.state.audioOn &&
-                <Sound    url={backgroundMusic.mp}
+                <Sound    url={backgroundMusic.wj}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
                           volume={this.state.backgroundMusicVolume}
@@ -133,7 +133,7 @@ export default class Creative extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/thunder.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -155,6 +155,12 @@ export default class Creative extends React.Component {
                             {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
+                                html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
+                            {
+                                index: 2,
+                                pos: {bottom: '14%', right: '5%'},
                                 html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by mother nature.</p>',
                                 sound: './assets/audio/frame_0_0.mp3'
                             }
@@ -180,7 +186,7 @@ export default class Creative extends React.Component {
                     <h1>Chapter 1: Childhood</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/lullaby.mp3'} ambianceVolume={10} frames={[
+                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/baby.mp3'} ambianceVolume={10} frames={[
                     {
                         className: "col-lg-6 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -203,7 +209,7 @@ export default class Creative extends React.Component {
                                 index: 1,
                                 pos: {bottom:'15%', right:'5%'},
                                 html: '<p>A new member of global society is resting in <br>his home.</p>',
-                                sound: './assets/audio/frame_1_0.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     },
@@ -219,19 +225,19 @@ export default class Creative extends React.Component {
                         foregroundPos: {top:'-20%', left:'-30%'},
                         foregroundSize: {width: '100%'},
                         text: [
-                        {
-                            index: 0,
-                            pos: {top:'5%', right:'5%'},
-                            html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>',
-                            sound: './assets/audio/frame_2_0.mp3'
-                        },
-                        {
-                            index: 1,
-                            pos: {top:'23%', right:'5%'},
-                            html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
-                            type: 'speech-bottom-right',
-                            sound: './assets/audio/frame_2_1.mp3'
-                        }
+                            {
+                                index: 0,
+                                pos: {top:'5%', right:'5%'},
+                                html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {top:'23%', right:'5%'},
+                                html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
+                                type: 'speech-bottom-right',
+                                sound: './assets/audio/frame_0_0.mp3'
+                            }
                         ]
                     }
                 ]}/>
@@ -255,12 +261,12 @@ export default class Creative extends React.Component {
                             index: 0,
                             pos: {top: '5%', left: '5%'},
                             html: '<p>His mother ran her own daycare,<br> and his father was a teacher.</p>',
-                            sound: './assets/audio/frame_3_0.mp3'
+                            sound: './assets/audio/frame_0_0.mp3'
                         }, {
                             index: 1,
                             pos: {bottom: '10%', left: '2%'},
                             html: '<p>His big brother spent a lot <br> of time playing with him.</p>',
-                            sound: './assets/audio/frame_3_1.mp3'
+                            sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
                         className: "col-lg-8 window skew-4-left",
@@ -280,8 +286,8 @@ export default class Creative extends React.Component {
                             index: 0,
                             pos: {top:'5%', left:'5%'},
                             html: "<p>He was very proud, when he started to be able to <br> pronounce his name almost correctly.</p>",
-                            sound: './assets/audio/frame_4_0.mp3'
-                            }
+                            sound: './assets/audio/frame_0_0.mp3'
+                        }
                         ]
                     }
                 ]}/>
@@ -303,7 +309,7 @@ export default class Creative extends React.Component {
                                 index: 0,
                                 pos: {top:'5%', left:'5%'},
                                 html: '<p>His childhood was good on the islands. <br> But due to his father being offered a job...</p>',
-                                sound: './assets/audio/frame_5_0.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     },{
@@ -328,7 +334,7 @@ export default class Creative extends React.Component {
                                 index: 1,
                                 pos: {bottom:'15%', left:'5%'},
                                 html: '<p>...they packed up their lives and moved to Denmark. He was 5 years old.</p>',
-                                sound: './assets/audio/frame_6_0.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
@@ -351,7 +357,7 @@ export default class Creative extends React.Component {
                             index: 0,
                             pos: {bottom:'10%', left:'2%'},
                             html: "<p>He wasn't the best student in primary in school.</p>",
-                            sound: './assets/audio/frame_7_0.mp3'
+                            sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
                         className: "col-lg-4 window skew-4-left",
@@ -369,14 +375,14 @@ export default class Creative extends React.Component {
                                 index: 0,
                                 pos: {top:'1%', right:'2%'},
                                 html: '<p>Upon retiring his teacher held a speech for his class.</p>',
-                                sound: './assets/audio/frame_8_0.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'40%'},
                                 html: '<p>He has now become <br> a famous song writer.</p>',
                                 type: 'speech-top-left',
-                                sound: './assets/audio/frame_8_1.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
@@ -398,7 +404,7 @@ export default class Creative extends React.Component {
                             index: 0,
                             pos: {top:'2%', left:'4%'},
                             html: '<p>It was an amazing gig.</p>',
-                            sound: './assets/audio/frame_9_0.mp3'
+                            sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
                         className: "col-lg-6 window skew-4-left",
@@ -415,14 +421,14 @@ export default class Creative extends React.Component {
                                 index: 0,
                                 pos: {top:'1%', right:'2%'},
                                 html: '<p>It was the first time warming up for <br> a bigger artist.</p>',
-                                sound: './assets/audio/frame_10_0.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'15%'},
                                 html: '<p>Fuck you all!</p>',
                                 type: 'speech-top-right',
-                                sound: './assets/audio/frame_10_1.mp3'
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
@@ -439,7 +445,7 @@ export default class Creative extends React.Component {
                             index: 0,
                             pos: {bottom:'15%', right:'5%'},
                             html: '<p>We had just recorded a music video <br> which received good response</p>',
-                            sound: './assets/audio/frame_11_0.mp3'
+                            sound: './assets/audio/frame_0_0.mp3'
                         }],
                         children:(
                             <div className="interactive" style={{left: '80%',top: '10%'}}>
@@ -468,7 +474,7 @@ export default class Creative extends React.Component {
                     }
                 ]}/>
 
-        </main>
+            </main>
         )
     }
 }

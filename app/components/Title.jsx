@@ -1,7 +1,4 @@
 import React from 'react';
-import butterfly from './assets/images/green.gif'
-import butterfly2 from './assets/images/blue2.gif'
-import butterfly3 from './assets/images/orange2.gif'
 
 export default class Title extends React.Component {
 
@@ -9,47 +6,68 @@ export default class Title extends React.Component {
         super(props);
 
         this.state = {
-          started: false
+          started: false,
+            timeout: 5000,
+            timer: null
         };
 
         this.handleSound = this.handleSound.bind(this);
         this.handleAutoScroll = this.handleAutoScroll.bind(this);
         this.handleNoSound = this.handleNoSound.bind(this);
+        this.start = this.start.bind(this);
     }
 
     handleSound(){
-        this.setState({started:true});
-        this.props.begin('sound');
+        let self = this;
+        self.timer = setTimeout(function(){
+            self.props.begin('sound');
+            self.setState({started:true});
+        }, self.state.timeout, function(){
+            clearTimeout(self.state.timer);
+        })
     }
 
     handleNoSound(){
-        this.setState({started:true});
-        this.props.begin('no-sound');
+        let self = this;
+        self.timer = setTimeout(function(){
+            self.props.begin('no-sound');
+            self.setState({started:true});
+        }, self.state.timeout, function(){
+            clearTimeout(self.state.timer);
+        })
     }
 
     handleAutoScroll(){
-        this.setState({started:true});
-        this.props.begin('auto');
+        let self = this;
+        self.timer = setTimeout(function(){
+            self.props.begin('auto');
+            self.setState({started:true});
+        }, self.state.timeout, function(){
+            clearTimeout(self.state.timer);
+        })
+    }
+
+    start(){
+        if (window.$globalState.audioOn && window.$globalState.autoScroll) {
+            this.handleAutoScroll();
+        }
+        else if(window.$globalState.audioOn){
+            this.handleSound();
+        } else {
+            this.handleNoSound();
+        }
+    }
+
+    componentDidMount() {
+        this.start();
     }
 
     render() {
         return (
             <div className="title snap clearfix">
-                <h1>"This is going to be the title"</h1>
-                <button style={{bottom:'40%', left:'50%', marginLeft:'-100px'}} type={'button'} onClick={this.handleSound} className={'start-sound'}>
-                    <img src={butterfly2} alt="Blue butterfly"/>
-                    <p>Sound</p>
-                </button>
+                <h1>{this.props.title}</h1>
 
-                <button style={{bottom:'30%', right:'20%'}} type={'button'} onClick={this.handleAutoScroll} className={'start-sound-autoscroll'}>
-                    <img src={butterfly} alt="Green butterfly"/>
-                    <p>Sound + Auto scroll</p>
-                </button>
-
-                <button style={{top:'10%', left:'20%'}} type={'button'} onClick={this.handleNoSound} className={'start-free'}>
-                    <img src={butterfly3} alt="Yellow butterfly"/>
-                    <p>No sound</p>
-                </button>
+                {/*<button className={"start-button"} onClick={() => this.start()}>Start</button>*/}
             </div>
         )
     }

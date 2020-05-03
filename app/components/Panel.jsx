@@ -22,7 +22,8 @@ export default class Panel extends React.Component {
             hasFinished: false,
             hasSound: false,
             ambiancePlaying: false,
-            ambianceReference: {}
+            ambianceReference: {},
+            ambianceTimer: null
         };
 
         this.handleMouseEnter = this.handleMouseEnter.bind(this);
@@ -71,6 +72,7 @@ export default class Panel extends React.Component {
     }
 
     play(){
+        let self = this;
         if(this.state.lastFrame){
             this.state.done = true;
             this.props.handleDone(this.props.index);
@@ -81,7 +83,6 @@ export default class Panel extends React.Component {
         if(this.props.frames && this.props.frames.length > 0){
             let currentFrame = this.state.frameReferences[Object.keys(this.state.frameReferences)[this.state.playingIndex]];
             if(typeof currentFrame !== 'undefined'){
-                console.log("PLAYING PANEL")
                 currentFrame.current.play();
                 this.state.played++;
             }
@@ -98,10 +99,13 @@ export default class Panel extends React.Component {
     }
 
     handleMouseEnter(){
+        let self = this;
         if(this.state.playing){return;}
 
-        this.play();
-        this.state.active = true;
+        setTimeout(function(){
+            self.play();
+            self.state.active = true;
+        },1000);
     }
 
     handleMouseLeave(){

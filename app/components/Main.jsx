@@ -8,12 +8,14 @@ import {
 import Creative from "./Creative.jsx";
 import Programmer from "./Programmer.jsx";
 import Presentation from "./Presentation.jsx";
+import Home from "./Home.jsx";
+import Episode_BG from "./Episode_BG.jsx";
 
 window.$globalState = {
     audioOn: true,
     textAudioPlaying: false,
     ambiencePlaying:false,
-    autoScroll: false,
+    autoScroll: true,
     panelIndex: -1
 };
 
@@ -39,23 +41,17 @@ export default class Main extends React.Component {
                             <li>
                                 <Link to="/">Home</Link>
                             </li>
-                            <li>
-                                <Link to="/creative">Creative</Link>
-                            </li>
-                            <li>
-                                <Link to="/programmer">Programmer</Link>
-                            </li>
-                            <li>
-                                <Link to="/presentation">Presentation</Link>
-                            </li>
                         </ul>
                     </nav>
 
                     {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
                     <Switch>
-                        <Route path="/creative">
-                            <Creative/>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route path="/bg">
+                            <Episode_BG/>
                         </Route>
                         <Route path="/programmer">
                             <Programmer/>

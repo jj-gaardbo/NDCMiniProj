@@ -14,13 +14,15 @@ export default class AmbienceSound extends React.Component {
             loop: true,
             isPlaying: false,
             fadeInterval: null,
-            fade: false
+            fade: false,
+            loaded: false
         };
 
         this.play = this.play.bind(this);
         this.stop = this.stop.bind(this);
         this.pause = this.pause.bind(this);
         this.handleSongLoading = this.handleSongLoading.bind(this);
+        this.handleSongLoaded = this.handleSongLoaded.bind(this);
         this.handleSongPlaying = this.handleSongPlaying.bind(this);
         this.handleSongFinishedPlaying = this.handleSongFinishedPlaying.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
@@ -57,8 +59,6 @@ export default class AmbienceSound extends React.Component {
 
     stop(){
         let self = this;
-
-
         if(self.state.fade){
             let fadeInterval = setInterval(function(){
                 self.state.volume = self.state.volume-1;
@@ -79,7 +79,13 @@ export default class AmbienceSound extends React.Component {
         window.$globalState.ambiencePlaying = false;
     }
 
-    handleSongLoading(){}
+    handleSongLoading(){
+
+    }
+
+    handleSongLoaded(){
+        this.state.loaded = true;
+    }
 
     handleSongPlaying(){
         this.state.isPlaying = true;
@@ -100,7 +106,7 @@ export default class AmbienceSound extends React.Component {
                       playStatus={this.state.playStatus}
                       playFromPosition={this.state.position}
                       onLoading={this.handleSongLoading}
-                      onLoad={() => console.log('Loaded')}
+                      onLoad={this.handleSongLoaded}
                       onPlaying={this.handleSongPlaying}
                       onFinishedPlaying={this.handleSongFinishedPlaying}
                       onPause={() => console.log('Paused')}
