@@ -511,7 +511,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <BreakerBranch header={"Choose a direction"} routeoneTitle={'Creative'} routetwoTitle={'Programmer'} routeone={'/creative'} routetwo={'/programmer'}/>
+                <BreakerBranch header={"Choose a direction"} routeoneTitle={'Creativity'} routetwoTitle={'Software Development'} routeone={'/creative'} routetwo={'/programmer'}/>
 
             </main>
         )

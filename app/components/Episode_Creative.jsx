@@ -126,7 +126,7 @@ export default class Episode_Creative extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} title={"Creative"} />
+                <Title begin={this.begin} title={"Creativity"} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.so}

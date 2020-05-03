@@ -116,7 +116,7 @@ export default class Episode_Programmer extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} title={"Programmer"} />
+                <Title begin={this.begin} title={"Software Development"} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.bn}
