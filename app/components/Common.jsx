@@ -13,6 +13,10 @@ export function getLS(key){
         return false;
     }
 
+    else if(!isNaN(parseInt(ls))){
+        return parseInt(ls);
+    }
+
     else{
         return localStorage.getItem(key)
     }

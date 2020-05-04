@@ -57,8 +57,7 @@ export default class Episode_BG extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 10
-
+            backgroundMusicVolume: 20
         };
 
         this.handleLock = this.handleLock.bind(this);
@@ -130,7 +129,7 @@ export default class Episode_BG extends React.Component {
                 <Title begin={this.begin} title={"Once upon a time..."} />
 
                 {this.state.audioOn &&
-                <Sound    url={backgroundMusic.wj}
+                <Sound    url={backgroundMusic.bn}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
                           volume={this.state.backgroundMusicVolume}
@@ -394,76 +393,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
-                    {
-                        className: "col-lg-12 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index: 0,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundLocationKlinkbySkole,
-                        backgroundPos: {top:'0%', left:'0%'},
-                        backgroundSize: {width: '100%'},
-                        text: [{
-                            index: 0,
-                            pos: {top:'10%', left:'2%'},
-                            html: "<p>Klinkby primary school</p>",
-                            color: 'yellow'
-                        },
-                        {
-                            index: 1,
-                            pos: {top:'10%', right:'2%'},
-                            html: "<p>He spent the first years of his life in <br>Denmark in a small local school.</p>",
-                            sound: './assets/audio/frame_0_0.mp3'
-                        }]
-                    }
-                ]}/>
-
-                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} frames={[
-                    {
-                        className: "col-lg-7 window skew-4-left small-frame-center",
-                        audioOn: this.state.audioOn,
-                        index: 0,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundReading,
-                        backgroundPos: {bottom:'37%', left:'3%'},
-                        backgroundSize: {width: '100%'},
-                        text: [{
-                            index: 0,
-                            pos: {bottom:'10%', left:'2%'},
-                            html: "<p>He was a good student. And even though he was foreign <br> he picked up the danish language very quickly.</p>",
-                            sound: './assets/audio/frame_0_0.mp3'
-                        }]
-                    },{
-                        className: "col-lg-5 window skew-4-left",
-                        audioOn: this.state.audioOn,
-                        index: 1,
-                        handleLock: this.handleLock,
-                        backgroundSrc: backgroundTeacher,
-                        backgroundPos: {top:'-35%', left:'-2%'},
-                        backgroundSize: {width: '50%'},
-                        foregroundSrc: dust,
-                        foregroundPos: {top:'0%', left:'-20%'},
-                        foregroundSize: {width: '60%'},
-                        text: [
-                            {
-                                index: 0,
-                                pos: {top:'6%', right:'2%'},
-                                html: '<p>Upon retiring his teacher held a speech for his class.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
-                            },
-                            {
-                                index: 1,
-                                pos: {top:'60%', left:'40%'},
-                                html: '<p>He will probably become <br> a very capable song writer.</p>',
-                                type: 'speech-top-left',
-                                sound: './assets/audio/frame_0_0.mp3'
-                            }
-                        ]
-                    }
-                ]}/>
-
-
-                <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-6 window skew-2-right custom",
                         audioOn: this.state.audioOn,
@@ -478,6 +408,11 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {top:'10%', left:'2%'},
+                            html: "<p>Even though he was foreign <br> he picked up the danish language very quickly <br> and very soon he had made friends who came over to watch movies.</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        },{
+                            index: 1,
+                            pos: {bottom:'10%', left:'2%'},
                             html: "<p>He liked watching cartoons and loved to draw himself.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
                         }]
@@ -503,7 +438,89 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <BreakerBranch ref={this.getOrCreateRef('section-10')}  index={10} header={"Choose a direction"} routeoneTitle={'Creativity'} routetwoTitle={'Software Development'} routeone={'/creative'} routetwo={'/programmer'}/>
+                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
+                    {
+                        className: "col-lg-12 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: backgroundLocationKlinkbySkole,
+                        backgroundPos: {top:'0%', left:'0%'},
+                        backgroundSize: {width: '100%'},
+                        text: [{
+                            index: 0,
+                            pos: {top:'10%', left:'2%'},
+                            html: "<p>Klinkby primary school</p>",
+                            color: 'yellow'
+                        },
+                        {
+                            index: 1,
+                            pos: {top:'10%', right:'2%'},
+                            html: "<p>He spent the first years of his life in <br>Denmark in a small local school.</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        }]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                    {
+                        className: "col-lg-7 window skew-4-left small-frame-center",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: backgroundReading,
+                        backgroundPos: {bottom:'37%', left:'3%'},
+                        backgroundSize: {width: '100%'},
+                        text: [{
+                            index: 0,
+                            pos: {bottom:'10%', left:'2%'},
+                            html: "<p>He was a good student.</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        }]
+                    },{
+                        className: "col-lg-5 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: backgroundTeacher,
+                        backgroundPos: {top:'-35%', left:'-2%'},
+                        backgroundSize: {width: '50%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top:'0%', left:'-20%'},
+                        foregroundSize: {width: '60%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top:'6%', right:'2%'},
+                                html: '<p>Upon retiring his teacher held a speech for his class.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {top:'60%', left:'40%'},
+                                html: '<p>He will either become a very creative person who writes songs and draws...</p>',
+                                type: 'speech-top-left',
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
+                            {
+                                index: 2,
+                                pos: {top:'80%', left:'40%'},
+                                html: '<p>...or a successful computer programmer.</p>',
+                                type: 'speech-top-left',
+                                sound: './assets/audio/frame_0_0.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <BreakerBranch
+                    ref={this.getOrCreateRef('section-10')}
+                    index={10}
+                    header={"Choose a path"}
+                    routeoneTitle={'Creativity'}
+                    routetwoTitle={'Programming'}
+                    routeone={'/creative'}
+                    routetwo={'/programmer'}/>
 
             </main>
         )

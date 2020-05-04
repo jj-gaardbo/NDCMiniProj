@@ -9,6 +9,7 @@ import Episode_Creative from "./Episode_Creative.jsx";
 import Episode_Programmer from "./Episode_Programmer.jsx";
 import Home from "./Home.jsx";
 import Episode_BG from "./Episode_BG.jsx";
+import {setLS} from "./Common.jsx";
 
 export default class Main extends React.Component {
 
@@ -16,8 +17,19 @@ export default class Main extends React.Component {
         super(props);
 
         this.state = {
-
+            bgVolume: 10
         };
+
+        this.handleBGVolChange = this.handleBGVolChange.bind(this);
+    }
+
+    componentDidMount() {
+        setLS('backgroundVolume', this.state.bgVolume);
+    }
+
+    handleBGVolChange(event){
+        this.setState({bgVolume: event.target.value});
+        setLS('backgroundVolume', event.target.value);
     }
 
     render() {
@@ -35,8 +47,6 @@ export default class Main extends React.Component {
                         </ul>
                     </nav>
 
-                    {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
                     <Switch>
                         <Route exact path="/">
                             <Home />

@@ -42,7 +42,7 @@ export default class Episode_Programmer extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 10
+            backgroundMusicVolume: 30
 
         };
 
@@ -120,7 +120,7 @@ export default class Episode_Programmer extends React.Component {
                 <Title begin={this.begin} title={"Software Development"} />
 
                 {this.state.audioOn &&
-                <Sound    url={backgroundMusic.bn}
+                <Sound    url={backgroundMusic.so}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
                           volume={this.state.backgroundMusicVolume}
@@ -170,11 +170,13 @@ export default class Episode_Programmer extends React.Component {
                                 index: 0,
                                 pos: {top: '14%', left: '5%'},
                                 html: '<p>I was getting ready to go to work.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '12%', left: '5%'},
-                                html: '<p>I had just received a bonus for doing a good job. It was nice to be acknowledged once in a while.</p>'
+                                html: '<p>I had just received a bonus for doing a good job. It was nice to be acknowledged once in a while.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                         ]
                     }
@@ -193,7 +195,8 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>I was working at a small web agency called HTML24.</p>'
+                                html: '<p>I was working at a small web agency called HTML24.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
@@ -215,12 +218,14 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: "<p>Despite the constant deadlines and <br>ignorant clients, it was a great place to work...</p>"
+                                html: "<p>Despite the constant deadlines and <br>ignorant clients, it was a great place to work...</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '15%', right: '10%'},
-                                html: "<p>...and I very much enjoyed the<br>social interactions with the colleagues.</p>"
+                                html: "<p>...and I very much enjoyed the<br>social interactions with the colleagues.</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                         ]
                     },
@@ -244,12 +249,14 @@ export default class Episode_Programmer extends React.Component {
                                 pos: {bottom: '40%', left: '15%'},
                                 html: "<p>Hey! We're all going to<br> this rap concert tonight.<br> It's supposed to be great. <br>These two guys are pretty dope... <br> ...and funny.</p>",
                                 type: 'speech-bottom-left',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top: '40%', right: '5%'},
                                 html: "<p>That sounds good.<br>I'm not doing anything tonight.<br>Count me in!</p>",
                                 type: 'speech-top-left',
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }

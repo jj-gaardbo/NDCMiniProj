@@ -81,3 +81,15 @@
     }
   }
 }
+
+.breaker-branch{
+  h2{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    text-align: center;
+    color: $white;
+    font-size: 2em;
+  }
+}

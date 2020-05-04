@@ -52,7 +52,7 @@ export default class Episode_Creative extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 10
+            backgroundMusicVolume: 20
 
         };
 
@@ -130,7 +130,7 @@ export default class Episode_Creative extends React.Component {
                 <Title begin={this.begin} title={"Creativity"} />
 
                 {this.state.audioOn &&
-                <Sound    url={backgroundMusic.so}
+                <Sound    url={backgroundMusic.wj}
                           playStatus={this.state.ready ? Sound.status.PLAYING : Sound.status.PAUSED}
                           playFromPosition={0}
                           volume={this.state.backgroundMusicVolume}
@@ -163,11 +163,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
                                 html: '<p>Tonight was the night. I was getting ready <br>to go out to do a concert, that we’d been preparing for<br> for a couple of weeks. <br> It was the first time warming up for a big artist.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 2,
                                 pos: {bottom: '12%', left: '5%'},
-                                html: '<p>And the first time we got a taste of being professional <br>musicians even though we were still only getting payed with a free bar for the night.</p>'
+                                html: '<p>And the first time we got a taste of being professional <br>musicians even though we were still only getting payed with a free bar for the night.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                         ]
                     },
@@ -186,12 +188,14 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', right: '5%'},
-                                html: '<p>It was a lot of fun doing this, but I’d recently been considering getting a proper education</p>'
+                                html: '<p>It was a lot of fun doing this, but I’d recently been considering getting a proper education</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '15%', right: '5%'},
-                                html: '<p>Maybe I wouldn’t have to struggle to pay the bills, if I had an actual job.</p>'
+                                html: '<p>Maybe I wouldn’t have to struggle to pay the bills, if I had an actual job.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
@@ -213,7 +217,8 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>It was almost time to hit the road</p>'
+                                html: '<p>It was almost time to hit the road</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     },
@@ -229,7 +234,8 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {bottom: '15%', left: '5%'},
-                                html: '<p>My nerves were starting to fuck with my head. <br>My hands were shaking which made it difficult to tie my shoes.</p>'
+                                html: '<p>My nerves were starting to fuck with my head. <br>My hands were shaking which made it difficult to tie my shoes.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
@@ -245,7 +251,8 @@ export default class Episode_Creative extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'15%', right:'5%'},
-                            html: '<p>I was exited about how the crowd would receive our newest release.</p>'
+                            html: '<p>I was exited about how the crowd would receive our newest release.</p>',
+                            sound: './assets/audio/frame_0_0.mp3'
                         }],
                         children:(
                             <div className="interactive" style={{left: '80%',top: '10%'}}>
@@ -289,7 +296,8 @@ export default class Episode_Creative extends React.Component {
                         text:[{
                             index: 0,
                             pos: {top:'2%', left:'4%'},
-                            html: '<p>It was an amazing gig.</p>'
+                            html: '<p>It was an amazing gig.</p>',
+                            sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
                         className: "col-lg-6 window skew-4-left",
@@ -305,13 +313,15 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {top:'1%', right:'2%'},
-                                html: '<p>It was the first time warming up for <br> a bigger artist.</p>'
+                                html: '<p>It was the first time warming up for <br> a bigger artist.</p>',
+                                sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'15%'},
                                 html: '<p>Fuck you all!</p>',
-                                type: 'speech-top-right'
+                                type: 'speech-top-right',
+                                sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
                     }
