@@ -22,10 +22,8 @@ import foregroundTerminal from './assets/images/bg/terminal_fg2.png'
 import matrix from './assets/images/bg/the_matrix.png'
 import xraycat from './assets/images/bg/xraycat.png'
 
-import musicConcert1 from './assets/images/music/concert.jpg'
-import musicConcert2 from './assets/images/music/concert2.jpg'
-import patternHTC from './assets/images/patterns/halftoneCenter.png'
-import patternHTTR from './assets/images/patterns/halftoneTopRight.png'
+import pianoLessons from './assets/images/music/piano.png'
+import drumLessons from './assets/images/music/drums.png'
 
 import news from './assets/images/news/news.png'
 
@@ -377,7 +375,7 @@ export default class Episode_BG extends React.Component {
                         backgroundPos: {top:'0%', left:'0%'},
                         backgroundSize: {width: '97%'},
                         foregroundSrc: foregroundTerminal,
-                        foregroundPos: {top:'-10%', left:'0%'},
+                        foregroundPos: {top:'-5%', left:'0%'},
                         foregroundSize: {width: '90%'},
                         text: [{
                             index: 0,
@@ -438,7 +436,52 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
+                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                    {
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: pianoLessons,
+                        backgroundPos: {top:'7%', left:'0%'},
+                        backgroundSize: {width: '70%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top:'0%', left:'0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [{
+                            index: 0,
+                            pos: {top:'10%', left:'2%'},
+                            html: "<p>When he started to get interested in music...</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        },{
+                            index: 1,
+                            pos: {bottom:'15%', left:'4%'},
+                            html: "<p>He took piano lessons...</p>",
+                            sound: './assets/audio/frame_0_0.mp3'
+                        }]
+                    },{
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: drumLessons,
+                        backgroundPos: {top:'5%', left:'0%'},
+                        backgroundSize: {width: '69%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top:'0%', left:'-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {bottom:'15%', left:'2%'},
+                                html: "<p>...And later he started to take drum lessons.</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -449,7 +492,7 @@ export default class Episode_BG extends React.Component {
                         backgroundSize: {width: '100%'},
                         text: [{
                             index: 0,
-                            pos: {top:'10%', left:'2%'},
+                            pos: {top:'10%', left:'4%'},
                             html: "<p>Klinkby primary school</p>",
                             color: 'yellow'
                         },
@@ -462,7 +505,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-10')}  index={10} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-7 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
@@ -514,8 +557,8 @@ export default class Episode_BG extends React.Component {
                 ]}/>
 
                 <BreakerBranch
-                    ref={this.getOrCreateRef('section-10')}
-                    index={10}
+                    ref={this.getOrCreateRef('section-11')}
+                    index={11}
                     header={"Choose a path"}
                     routeoneTitle={'Creativity'}
                     routetwoTitle={'Programming'}
