@@ -2,6 +2,7 @@
 
 import React from 'react';
 import SpeakSound from "./SpeakSound.jsx";
+import {getLS, setLS} from "./Common.jsx";
 
 export default class TextFrame extends React.Component {
 
@@ -26,20 +27,19 @@ export default class TextFrame extends React.Component {
     }
 
     show(){
-        if(window.$globalState.textAudioPlaying){return;}
+        if(getLS('textAudioPlaying')){return;}
         this.setState({isVisible:true});
         if(this.props.sound && this.state.isPlaying === false){
             this.sound.current.play();
             this.state.isPlaying = true;
-            window.$globalState.textAudioPlaying = true;
+            setLS('textAudioPlaying', true);
         }
         return null;
     }
 
     handleSpeakFinished(index){
-        console.log("FINISHED", index);
         this.props.prepareNextSpeak(index);
-        window.$globalState.textAudioPlaying = false;
+        setLS('textAudioPlaying', false);
     }
 
     render() {

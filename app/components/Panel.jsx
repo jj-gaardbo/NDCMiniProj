@@ -3,6 +3,7 @@ import Continue from "./assets/images/continue.png";
 import $ from "jquery";
 import Frame from "./Frame.jsx";
 import AmbienceSound from "./AmbienceSound.jsx";
+import {getLS} from "./Common.jsx";
 
 export default class Panel extends React.Component {
 
@@ -136,7 +137,7 @@ export default class Panel extends React.Component {
     }
 
     showContinueButton(){
-        if(window.$globalState.autoScroll && this.state.lastFrame){
+        if(getLS('autoScroll') && this.state.lastFrame){
             this.stop();
             this.props.handleDone(this.props.index);
             return;
@@ -193,7 +194,7 @@ export default class Panel extends React.Component {
                     </Frame>
                 ))}
 
-                {this.props.audioOn && !window.$globalState.autoScroll &&
+                {this.props.audioOn && !getLS('autoScroll') &&
                     <div className={`continue ${this.state.hasFinished ? " display" : ""}`} onClick={this.goToNextSection}>
                         <img src={Continue} alt="Continue"/>
                     </div>

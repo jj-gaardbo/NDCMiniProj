@@ -35,6 +35,7 @@ import ModalElement from "./Modal.jsx";
 import Breaker from "./Breaker.jsx";
 import Panel from "./Panel.jsx";
 import BreakerBranch from "./BreakerBranch.jsx";
+import {setLS, getLS} from "./Common.jsx";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -51,7 +52,7 @@ export default class Episode_BG extends React.Component {
 
         this.state = {
             lockScroll: false,
-            audioOn: window.$globalState.audioOn,
+            audioOn: getLS('audioOn'),
             frameIndex: -1,
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
@@ -85,25 +86,20 @@ export default class Episode_BG extends React.Component {
 
     handleAudioOn(){
         this.setState({audioOn: !this.state.audioOn}, function(){
-            window.$globalState.audioOn = this.state.audioOn;
+            setLS('audioOn', this.state.audioOn);
         });
     }
 
     begin(setting){
-
         switch(setting){
             case 'sound':
-                window.$globalState.audioOn = true;
-                this.setState({ready:true, classNames: "App clearfix container-fluid no-scroll", audioOn:true});
+                this.setState({ready:true, classNames: "App clearfix container-fluid no-scroll", audioOn:true, lockScroll:false});
                 break;
             case 'no-sound':
-                window.$globalState.audioOn = false;
-                this.setState({ready:true, classNames: "App clearfix container-fluid no-sound", audioOn:false});
+                this.setState({ready:true, classNames: "App clearfix container-fluid no-sound", audioOn:false, lockScroll:false});
                 break;
             case 'auto':
-                window.$globalState.audioOn = true;
-                window.$globalState.autoScroll = true;
-                this.setState({ready:true, classNames: "App clearfix container-fluid auto-scroll no-scroll", audioOn:true,lockScroll:true});
+                this.setState({ready:true, classNames: "App clearfix container-fluid auto-scroll no-scroll", audioOn:true, lockScroll:true});
                 break;
         }
 
@@ -113,7 +109,7 @@ export default class Episode_BG extends React.Component {
     }
 
     next(index){
-        if(window.$globalState.autoScroll){
+        if(getLS('autoScroll')){
             let next = index+1;
             let selector = '[data-panel-index="'+next+'"]';
             if(typeof $(selector).offset() !== "undefined"){
@@ -217,7 +213,7 @@ export default class Episode_BG extends React.Component {
                             {
                                 index: 1,
                                 pos: {bottom:'15%', right:'5%'},
-                                html: '<p>A new member of global society is resting in <br>his home.</p>',
+                                html: '<p>His first home was a lovely little blue house.</p>',
                                 sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
@@ -289,9 +285,6 @@ export default class Episode_BG extends React.Component {
                         backgroundSrc: backgroundSwingBg,
                         backgroundPos: {top: '0%', left: '-20%'},
                         backgroundSize: {width: '10%'},
-                        middlegroundSrc: patternHTC,
-                        middlegroundPos: {top: '0%', left: '0%'},
-                        middlegroundSize: {width: '10%'},
                         foregroundSrc: backgroundSwingFg,
                         foregroundPos: {top: '0%', left: '-20%'},
                         foregroundSize: {width: '10%'},
@@ -303,7 +296,7 @@ export default class Episode_BG extends React.Component {
                         }, {
                             index: 1,
                             pos: {bottom: '10%', left: '2%'},
-                            html: '<p>His big brother spent a lot <br> of time playing with him.</p>',
+                            html: '<p>He also had a big brother <br> who was 3 years older.</p>',
                             sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
@@ -314,16 +307,13 @@ export default class Episode_BG extends React.Component {
                         backgroundSrc: backgroundMicrophone,
                         backgroundPos: {top:'0%', left:'-10%'},
                         backgroundSize: {width: '100%'},
-                        middlegroundSrc: patternHTTR,
-                        middlegroundPos: {top: '-50%', left: '0%'},
-                        middlegroundSize: {width: '70%'},
                         foregroundSrc: foregroundMicrophone,
                         foregroundPos: {top:'-10%', left:'-10%'},
                         foregroundSize: {width: '1%'},
                         text: [{
                             index: 0,
                             pos: {top:'5%', left:'5%'},
-                            html: "<p>He was very proud, when he started to be able to <br> pronounce his name almost correctly.</p>",
+                            html: "<p>He was very young, when he started <br> to pick up the microphone.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
                         }
                         ]
@@ -388,12 +378,12 @@ export default class Episode_BG extends React.Component {
                         backgroundPos: {top:'0%', left:'0%'},
                         backgroundSize: {width: '97%'},
                         foregroundSrc: foregroundTerminal,
-                        foregroundPos: {top:'0%', left:'0%'},
+                        foregroundPos: {top:'-10%', left:'0%'},
                         foregroundSize: {width: '90%'},
                         text: [{
                             index: 0,
                             pos: {top:'8%', left:'2%'},
-                            html: "<p>His father's new job as a teacher on a bording school <br> gave him the opportunity to meet <br>a lot of different people with different skills.</p>",
+                            html: "<p>His father's new job on bording school <br> gave him the opportunity to meet <br>a lot of different people with different skills.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
                         },{
                             index: 1,

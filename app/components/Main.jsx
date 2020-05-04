@@ -10,14 +10,6 @@ import Episode_Programmer from "./Episode_Programmer.jsx";
 import Home from "./Home.jsx";
 import Episode_BG from "./Episode_BG.jsx";
 
-window.$globalState = {
-    audioOn: true,
-    textAudioPlaying: false,
-    ambiencePlaying:false,
-    autoScroll: false,
-    panelIndex: -1
-};
-
 export default class Main extends React.Component {
 
     constructor(props) {

@@ -4,6 +4,7 @@ import $ from 'jquery';
 import butterfly2 from "./assets/images/blue2.gif";
 import butterfly from "./assets/images/green.gif";
 import butterfly3 from "./assets/images/orange2.gif";
+import {setLS} from "./Common.jsx";
 
 export default class Home extends React.Component {
 
@@ -17,25 +18,35 @@ export default class Home extends React.Component {
         this.handleSound = this.handleSound.bind(this);
         this.handleAutoScroll = this.handleAutoScroll.bind(this);
         this.handleNoSound = this.handleNoSound.bind(this);
+        this.clearLS = this.clearLS.bind(this);
     }
 
     redirectToStart(){
         this.setState({ redirect: "/background" });
     }
 
+    clearLS(){
+        setLS('audioOn', false);
+        setLS('autoScroll', false);
+        setLS('textAudioPlaying', false);
+        setLS('ambiencePlaying', false);
+    }
+
     handleSound(){
-        window.$globalState.audioOn = true;
+        this.clearLS();
+        setLS('audioOn', true);
         this.redirectToStart();
     }
 
     handleNoSound(){
-        window.$globalState.audioOn = false;
+        this.clearLS();
         this.redirectToStart();
     }
 
     handleAutoScroll(){
-        window.$globalState.audioOn = true;
-        window.$globalState.autoScroll = true;
+        this.clearLS();
+        setLS('audioOn', true);
+        setLS('autoScroll', true);
         this.redirectToStart();
     }
 

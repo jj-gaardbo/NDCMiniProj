@@ -1,6 +1,7 @@
 import React from 'react';
 import Continue from "./assets/images/continue.png";
 import $ from "jquery";
+import {getLS} from "./Common.jsx";
 
 export default class Breaker extends React.Component {
 
@@ -24,7 +25,7 @@ export default class Breaker extends React.Component {
     hold(){
         let self = this;
         setTimeout(function(){
-            if(!window.$globalState.autoScroll && window.$globalState.audioOn){
+            if(!getLS('autoScroll') && getLS('audioOn')){
                 self.showContinueButton();
             } else {
                 self.props.handleDone(self.props.index);

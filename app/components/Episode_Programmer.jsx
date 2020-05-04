@@ -20,6 +20,7 @@ import dust from './assets/images/dust2.png'
 import smoke from './assets/images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Panel from "./Panel.jsx";
+import {getLS, setLS} from "./Common.jsx";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -36,7 +37,7 @@ export default class Episode_Programmer extends React.Component {
 
         this.state = {
             lockScroll: false,
-            audioOn: window.$globalState.audioOn,
+            audioOn: getLS('audioOn'),
             frameIndex: -1,
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
@@ -70,7 +71,7 @@ export default class Episode_Programmer extends React.Component {
 
     handleAudioOn(){
         this.setState({audioOn: !this.state.audioOn}, function(){
-            window.$globalState.audioOn = this.state.audioOn;
+            setLS('audioOn', true);
         });
     }
 
@@ -78,16 +79,16 @@ export default class Episode_Programmer extends React.Component {
 
         switch(setting){
             case 'sound':
-                window.$globalState.audioOn = true;
+                setLS('audioOn', true);
                 this.setState({ready:true, classNames: "App clearfix container-fluid no-scroll", audioOn:true});
                 break;
             case 'no-sound':
-                window.$globalState.audioOn = false;
+                setLS('audioOn', false);
                 this.setState({ready:true, classNames: "App clearfix container-fluid no-sound", audioOn:false});
                 break;
             case 'auto':
-                window.$globalState.audioOn = true;
-                window.$globalState.autoScroll = true;
+                setLS('audioOn', true);
+                setLS('autoScroll', true);
                 this.setState({ready:true, classNames: "App clearfix container-fluid auto-scroll no-scroll", audioOn:true,lockScroll:true});
                 break;
         }
@@ -98,7 +99,7 @@ export default class Episode_Programmer extends React.Component {
     }
 
     next(index){
-        if(window.$globalState.autoScroll){
+        if(getLS('autoScroll')){
             let next = index+1;
             let selector = '[data-panel-index="'+next+'"]';
             if(typeof $(selector).offset() !== "undefined"){
@@ -167,17 +168,11 @@ export default class Episode_Programmer extends React.Component {
                         text: [
                             {
                                 index: 0,
-                                pos: {top: '5%', left: '5%'},
-                                html: '<p>Earlier that day</p>',
-                                color: 'yellow'
+                                pos: {top: '14%', left: '5%'},
+                                html: '<p>I was getting ready to go to work.</p>',
                             },
                             {
                                 index: 1,
-                                pos: {top: '14%', left: '5%'},
-                                html: '<p>Another day of work was beginning.</p>',
-                            },
-                            {
-                                index: 2,
                                 pos: {bottom: '12%', left: '5%'},
                                 html: '<p>I had just received a bonus for doing a good job. It was nice to be acknowledged once in a while.</p>'
                             },
@@ -219,9 +214,14 @@ export default class Episode_Programmer extends React.Component {
                         text: [
                             {
                                 index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: "<p>Despite the constant deadlines and <br>ignorant clients, it was a great place to work...</p>"
+                            },
+                            {
+                                index: 1,
                                 pos: {bottom: '15%', right: '10%'},
-                                html: "<p>The deadline was approaching so I needed to work pretty hard.</p>"
-                            }
+                                html: "<p>...and I very much enjoyed the<br>social interactions with the colleagues.</p>"
+                            },
                         ]
                     },
                     {
@@ -242,12 +242,12 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {bottom: '40%', left: '15%'},
-                                html: "<p>Hey! We're all going to<br> this rap concert tonight.<br> It's supposed to be great. <br>These two guys are pretty capable... <br> ...and funny.</p>",
+                                html: "<p>Hey! We're all going to<br> this rap concert tonight.<br> It's supposed to be great. <br>These two guys are pretty dope... <br> ...and funny.</p>",
                                 type: 'speech-bottom-left',
                             },
                             {
                                 index: 1,
-                                pos: {top: '30%', right: '5%'},
+                                pos: {top: '40%', right: '5%'},
                                 html: "<p>That sounds good.<br>I'm not doing anything tonight.<br>Count me in!</p>",
                                 type: 'speech-top-left',
                             }

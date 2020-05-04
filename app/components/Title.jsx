@@ -1,4 +1,5 @@
 import React from 'react';
+import {getLS} from "./Common.jsx";
 
 export default class Title extends React.Component {
 
@@ -48,12 +49,15 @@ export default class Title extends React.Component {
     }
 
     start(){
-        if (window.$globalState.audioOn && window.$globalState.autoScroll) {
+        if (getLS('audioOn') && getLS('autoScroll')) {
             this.handleAutoScroll();
         }
-        else if(window.$globalState.audioOn){
+
+        else if(getLS('audioOn')){
             this.handleSound();
-        } else {
+        }
+
+        else {
             this.handleNoSound();
         }
     }

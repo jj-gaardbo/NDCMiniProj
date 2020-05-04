@@ -15,6 +15,7 @@ import dust from './assets/images/presentation/dust2.png'
 import smoke from './assets/images/presentation/smoke.png'
 import maxPayne from './assets/images/presentation/maxPayne.png'
 import musicConcert1 from './assets/images/music/concert.jpg'
+import {getLS, setLS} from "./Common.jsx";
 
 export default class Presentation extends React.Component {
 
@@ -23,7 +24,7 @@ export default class Presentation extends React.Component {
 
         this.state = {
             lockScroll: false,
-            audioOn: window.$globalState.audioOn,
+            audioOn: getLS('audioOn'),
             frameIndex: -1,
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
@@ -61,12 +62,12 @@ export default class Presentation extends React.Component {
 
     handleAudioOn(){
         this.setState({audioOn: !this.state.audioOn}, function(){
-            window.$globalState.audioOn = this.state.audioOn;
+            setLS('audioOn', this.state.audioOn);
         });
     }
 
     begin(setting){
-        window.$globalState.audioOn = false;
+        setLS('audioOn', false);
         this.setState({ready:true, classNames: "App clearfix container-fluid no-sound", audioOn:false});
 
         $('.App').animate({
@@ -75,7 +76,7 @@ export default class Presentation extends React.Component {
     }
 
     next(index){
-        if(window.$globalState.autoScroll){
+        if(getLS('autoScroll')){
             let next = index+1;
             let selector = '[data-panel-index="'+next+'"]';
             if(typeof $(selector).offset() !== "undefined"){

@@ -5,6 +5,7 @@ import VizSensor from 'react-visibility-sensor';
 import $ from 'jquery';
 import TextFrame from "./Text.jsx";
 import VideoElement from "./video.jsx";
+import {getLS} from "./Common.jsx";
 
 export default class Frame extends React.Component {
 
@@ -109,7 +110,7 @@ export default class Frame extends React.Component {
     }
 
     play(){
-        if(window.$globalState.textAudioPlaying){return;}
+        if(getLS('textAudioPlaying')){return;}
         this.state.playing = true;
         if(this.props.text && this.props.text.length > 0){
             this.setState({text:this.props.text,playingIndex:0});
@@ -143,7 +144,6 @@ export default class Frame extends React.Component {
         let self = this;
         let next = index+1;
 
-        console.log("NEXT",next, "DONE");
         if(this.textCount() === next){
             this.state.done = true;
             this.stop();

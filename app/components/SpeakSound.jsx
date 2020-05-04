@@ -1,6 +1,7 @@
 import React from 'react';
 import Sound from 'react-sound';
 import $ from 'jquery';
+import {getLS, setLS} from "./Common.jsx";
 
 export default class SpeakSound extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ export default class SpeakSound extends React.Component {
     }
 
     handleMute(){
-        if(!window.$globalState.audioOn){
+        if(!getLS('audioOn')){
             let self = this;
             self.setState({volume:0});
             self.stop();
@@ -44,11 +45,11 @@ export default class SpeakSound extends React.Component {
 
     handleScroll(){
         this.stop();
-        window.$globalState.textAudioPlaying = false;
+        setLS('textAudioPlaying', false);
     }
 
     play(){
-        if(window.$globalState.textAudioPlaying){return;}
+        if(getLS('textAudioPlaying')){return;}
 
         if(this.state.playStatus === Sound.status.PLAYING){return;}
 
@@ -75,7 +76,7 @@ export default class SpeakSound extends React.Component {
     }
 
     render() {
-        if(!window.$globalState.audioOn){
+        if(!getLS('audioOn')){
             this.state.volume = 0;
         }
 

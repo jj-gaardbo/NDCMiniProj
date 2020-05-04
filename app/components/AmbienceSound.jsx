@@ -1,6 +1,7 @@
 import React from 'react';
 import Sound from 'react-sound';
 import $ from 'jquery';
+import {getLS, setLS} from "./Common.jsx";
 
 export default class AmbienceSound extends React.Component {
     constructor(props) {
@@ -39,7 +40,7 @@ export default class AmbienceSound extends React.Component {
     }
 
     handleMute(){
-        if(!window.$globalState.audioOn){
+        if(!getLS('audioOn')){
             let self = this;
             self.setState({volume:0});
             self.stop();
@@ -48,13 +49,13 @@ export default class AmbienceSound extends React.Component {
 
     handleScroll(){
         this.stop();
-        window.$globalState.textAudioPlaying = false;
+        setLS('textAudioPlaying', false);
     }
 
     play(){
         if(this.state.isPlaying){return;}
         this.setState({playStatus:Sound.status.PLAYING, volume:this.props.volume});
-        window.$globalState.ambiencePlaying = true;
+        setLS('ambiencePlaying', true);
     }
 
     stop(){
@@ -64,19 +65,19 @@ export default class AmbienceSound extends React.Component {
                 self.state.volume = self.state.volume-1;
                 if(parseInt(self.state.volume) <= 0){
                     self.setState({playStatus:Sound.status.STOPPED});
-                    window.$globalState.ambiencePlaying = false;
+                    setLS('ambiencePlaying', false);
                     clearInterval(fadeInterval);
                 }
             }, 150);
         } else {
             self.setState({playStatus:Sound.status.STOPPED});
-            window.$globalState.ambiencePlaying = false;
+            setLS('ambiencePlaying', false);
         }
     }
 
     pause(){
         this.setState({playStatus:Sound.status.PAUSED});
-        window.$globalState.ambiencePlaying = false;
+        setLS('ambiencePlaying', false);
     }
 
     handleSongLoading(){
@@ -96,7 +97,7 @@ export default class AmbienceSound extends React.Component {
     }
 
     render() {
-        if(!window.$globalState.audioOn){
+        if(!getLS('audioOn')){
             this.state.volume = 0;
         }
 

@@ -30,6 +30,7 @@ import prepareFG from "./assets/images/bg/prepareForeground.png";
 import prepare2BG from "./assets/images/bg/prepare2Background.png";
 import prepare2FG from "./assets/images/bg/prepare2Foreground.png";
 import prepare3FG from "./assets/images/bg/prepare3Foreground.png";
+import {getLS, setLS} from "./Common.jsx";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -46,7 +47,7 @@ export default class Episode_Creative extends React.Component {
 
         this.state = {
             lockScroll: false,
-            audioOn: window.$globalState.audioOn,
+            audioOn: getLS('audioOn'),
             frameIndex: -1,
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
@@ -80,7 +81,7 @@ export default class Episode_Creative extends React.Component {
 
     handleAudioOn(){
         this.setState({audioOn: !this.state.audioOn}, function(){
-            window.$globalState.audioOn = this.state.audioOn;
+            setLS('audioOn', this.state.audioOn);
         });
     }
 
@@ -88,16 +89,16 @@ export default class Episode_Creative extends React.Component {
 
         switch(setting){
             case 'sound':
-                window.$globalState.audioOn = true;
+                setLS('audioOn', true);
                 this.setState({ready:true, classNames: "App clearfix container-fluid no-scroll", audioOn:true});
                 break;
             case 'no-sound':
-                window.$globalState.audioOn = false;
+                setLS('audioOn', false);
                 this.setState({ready:true, classNames: "App clearfix container-fluid no-sound", audioOn:false});
                 break;
             case 'auto':
-                window.$globalState.audioOn = true;
-                window.$globalState.autoScroll = true;
+                setLS('audioOn', true);
+                setLS('autoScroll', true);
                 this.setState({ready:true, classNames: "App clearfix container-fluid auto-scroll no-scroll", audioOn:true,lockScroll:true});
                 break;
         }
@@ -108,7 +109,7 @@ export default class Episode_Creative extends React.Component {
     }
 
     next(index){
-        if(window.$globalState.autoScroll){
+        if(getLS('autoScroll')){
             let next = index+1;
             let selector = '[data-panel-index="'+next+'"]';
             if(typeof $(selector).offset() !== "undefined"){
@@ -277,7 +278,7 @@ export default class Episode_Creative extends React.Component {
                     {
                         className: "col-lg-6 window skew-4-left",
                         audioOn: this.state.audioOn,
-                        index: 9,
+                        index: 0,
                         handleLock: this.handleLock,
                         backgroundSrc: musicConcert1,
                         backgroundPos: {top:'-10%', left:'-20%'},
@@ -288,12 +289,11 @@ export default class Episode_Creative extends React.Component {
                         text:[{
                             index: 0,
                             pos: {top:'2%', left:'4%'},
-                            html: '<p>It was an amazing gig.</p>',
-                            sound: './assets/audio/frame_9_0.mp3'
+                            html: '<p>It was an amazing gig.</p>'
                         }]
                     },{
                         className: "col-lg-6 window skew-4-left",
-                        index: 10,
+                        index: 1,
                         handleLock: this.handleLock,
                         backgroundSrc: musicConcert2,
                         backgroundPos: {top:'-10%', left:'-30%'},
@@ -305,15 +305,13 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {top:'1%', right:'2%'},
-                                html: '<p>It was the first time warming up for <br> a bigger artist.</p>',
-                                sound: './assets/audio/frame_10_0.mp3'
+                                html: '<p>It was the first time warming up for <br> a bigger artist.</p>'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'15%'},
                                 html: '<p>Fuck you all!</p>',
-                                type: 'speech-top-right',
-                                sound: './assets/audio/frame_10_1.mp3'
+                                type: 'speech-top-right'
                             }
                         ]
                     }
