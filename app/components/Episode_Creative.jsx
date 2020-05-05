@@ -18,9 +18,14 @@ import prepare2BG from "./assets/images/bg/prepare2Background.png";
 import prepare2FG from "./assets/images/bg/prepare2Foreground.png";
 import prepare3FG from "./assets/images/bg/prepare3Foreground.png";
 import locationRebaek from "./assets/images/music/rebaek1.png"
+import locationRebaek2 from "./assets/images/music/rebaek2.png"
 
 import comingHome from "./assets/images/music/comingHome.png"
 import sleeping from "./assets/images/music/goingToSleep.png"
+
+import firstMeetingBG from "./assets/images/music/firstMeeting_bg.png"
+import firstMeetingMG from "./assets/images/music/firstMeeting_mg.png"
+import firstMeetingFG from "./assets/images/music/firstMeeting_fg.png"
 
 
 import {getLS, setLS} from "./Common.jsx";
@@ -45,7 +50,7 @@ export default class Episode_Creative extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 20
+            backgroundMusicVolume: 15
 
         };
 
@@ -133,26 +138,26 @@ export default class Episode_Creative extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
                         index: 0,
                         handleLock: this.handleLock,
                         backgroundSrc: locationRebaek,
-                        backgroundPos: {top: '-40%', left: '0%'},
+                        backgroundPos: {top: '-20%', left: '0%'},
                         backgroundSize: {width: '86%'},
                         text: [
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>May 2015</p>',
+                                html: '<p>May 30th 2015 <br> Hvidovre</p>',
                                 color: 'yellow'
                             },
                             {
                                 index: 1,
-                                pos: {top: '14%', left: '5%'},
-                                html: '<p>Tonight was the night. I was getting ready <br>to go out to do a concert, that we’d been preparing for<br> for a couple of weeks. <br> It was the first time warming up for a big artist.</p>',
+                                pos: {top: '17%', left: '5%'},
+                                html: '<p>Tonight was the night. I was getting ready to go out to do a concert,<br> that we’d been preparing for for a couple of weeks. <br> It was the first time warming up for a bigger artist.</p>',
                                 sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
@@ -176,12 +181,12 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '14%', left: '5%'},
                                 html: "<p>I wasn't sure if anybody would show up to see us.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/frame_0_1.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '12%', left: '5%'},
-                                html: '<p>It was the first time we got a taste<br> of being professional musicians<br> even though we were still only<br> getting paid with a free bar for the night.</p>',
+                                html: '<p>Tonight we really were getting a taste<br> of being professional musicians,<br> even though we were still only<br> getting paid with a free bar for the night.</p>',
                                 sound: './assets/audio/frame_0_0.mp3'
                             },
                         ]
@@ -201,14 +206,14 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', right: '5%'},
-                                html: '<p>It was definitely not a job that paid the bills,<br> and I’d recently been considering getting a proper education.</p>',
+                                html: '<p>It was definitely not a job that paid<br> the bills, and I’d recently been considering<br> getting a proper education.</p>',
                                 sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '15%', right: '5%'},
                                 html: '<p>Maybe I wouldn’t have to struggle so much, if I had an actual job.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/frame_0_1.mp3'
                             }
                         ]
                     }
@@ -230,8 +235,14 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>It was almost time to hit the road.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                html: '<p>The thoughts were rushing through my head.<br> Was everything ready?</p>',
+                                sound: './assets/audio/frame_0_1.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {bottom: '5%', left: '5%'},
+                                html: "<p>We'd put a band together, of very good<br> musicians, to support our backing track.</p>",
+                                sound: './assets/audio/frame_0_1.mp3'
                             }
                         ]
                     },
@@ -264,7 +275,7 @@ export default class Episode_Creative extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'15%', right:'5%'},
-                            html: '<p>I was exited about how the crowd would receive our newest release.</p>',
+                            html: "<p>I was exited about how the crowd would receive our newest release. <br> We'd spent the last couple of week creating a very funny music video for it.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
                         }],
                         children:(
@@ -294,7 +305,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-4')} index={4} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-4')} index={4} handleDone={this.next} audioOn={this.state.audioOn}  ambiance={'./assets/audio/ambiance/concert.mp3'} ambianceVolume={20} frames={[
                     {
                         className: "col-lg-6 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -309,7 +320,7 @@ export default class Episode_Creative extends React.Component {
                         text:[{
                             index: 0,
                             pos: {top:'5%', left:'4%'},
-                            html: '<p>It was an amazing gig and people were actually<br> requesting some of our other songs during the concert.</p>',
+                            html: '<p>It was an amazing gig. And I spotted some old<br> friends in the crowd from way back, when I<br> studied music at Lemvig Gymnasium and DRH.</p>',
                             sound: './assets/audio/frame_0_0.mp3'
                         }]
                     },{
@@ -334,13 +345,48 @@ export default class Episode_Creative extends React.Component {
                                 pos: {top:'60%', left:'10%'},
                                 html: '<p>How are you all doing tonight?!</p>',
                                 type: 'speech-top-right',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/frame_0_1.mp3'
                             }
                         ]
                     }
                 ]}/>
 
                 <Panel ref={this.getOrCreateRef('section-5')} index={5} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                    {
+                        className: "col-lg-12 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: firstMeetingBG,
+                        backgroundPos: {top:'0%', left:'0%'},
+                        backgroundSize: {width: '100%'},
+                        middlegroundSrc: firstMeetingMG,
+                        middlegroundPos: {top:'0%', left:'0%'},
+                        middlegroundSize: {width: '100%'},
+                        foregroundSrc: firstMeetingFG,
+                        foregroundPos: {top:'0%', left:'4%'},
+                        foregroundSize: {width: '84%'},
+                        text:[{
+                            index: 0,
+                            pos: {top: '9%', left: '3%'},
+                            html: '<p>On my way home I thought I saw something strange.</p>'
+                        },
+                        {
+                            index: 1,
+                            pos: {bottom:'10%', left:'4%'},
+                            html: '<p>There was something oddly familiar<br> about this guy I crossed on the street.</p>',
+                            sound: './assets/audio/frame_0_1.mp3'
+                        },
+                        {
+                            index: 2,
+                            pos: {bottom:'10%', right:'4%'},
+                            html: "<p>I didn't think too much of it<br> and I got on the train home.</p>",
+                            sound: './assets/audio/frame_0_1.mp3'
+                        }]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-6')} index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-4 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -362,7 +408,7 @@ export default class Episode_Creative extends React.Component {
                             index: 1,
                             pos: {bottom:'10%', left:'4%'},
                             html: '<p>When I came home I was completely beat.</p>',
-                            sound: './assets/audio/frame_0_0.mp3'
+                            sound: './assets/audio/frame_0_1.mp3'
                         }]
                     },{
                         className: "col-lg-8 window skew-2-right",
@@ -385,13 +431,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 1,
                                 pos: {bottom:'10%', left:'15%'},
                                 html: '<p>...about random object in my apartment coming to life...</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/frame_0_1.mp3'
                             }
                         ]
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -401,9 +447,39 @@ export default class Episode_Creative extends React.Component {
                         text: [{
                             index: 0,
                             pos: {top:'5%', right:'8%'},
-                            html: '<p>These dreams were probably a<br>sign of the stress I was experiencing.</p>',
+                            html: "<p>I wasn't much of a believer in the meaning of dreams<br> but I had experienced a lot of these lately.</p>",
                             sound: './assets/audio/frame_0_0.mp3'
+                        },
+                        {
+                            index: 1,
+                            pos: {bottom:'15%', left:'8%'},
+                            html: "<p>It might have been the unemployment stress,<br>which was hopefully going to end tomorrow,<br> as I was going to a meeting at the unemployment office.</p>",
+                            sound: './assets/audio/frame_0_1.mp3'
                         }]
+                    }
+                ]}/>
+
+                <Breaker ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} >
+                    <h1>The next day</h1>
+                </Breaker>
+
+                <Panel ref={this.getOrCreateRef('section-9')} index={9} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-12 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: locationRebaek2,
+                        backgroundPos: {top: '-20%', left: '0%'},
+                        backgroundSize: {width: '86%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: '<p>I woke up with a massive hangover,<br> but I knew I needed to go to the unemployment office today</p>',
+                                sound: './assets/audio/frame_0_1.mp3'
+                            }
+                        ]
                     }
                 ]}/>
 

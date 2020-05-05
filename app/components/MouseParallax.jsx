@@ -18,6 +18,7 @@ export default function MouseParallax(imageProps) {
     if(imageProps.backgroundSrc){
         styleBg = {
             left: imageProps.backgroundPos.left,
+            right: imageProps.backgroundPos.right,
             top:imageProps.backgroundPos.top,
             width: imageProps.backgroundSize.width,
             height: 'auto'
@@ -27,6 +28,7 @@ export default function MouseParallax(imageProps) {
     if(imageProps.middlegroundSrc) {
         styleMg = {
             left: imageProps.middlegroundPos.left,
+            right: imageProps.middlegroundPos.right,
             top: imageProps.middlegroundPos.top,
             width: imageProps.middlegroundSize.width,
             height: 'auto'
@@ -36,6 +38,7 @@ export default function MouseParallax(imageProps) {
     if(imageProps.foregroundSrc){
         styleFg = {
             left: imageProps.foregroundPos.left,
+            right: imageProps.foregroundPos.right,
             top:imageProps.foregroundPos.top,
             width: imageProps.foregroundSize.width,
             height: 'auto'

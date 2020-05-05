@@ -14,7 +14,9 @@ import workConvoBg from './assets/images/working/workConversation_bg.png'
 import workConvoMg from './assets/images/working/workConversation_mg.png'
 import workConvoFg from './assets/images/working/workConversation_fg.png'
 
-
+import firstMeetingBG from "./assets/images/programmer/firstMeeting_bg_rev.png"
+import firstMeetingMG from "./assets/images/programmer/firstMeeting_mg_rev.png"
+import firstMeetingFG from "./assets/images/programmer/firstMeeting_fg_rev.png"
 
 import dust from './assets/images/dust2.png'
 import smoke from './assets/images/smoke.png'
@@ -138,7 +140,7 @@ export default class Episode_Programmer extends React.Component {
                         handleLock: this.handleLock,
                         backgroundSrc: home,
                         backgroundPos: {top: '0%', left: '0%'},
-                        backgroundSize: {width: '60%'},
+                        backgroundSize: {width: '85%'},
                         foregroundSrc: dust,
                         foregroundPos: {top: '-4%', right: '-5%'},
                         foregroundSize: {width: '100%'},
@@ -146,7 +148,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>May 30 2015 <br> Østerbro, Copenhagen</p>',
+                                html: '<p>May 30th 2015 <br> Østerbro, Copenhagen</p>',
                                 color: 'yellow'
                             }
                         ]
@@ -163,19 +165,19 @@ export default class Episode_Programmer extends React.Component {
                         backgroundPos: {top: '0%', left: '0%'},
                         backgroundSize: {width: '60%'},
                         foregroundSrc: readyWorkFG,
-                        foregroundPos: {top: '-14%', right: '-15%'},
+                        foregroundPos: {top: '-14%', right: '15%'},
                         foregroundSize: {width: '87%'},
                         text: [
                             {
                                 index: 0,
                                 pos: {top: '14%', left: '5%'},
-                                html: '<p>I was getting ready to go to work.</p>',
+                                html: '<p>I was getting ready to go to work on an ordinary day.</p>',
                                 sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '12%', left: '5%'},
-                                html: '<p>I had just received a bonus for doing a good job. It was nice to be acknowledged once in a while.</p>',
+                                html: "<p>I was rethinking the tie. Usually I did not wear a tie...<br>and since I didn't have any client meetings today<br> I decided to skip it.</p>",
                                 sound: './assets/audio/frame_0_0.mp3'
                             },
                         ]
@@ -195,7 +197,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: '<p>I was working at a small web agency called HTML24.</p>',
+                                html: "<p>I'd been working at a small web agency<br> called HTML24 for about a year now.</p>",
                                 sound: './assets/audio/frame_0_0.mp3'
                             }
                         ]
@@ -247,17 +249,56 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {bottom: '40%', left: '15%'},
-                                html: "<p>Hey! We're all going to<br> this rap concert tonight.<br> It's supposed to be great. <br>These two guys are pretty dope... <br> ...and funny.</p>",
+                                html: "<p>Hey! We're all going to<br> this rap concert tonight.<br> It's supposed to be great. <br>These two guys are pretty dope... <br> ...and funny too.</p>",
                                 type: 'speech-bottom-left',
                                 sound: './assets/audio/frame_0_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top: '40%', right: '5%'},
-                                html: "<p>That sounds good.<br>I'm not doing anything tonight.<br>Count me in!</p>",
+                                html: "<p>Sounds good!<br>I'm not doing anything tonight.<br>Count me in!</p>",
                                 type: 'speech-top-left',
                                 sound: './assets/audio/frame_0_0.mp3'
                             }
+                        ]
+                    }
+                ]}/>
+
+
+                <Panel ref={this.getOrCreateRef('section-4')} index={4} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-12 window skew-2-right",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: firstMeetingBG,
+                        backgroundPos: {top: '-20%', left: '0%'},
+                        backgroundSize: {width: '90%'},
+                        middlegroundSrc: firstMeetingMG,
+                        middlegroundPos: {top: '-10%', left: '0%'},
+                        middlegroundSize: {width: '100%'},
+                        foregroundSrc: firstMeetingFG,
+                        foregroundPos: {top: '-10%', left: '20%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: "<p>As I was walking home from the concert,<br>I saw one of the guys who had performed.</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {top: '14%', left: '5%'},
+                                html: "<p>I tried to greet him as I passed him, but he didn't respond.</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
+                            {
+                                index: 2,
+                                pos: {bottom: '15%', right: '10%'},
+                                html: "<p>There was something oddly familiar about his appearance.</p>",
+                                sound: './assets/audio/frame_0_0.mp3'
+                            },
                         ]
                     }
                 ]}/>
