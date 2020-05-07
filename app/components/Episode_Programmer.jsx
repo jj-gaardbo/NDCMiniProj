@@ -14,6 +14,8 @@ import workConvoBg from './assets/images/working/workConversation_bg.png'
 import workConvoMg from './assets/images/working/workConversation_mg.png'
 import workConvoFg from './assets/images/working/workConversation_fg.png'
 
+import strangeEmail from "./assets/images/programmer/strangeEmail.png"
+
 import firstMeetingBG from "./assets/images/programmer/firstMeeting_bg_rev.png"
 import firstMeetingMG from "./assets/images/programmer/firstMeeting_mg_rev.png"
 import firstMeetingFG from "./assets/images/programmer/firstMeeting_fg_rev.png"
@@ -171,14 +173,14 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '14%', left: '5%'},
-                                html: '<p>I was getting ready to go to work on an ordinary day.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                html: '<p>It was an ordinary day and I was getting ready to go to work.</p>',
+                                sound: './assets/audio/speak/programmer/frame_pr_0.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '12%', left: '5%'},
                                 html: "<p>I was rethinking the tie. Usually I did not wear a tie...<br>and since I didn't have any client meetings today<br> I decided to skip it.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_1.mp3'
                             },
                         ]
                     }
@@ -198,7 +200,7 @@ export default class Episode_Programmer extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: "<p>I'd been working at a small web agency<br> called HTML24 for about a year now.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_2.mp3'
                             }
                         ]
                     }
@@ -221,13 +223,13 @@ export default class Episode_Programmer extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: "<p>Despite the constant deadlines and <br>ignorant clients, it was a great place to work...</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_3.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '15%', right: '10%'},
                                 html: "<p>...and I very much enjoyed the<br>social interactions with the colleagues.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_4.mp3'
                             },
                         ]
                     },
@@ -251,21 +253,52 @@ export default class Episode_Programmer extends React.Component {
                                 pos: {bottom: '40%', left: '15%'},
                                 html: "<p>Hey! We're all going to<br> this rap concert tonight.<br> It's supposed to be great. <br>These two guys are pretty dope... <br> ...and funny too.</p>",
                                 type: 'speech-bottom-left',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_5.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top: '40%', right: '5%'},
                                 html: "<p>Sounds good!<br>I'm not doing anything tonight.<br>Count me in!</p>",
                                 type: 'speech-top-left',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_6.mp3'
                             }
                         ]
                     }
                 ]}/>
 
-
                 <Panel ref={this.getOrCreateRef('section-4')} index={4} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-12 window skew-2-right",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: strangeEmail,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '83%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: "<p>Suddenly I received a strange email from <br>something called National Military Operations.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_7.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {top: '10%', right: '5%'},
+                                html: "<p>They apparently wanted to meet<br> me to discuss a serious matter.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_8.mp3'
+                            },
+                            {
+                                index: 2,
+                                pos: {bottom: '8%', left: '5%'},
+                                html: "<p>I couldn't believe what I was reading,<br> so I marked it as spam, and got on with my day.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_9.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-5')} index={5} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -285,19 +318,19 @@ export default class Episode_Programmer extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: "<p>As I was walking home from the concert,<br>I saw one of the guys who had performed.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_10.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
                                 html: "<p>I tried to greet him as I passed him, but he didn't respond.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_11.mp3'
                             },
                             {
                                 index: 2,
                                 pos: {bottom: '15%', right: '10%'},
                                 html: "<p>There was something oddly familiar about his appearance.</p>",
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_12.mp3'
                             },
                         ]
                     }

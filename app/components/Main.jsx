@@ -44,6 +44,12 @@ export default class Main extends React.Component {
                             <li>
                                 <Link to="/">Home</Link>
                             </li>
+                            <li>
+                                <Link to="/creative">Creativity</Link>
+                            </li>
+                            <li>
+                                <Link to="/programmer">Programmer</Link>
+                            </li>
                         </ul>
                     </nav>
 

@@ -158,7 +158,7 @@ export default class Episode_Creative extends React.Component {
                                 index: 1,
                                 pos: {top: '17%', left: '5%'},
                                 html: '<p>Tonight was the night. I was getting ready to go out to do a concert,<br> that we’d been preparing for for a couple of weeks. <br> It was the first time warming up for a bigger artist.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_0.mp3'
                             }
                         ]
                     }
@@ -181,13 +181,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '14%', left: '5%'},
                                 html: "<p>I wasn't sure if anybody would show up to see us.</p>",
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_1.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '12%', left: '5%'},
                                 html: '<p>Tonight we really were getting a taste<br> of being professional musicians,<br> even though we were still only<br> getting paid with a free bar for the night.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_2.mp3'
                             },
                         ]
                     },
@@ -207,13 +207,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', right: '5%'},
                                 html: '<p>It was definitely not a job that paid<br> the bills, and I’d recently been considering<br> getting a proper education.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_3.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '15%', right: '5%'},
                                 html: '<p>Maybe I wouldn’t have to struggle so much, if I had an actual job.</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_4.mp3'
                             }
                         ]
                     }
@@ -236,14 +236,21 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: '<p>The thoughts were rushing through my head.<br> Was everything ready?</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_5.mp3'
                             },
                             {
                                 index: 1,
+                                pos: {top: '18%', left: '5%'},
+                                html: "<p>We'd put a band together, of very good<br> musicians, to support the beats<br> that I had produced.</p>",
+                                sound: './assets/audio/speak/creative/frame_cr_6.mp3'
+                            },
+                            {
+                                index: 2,
                                 pos: {bottom: '5%', left: '5%'},
-                                html: "<p>We'd put a band together, of very good<br> musicians, to support our backing track.</p>",
-                                sound: './assets/audio/frame_0_1.mp3'
+                                html: "<p>I imagined how those beats could be<br> played in the background right now, if somebody was<br>watching me brush my teeth through whatever medium.</p>",
+                                sound: './assets/audio/speak/creative/frame_cr_6m.mp3'
                             }
+
                         ]
                     },
                     {
@@ -259,7 +266,7 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {bottom: '15%', left: '5%'},
                                 html: '<p>My nerves were starting to fuck with my head. <br>My hands were shaking, and it made it difficult to tie my shoes.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_7.mp3'
                             }
                         ]
                     }
@@ -274,9 +281,14 @@ export default class Episode_Creative extends React.Component {
                         videoURL: require('./assets/video/flensCartoon.mp4'),
                         text: [{
                             index: 0,
-                            pos: {bottom:'15%', right:'5%'},
-                            html: "<p>I was exited about how the crowd would receive our newest release. <br> We'd spent the last couple of week creating a very funny music video for it.</p>",
-                            sound: './assets/audio/frame_0_0.mp3'
+                            pos: {bottom:'30%', left:'5%'},
+                            html: "<p>I was exited about how the crowd<br> was gonna react to our latest release. <br> We'd spent the last couple of weeks<br> creating a very funny music video for it.</p>",
+                            sound: './assets/audio/speak/creative/frame_cr_8.mp3'
+                        },{
+                            index: 1,
+                            pos: {bottom:'12%', right:'5%'},
+                            html: "<p>It was a mixture of live action video, 2D and 3D animation,<br> and our goal was to make it look and feel like<br> it was a comic book.</p>",
+                            sound: './assets/audio/speak/creative/frame_cr_8m.mp3'
                         }],
                         children:(
                             <div className="interactive" style={{left: '80%',top: '10%'}}>
@@ -321,7 +333,7 @@ export default class Episode_Creative extends React.Component {
                             index: 0,
                             pos: {top:'5%', left:'4%'},
                             html: '<p>It was an amazing gig. And I spotted some old<br> friends in the crowd from way back, when I<br> studied music at Lemvig Gymnasium and DRH.</p>',
-                            sound: './assets/audio/frame_0_0.mp3'
+                            sound: './assets/audio/speak/creative/frame_cr_9.mp3'
                         }]
                     },{
                         className: "col-lg-6 window skew-4-left",
@@ -338,14 +350,14 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top:'5%', right:'2%'},
                                 html: '<p>I knew that we would be celebrating late into the night after this.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_10.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'10%'},
                                 html: '<p>How are you all doing tonight?!</p>',
                                 type: 'speech-top-right',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_11.mp3'
                             }
                         ]
                     }
@@ -369,19 +381,20 @@ export default class Episode_Creative extends React.Component {
                         text:[{
                             index: 0,
                             pos: {top: '9%', left: '3%'},
-                            html: '<p>On my way home I thought I saw something strange.</p>'
+                            html: '<p>On my way home I thought I saw something strange.</p>',
+                            sound: './assets/audio/speak/creative/frame_cr_12.mp3'
                         },
                         {
                             index: 1,
                             pos: {bottom:'10%', left:'4%'},
                             html: '<p>There was something oddly familiar<br> about this guy I crossed on the street.</p>',
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/creative/frame_cr_13.mp3'
                         },
                         {
                             index: 2,
                             pos: {bottom:'10%', right:'4%'},
-                            html: "<p>I didn't think too much of it<br> and I got on the train home.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            html: "<p>I didn't think too much of it at the time<br> and I got on the train home.</p>",
+                            sound: './assets/audio/speak/creative/frame_cr_14.mp3'
                         }]
                     }
                 ]}/>
@@ -408,7 +421,7 @@ export default class Episode_Creative extends React.Component {
                             index: 1,
                             pos: {bottom:'10%', left:'4%'},
                             html: '<p>When I came home I was completely beat.</p>',
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/creative/frame_cr_15.mp3'
                         }]
                     },{
                         className: "col-lg-8 window skew-2-right",
@@ -425,13 +438,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top:'5%', right:'2%'},
                                 html: '<p>I fell asleep with all my clothes on and started to have weird dreams...</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_16.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom:'10%', left:'15%'},
-                                html: '<p>...about random object in my apartment coming to life...</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                html: '<p>...about random objects in my apartment coming to life...</p>',
+                                sound: './assets/audio/speak/creative/frame_cr_17.mp3'
                             }
                         ]
                     }
@@ -448,13 +461,7 @@ export default class Episode_Creative extends React.Component {
                             index: 0,
                             pos: {top:'5%', right:'8%'},
                             html: "<p>I wasn't much of a believer in the meaning of dreams<br> but I had experienced a lot of these lately.</p>",
-                            sound: './assets/audio/frame_0_0.mp3'
-                        },
-                        {
-                            index: 1,
-                            pos: {bottom:'15%', left:'8%'},
-                            html: "<p>It might have been the unemployment stress,<br>which was hopefully going to end tomorrow,<br> as I was going to a meeting at the unemployment office.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/creative/frame_cr_18.mp3'
                         }]
                     }
                 ]}/>
@@ -477,7 +484,7 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: '<p>I woke up with a massive hangover,<br> but I knew I needed to go to the unemployment office today</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_20.mp3'
                             }
                         ]
                     }

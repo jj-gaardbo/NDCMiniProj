@@ -138,7 +138,7 @@ export default class Episode_BG extends React.Component {
                 }
 
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={20} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -161,17 +161,17 @@ export default class Episode_BG extends React.Component {
                                 index: 1,
                                 pos: {top: '17%', left: '5%'},
                                 html: '<p>There was a nation wide panic.<br> This phenomenon was unlike anything ever seen before. <br>People were advised to stay indoors, to avoid<br> being electrocuted by the massive thunderstorm<br> that was currently hovering over the north Atlantic.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_0.mp3'
                             }
                         ]
                     }
                 ]}/>
 
                 <Breaker ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} audioOn={this.state.audioOn} >
-                    <h1>Childhood</h1>
+                    <h1>A child is born</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={10} frames={[
+                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={20} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -184,20 +184,20 @@ export default class Episode_BG extends React.Component {
                             {
                                 index: 0,
                                 pos: {top:'5%', left:'5%'},
-                                html: '<p>October 22th 1989 <br> Toftir, Faroe Islands<br>9 months after the storm.</p>',
+                                html: '<p>October 22th 1989 <br> Toftir, Faroe Islands<br>10 months after the storm.</p>',
                                 color: 'yellow'
                             },
                             {
                                 index: 1,
                                 pos: {bottom:'15%', right:'5%'},
                                 html: '<p>There was a family living in a lovely<br> little blue house on the Faroe Islands.<br> The family had just increased by one.</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_1.mp3'
                             }
                         ]
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/baby.mp3'} ambianceVolume={10} frames={[
+                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/baby.mp3'} ambianceVolume={20} frames={[
                     {
                         className: "col-lg-6 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -220,7 +220,7 @@ export default class Episode_BG extends React.Component {
                                 index: 1,
                                 pos: {bottom:'15%', right:'5%'},
                                 html: '<p>The new member of the family<br> was resting in his crib.</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_2.mp3'
                             }
                         ]
                     },
@@ -240,14 +240,20 @@ export default class Episode_BG extends React.Component {
                                 index: 0,
                                 pos: {top:'5%', right:'5%'},
                                 html: '<p>On this day his father video recorded <br>him for the first time, while narrating <br> the event.</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_3.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'23%', right:'5%'},
                                 html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
                                 type: 'speech-bottom-right',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_4.mp3'
+                            },
+                            {
+                                index: 2,
+                                pos: {bottom:'8%', right:'5%'},
+                                html: "<p>For some weird reason his father<br> was being portrayed with a bad impression of a<br> british accent in this context</p>",
+                                sound: './assets/audio/speak/background/frame_bg_4m.mp3'
                             }
                         ]
                     }
@@ -269,12 +275,12 @@ export default class Episode_BG extends React.Component {
                             index: 0,
                             pos: {top: '5%', left: '5%'},
                             html: '<p>He grew up with a mother, who ran her own daycare, and a father, <br>who was a teacher.</p>',
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_5.mp3'
                         }, {
                             index: 1,
                             pos: {bottom: '10%', left: '2%'},
                             html: '<p>He also had a big brother,<br> who was 3 years older.</p>',
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_6.mp3'
                         }]
                     },{
                         className: "col-lg-8 window skew-4-left",
@@ -291,7 +297,7 @@ export default class Episode_BG extends React.Component {
                             index: 0,
                             pos: {top:'5%', left:'5%'},
                             html: "<p>He was very young, when he first started <br> to pick up a microphone.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_7.mp3'
                         }
                         ]
                     }
@@ -314,7 +320,7 @@ export default class Episode_BG extends React.Component {
                                 index: 0,
                                 pos: {top:'5%', left:'5%'},
                                 html: '<p>He had a good childhood on the islands. <br> But due to his father being offered a job...</p>',
-                                sound: './assets/audio/frame_0_0.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_8.mp3'
                             }
                         ]
                     },{
@@ -339,7 +345,7 @@ export default class Episode_BG extends React.Component {
                                 index: 1,
                                 pos: {bottom:'15%', left:'5%'},
                                 html: '<p>...the whole family packed up their lives and moved to Denmark, when he was 5 years old.</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_9.mp3'
                             }
                         ]
                     }
@@ -360,13 +366,13 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {top:'8%', left:'2%'},
-                            html: "<p>His father's new job on bording school<br> gave him the opportunity to meet <br>a lot of exiting new people with different skills.</p>",
-                            sound: './assets/audio/frame_0_0.mp3'
+                            html: "<p>His father's new job on a bording school<br> gave him the opportunity to meet <br>a lot of exiting new people with different skills.</p>",
+                            sound: './assets/audio/speak/background/frame_bg_10.mp3'
                         },{
                             index: 1,
                             pos: {top:'8%', right:'2%'},
                             html: "<p>He was especially fascinated by this one guy <br> who knew how to navigate a computer terminal,<br> and could make a computer do all kinds of crazy things.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_11.mp3'
                         }]
                     }
                 ]}/>
@@ -386,13 +392,13 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {top:'10%', left:'2%'},
-                            html: "<p>Even though he was foreign<br> he picked up the danish language very quickly<br> and very soon he had made friends, who came<br>over to play and watch movies.</p>",
-                            sound: './assets/audio/frame_0_0.mp3'
+                            html: "<p>Even though he was foreign<br> he picked up the danish language pretty quickly<br> and very soon he had made friends, who came<br>over to play and watch movies.</p>",
+                            sound: './assets/audio/speak/background/frame_bg_12.mp3'
                         },{
                             index: 1,
                             pos: {bottom:'10%', left:'2%'},
                             html: "<p>He liked watching cartoons and loved to draw himself.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_13.mp3'
                         }]
                     },{
                         className: "col-lg-6 window skew-2-right custom",
@@ -410,13 +416,13 @@ export default class Episode_BG extends React.Component {
                                 index: 0,
                                 pos: {bottom:'15%', left:'2%'},
                                 html: "<p>One of his favorite movies of all times was The Matrix.</p>",
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_14.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom:'7%', left:'2%'},
                                 html: "<p>He remembered being blown away by the world of computers.</p>",
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_15.mp3'
                             }
                         ]
                     }
@@ -438,12 +444,12 @@ export default class Episode_BG extends React.Component {
                             index: 0,
                             pos: {top:'10%', left:'2%'},
                             html: "<p>He started to get interested in music...</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_16.mp3'
                         },{
                             index: 1,
                             pos: {bottom:'15%', left:'4%'},
                             html: "<p>...and he signed up for piano lessons...</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_17.mp3'
                         }]
                     },{
                         className: "col-lg-6 window skew-2-right custom",
@@ -459,9 +465,9 @@ export default class Episode_BG extends React.Component {
                         text: [
                             {
                                 index: 0,
-                                pos: {bottom:'15%', left:'2%'},
-                                html: "<p>...and later he also started to take drum lessons.</p>",
-                                sound: './assets/audio/frame_0_1.mp3'
+                                pos: {bottom:'18%', left:'2%'},
+                                html: "<p>...and later he started to <br>take drum lessons as well.</p>",
+                                sound: './assets/audio/speak/background/frame_bg_18.mp3'
                             }
                         ]
                     }
@@ -486,7 +492,7 @@ export default class Episode_BG extends React.Component {
                             index: 1,
                             pos: {top:'10%', right:'2%'},
                             html: "<p>He spent the first years of his Danish life <br>in a small local school.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            sound: './assets/audio/speak/background/frame_bg_19.mp3'
                         }]
                     }
                 ]}/>
@@ -503,8 +509,8 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'10%', left:'2%'},
-                            html: "<p>He was an above average student<br> in most of the courses in school.</p>",
-                            sound: './assets/audio/frame_0_1.mp3'
+                            html: "<p>... and he was an above average student<br> in most of the courses.</p>",
+                            sound: './assets/audio/speak/background/frame_bg_20.mp3'
                         }]
                     },{
                         className: "col-lg-5 window skew-4-left",
@@ -522,21 +528,21 @@ export default class Episode_BG extends React.Component {
                                 index: 0,
                                 pos: {top:'6%', right:'2%'},
                                 html: '<p>Upon retiring, the teacher, who had been around<br> for several years, held a speech for the class mentioning him.</p>',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_21.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top:'60%', left:'40%'},
                                 html: '<p>He will either become a very successful artist, who is creative and writes songs or draws...</p>',
                                 type: 'speech-top-left',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_22.mp3'
                             },
                             {
                                 index: 2,
                                 pos: {top:'80%', left:'40%'},
                                 html: '<p>...or a successful computer programmer.</p>',
                                 type: 'speech-top-left',
-                                sound: './assets/audio/frame_0_1.mp3'
+                                sound: './assets/audio/speak/background/frame_bg_23.mp3'
                             }
                         ]
                     }
