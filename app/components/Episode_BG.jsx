@@ -55,7 +55,7 @@ export default class Episode_BG extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 20
+            backgroundMusicVolume: 10
         };
 
         this.handleLock = this.handleLock.bind(this);
@@ -119,7 +119,7 @@ export default class Episode_BG extends React.Component {
 
     render() {
 
-        let index = -1;
+        let index = 0;
 
         return (
             <main className={this.state.classNames}>
@@ -138,7 +138,7 @@ export default class Episode_BG extends React.Component {
                 }
 
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={20} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={10} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -167,11 +167,11 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Breaker ref={this.getOrCreateRef('section-1')}  index={1} handleDone={this.next} audioOn={this.state.audioOn} >
+                <Breaker ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} >
                     <h1>A child is born</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-2')}  index={2} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={20} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={20} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -197,7 +197,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/baby.mp3'} ambianceVolume={20} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/baby.mp3'} ambianceVolume={20} frames={[
                     {
                         className: "col-lg-6 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -259,7 +259,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-4')}  index={4} handleDone={this.next} audioOn={this.state.audioOn}   frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn}   frames={[
                     {
                         className: "col-lg-4 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -303,7 +303,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-5')}  index={5} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/seagulls.mp3'} ambianceVolume={100} id={'start'} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/seagulls.mp3'} ambianceVolume={100} id={'start'} frames={[
                     {
                         className: "col-lg-8 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -351,7 +351,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-6')}  index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-2-right custom",
                         audioOn: this.state.audioOn,
@@ -377,7 +377,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-6 window skew-2-right custom",
                         audioOn: this.state.audioOn,
@@ -428,7 +428,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-6 window skew-2-right custom",
                         audioOn: this.state.audioOn,
@@ -473,7 +473,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-9')}  index={9} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -485,7 +485,7 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {top:'10%', left:'4%'},
-                            html: "<p>Klinkby primary school</p>",
+                            html: "<p>Klinkby elementary school</p>",
                             color: 'yellow'
                         },
                         {
@@ -497,7 +497,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-10')}  index={10} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-7 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
@@ -509,7 +509,7 @@ export default class Episode_BG extends React.Component {
                         text: [{
                             index: 0,
                             pos: {bottom:'10%', left:'2%'},
-                            html: "<p>... and he was an above average student<br> in most of the courses.</p>",
+                            html: "<p>... and he was an average student<br> in most of the courses.</p>",
                             sound: './assets/audio/speak/background/frame_bg_20.mp3'
                         }]
                     },{
@@ -549,13 +549,13 @@ export default class Episode_BG extends React.Component {
                 ]}/>
 
                 <BreakerBranch
-                    ref={this.getOrCreateRef('section-11')}
-                    index={11}
+                    ref={this.getOrCreateRef('section-'+index)}
+                    index={index++}
                     header={"Choose a path..."}
                     routeoneTitle={'Creativity'}
-                    routetwoTitle={'Programming'}
-                    routeone={'/creative'}
-                    routetwo={'/programmer'}/>
+                    routetwoTitle={'Computers'}
+                    routeone={'/creativity'}
+                    routetwo={'/computers'}/>
 
             </main>
         )

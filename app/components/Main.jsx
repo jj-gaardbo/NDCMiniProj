@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Episode_Creative from "./Episode_Creative.jsx";
 import Episode_Programmer from "./Episode_Programmer.jsx";
+import Episode_Medialogy from "./Episode_Medialogy.jsx";
 import Home from "./Home.jsx";
 import Episode_BG from "./Episode_BG.jsx";
 import {setLS} from "./Common.jsx";
@@ -45,10 +46,13 @@ export default class Main extends React.Component {
                                 <Link to="/">Home</Link>
                             </li>
                             <li>
-                                <Link to="/creative">Creativity</Link>
+                                <Link to="/creativity">Creativity</Link>
                             </li>
                             <li>
-                                <Link to="/programmer">Programmer</Link>
+                                <Link to="/computers">Computers</Link>
+                            </li>
+                            <li>
+                                <Link to="/medialogy">Medialogy</Link>
                             </li>
                         </ul>
                     </nav>
@@ -60,11 +64,14 @@ export default class Main extends React.Component {
                         <Route path="/background">
                             <Episode_BG/>
                         </Route>
-                        <Route path="/programmer">
+                        <Route path="/computers">
                             <Episode_Programmer/>
                         </Route>
-                        <Route path={"/creative"}>
+                        <Route path={"/creativity"}>
                             <Episode_Creative/>
+                        </Route>
+                        <Route path={"/medialogy"}>
+                            <Episode_Medialogy/>
                         </Route>
                     </Switch>
                 </div>

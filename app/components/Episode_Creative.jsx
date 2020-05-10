@@ -19,16 +19,16 @@ import prepare2FG from "./assets/images/bg/prepare2Foreground.png";
 import prepare3FG from "./assets/images/bg/prepare3Foreground.png";
 import locationRebaek from "./assets/images/music/rebaek1.png"
 import locationRebaek2 from "./assets/images/music/rebaek2.png"
-
 import comingHome from "./assets/images/music/comingHome.png"
 import sleeping from "./assets/images/music/goingToSleep.png"
-
 import firstMeetingBG from "./assets/images/music/firstMeeting_bg.png"
 import firstMeetingMG from "./assets/images/music/firstMeeting_mg.png"
 import firstMeetingFG from "./assets/images/music/firstMeeting_fg.png"
-
-
+import UEOfficeBG from "./assets/images/music/ue_office_bg.png"
+import UEOfficeMG from "./assets/images/music/ue_office_mg.png"
+import UEOfficeFG from "./assets/images/music/ue_office_fg.png"
 import {getLS, setLS} from "./Common.jsx";
+import BreakerBranch from "./BreakerBranch.jsx";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -50,7 +50,7 @@ export default class Episode_Creative extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 15
+            backgroundMusicVolume: 10
 
         };
 
@@ -120,7 +120,7 @@ export default class Episode_Creative extends React.Component {
 
     render() {
 
-        let index = -1;
+        let index = 0;
 
         return (
             <main className={this.state.classNames}>
@@ -138,7 +138,7 @@ export default class Episode_Creative extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} index={0} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -157,14 +157,14 @@ export default class Episode_Creative extends React.Component {
                             {
                                 index: 1,
                                 pos: {top: '17%', left: '5%'},
-                                html: '<p>Tonight was the night. I was getting ready to go out to do a concert,<br> that we’d been preparing for for a couple of weeks. <br> It was the first time warming up for a bigger artist.</p>',
+                                html: '<p>Tonight was the night. I was getting ready to go out to do a concert,<br> that we’d been preparing for for a couple of weeks.</p>',
                                 sound: './assets/audio/speak/creative/frame_cr_0.mp3'
                             }
                         ]
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-1')} index={1} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-8 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -219,7 +219,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-2')} index={2} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-6 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -243,14 +243,7 @@ export default class Episode_Creative extends React.Component {
                                 pos: {top: '18%', left: '5%'},
                                 html: "<p>We'd put a band together, of very good<br> musicians, to support the beats<br> that I had produced.</p>",
                                 sound: './assets/audio/speak/creative/frame_cr_6.mp3'
-                            },
-                            {
-                                index: 2,
-                                pos: {bottom: '5%', left: '5%'},
-                                html: "<p>I imagined how those beats could be<br> played in the background right now, if somebody was<br>watching me brush my teeth through whatever medium.</p>",
-                                sound: './assets/audio/speak/creative/frame_cr_6m.mp3'
                             }
-
                         ]
                     },
                     {
@@ -264,6 +257,12 @@ export default class Episode_Creative extends React.Component {
                         text: [
                             {
                                 index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: "<p>I imagined how those beats could be<br> played in the background right now, if somebody was<br>watching me brush my teeth through whatever medium.</p>",
+                                sound: './assets/audio/speak/creative/frame_cr_6m.mp3'
+                            },
+                            {
+                                index: 1,
                                 pos: {bottom: '15%', left: '5%'},
                                 html: '<p>My nerves were starting to fuck with my head. <br>My hands were shaking, and it made it difficult to tie my shoes.</p>',
                                 sound: './assets/audio/speak/creative/frame_cr_7.mp3'
@@ -272,7 +271,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-3')}  index={3} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -317,7 +316,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-4')} index={4} handleDone={this.next} audioOn={this.state.audioOn}  ambiance={'./assets/audio/ambiance/concert.mp3'} ambianceVolume={20} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} audioOn={this.state.audioOn}  ambiance={'./assets/audio/ambiance/concert.mp3'} ambianceVolume={20} frames={[
                     {
                         className: "col-lg-6 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -363,7 +362,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-5')} index={5} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -399,7 +398,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-6')} index={6} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-4 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -450,7 +449,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-7')}  index={7} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -466,11 +465,11 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Breaker ref={this.getOrCreateRef('section-8')}  index={8} handleDone={this.next} audioOn={this.state.audioOn} >
+                <Breaker ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} >
                     <h1>The next day</h1>
                 </Breaker>
 
-                <Panel ref={this.getOrCreateRef('section-9')} index={9} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -489,6 +488,61 @@ export default class Episode_Creative extends React.Component {
                         ]
                     }
                 ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={90} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-12 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: UEOfficeBG,
+                        backgroundPos: {top: '-10%', left: '0%'},
+                        backgroundSize: {width: '100%'},
+                        middlegroundSrc: UEOfficeMG,
+                        middlegroundPos: {top: '5%', left: '10%'},
+                        middlegroundSize: {width: '88%'},
+                        foregroundSrc: UEOfficeFG,
+                        foregroundPos: {top: '-18%', left: '-3%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', right: '5%'},
+                                html: '<p>The counselor lady suggested an education for me, <br>based on the personal interests that I had presented,<br> and it was actually something, that I could see myself doing.</p>',
+                                sound: './assets/audio/speak/creative/frame_cr_21.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {bottom: '8%', right: '5%'},
+                                html: '<p>It was something called Medialogy.</p>',
+                                sound: './assets/audio/speak/creative/frame_cr_22.mp3'
+                            }
+                        ],
+                        children:(
+                            <div className="interactive" style={{left: '5%',top: '10%'}}>
+                                <ModalElement
+                                    title={'In reality...'}
+                                    size={{}}
+                                    pos={{}}
+                                    className={"modal-dialog-centered modal-lg clearfix"}
+                                    buttonElement={<img style={{width:'200px'}} src={require('./assets/images/orange.gif')} alt="Butterfly"/>}>
+                                    <p>
+                                        This was actually how I was introduced to, and began studying, Multimedia Design in back 2012.
+                                    </p>
+                                </ModalElement>
+                            </div>
+                        )
+                    }
+                ]}/>
+
+                <BreakerBranch
+                    ref={this.getOrCreateRef('section-'+index)}
+                    index={index++}
+                    header={"Choose a path..."}
+                    routeoneTitle={'Medialogy'}
+                    routetwoTitle={'Computers'}
+                    routeone={'/medialogy'}
+                    routetwo={'/computers'}/>
 
         </main>
         )

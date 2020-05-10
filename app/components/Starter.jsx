@@ -38,10 +38,10 @@ export default class Title extends React.Component {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/creative">Creative</Link>
+                            <Link to="/creativity">Creativity</Link>
                         </li>
                         <li>
-                            <Link to="/programmer">Programmer</Link>
+                            <Link to="/computers">Programmer</Link>
                         </li>
                     </ul>
                 </nav>

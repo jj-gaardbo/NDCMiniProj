@@ -16,15 +16,27 @@ import workConvoFg from './assets/images/working/workConversation_fg.png'
 
 import strangeEmail from "./assets/images/programmer/strangeEmail.png"
 
+import concertCrowd1 from "./assets/images/programmer/concertCrowd1.png"
+import concertCrowd2 from "./assets/images/programmer/concertCrowd2.png"
+import concertCrowd3 from "./assets/images/programmer/concertCrowd3.png"
+
 import firstMeetingBG from "./assets/images/programmer/firstMeeting_bg_rev.png"
 import firstMeetingMG from "./assets/images/programmer/firstMeeting_mg_rev.png"
 import firstMeetingFG from "./assets/images/programmer/firstMeeting_fg_rev.png"
+
+import gDigital1 from "./assets/images/programmer/gDigital1.png"
+import gDigital2 from "./assets/images/programmer/gDigital2.png"
+import actoEtpFG from "./assets/images/programmer/actoEtp_fg.png"
+import actoEtpBG from "./assets/images/programmer/actoEtp_bg.png"
+import acto from "./assets/images/programmer/acto.png"
 
 import dust from './assets/images/dust2.png'
 import smoke from './assets/images/smoke.png'
 import ModalElement from "./Modal.jsx";
 import Panel from "./Panel.jsx";
 import {getLS, setLS} from "./Common.jsx";
+import Breaker from "./Breaker.jsx";
+import BreakerBranch from "./BreakerBranch.jsx";
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -46,7 +58,7 @@ export default class Episode_Programmer extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 30
+            backgroundMusicVolume: 15
 
         };
 
@@ -116,12 +128,12 @@ export default class Episode_Programmer extends React.Component {
 
     render() {
 
-        let index = -1;
+        let index = 0;
 
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} title={"Software Development"} />
+                <Title begin={this.begin} title={"Computers"} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.so}
@@ -134,7 +146,7 @@ export default class Episode_Programmer extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-0')} id={'start'} index={0} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} id={'start'} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -157,7 +169,7 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-1')} index={1} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -186,7 +198,7 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-2')} index={2} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -202,11 +214,25 @@ export default class Episode_Programmer extends React.Component {
                                 html: "<p>I'd been working at a small web agency<br> called HTML24 for about a year now.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_2.mp3'
                             }
-                        ]
+                        ],
+                        children:(
+                            <div className="interactive" style={{left: '50%',bottom: '20%'}}>
+                                <ModalElement
+                                    title={'HTML24'}
+                                    size={{}}
+                                    pos={{}}
+                                    className={"modal-dialog-centered modal-lg clearfix"}
+                                    buttonElement={<img style={{width:'300px'}} src={require('./assets/images/purple2.gif')} alt="Butterfly"/>}>
+                                    <p>
+                                        <a href="http://html24.dk" target={'_blank'}>HTML24 website link</a>
+                                    </p>
+                                </ModalElement>
+                            </div>
+                        )
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-3')} index={3} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={90} handleDone={this.next} frames={[
                     {
                         className: "col-lg-4 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
@@ -266,7 +292,7 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-4')} index={4} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -279,7 +305,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: "<p>Suddenly I received a strange email from <br>something called National Military Operations.</p>",
+                                html: "<p>In the late hours of my workday,<br> I received a strange email from <br>something called National Military Operations.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_7.mp3'
                             },
                             {
@@ -298,7 +324,73 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-5')} index={5} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Breaker ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} >
+                    <h1>Later that night</h1>
+                </Breaker>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: concertCrowd1,
+                        backgroundPos: {top: '0%', left: '-25%'},
+                        backgroundSize: {width: '60%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top: '0%', left: '0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: "<p>I was a fun night out with my co-workers...</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_10.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: concertCrowd2,
+                        backgroundPos: {top: '0%', left: '-10%'},
+                        backgroundSize: {width: '39%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top: '0%', left: '0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {bottom: '15%', right: '10%'},
+                                html: "<p>..And the concert was very good.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_11.mp3'
+                            },
+                        ]
+                    },{
+                        className: "col-lg-4 window skew-4-left",
+                        audioOn: this.state.audioOn,
+                        index: 2,
+                        handleLock: this.handleLock,
+                        backgroundSrc: concertCrowd3,
+                        backgroundPos: {top: '0%', left: '-18%'},
+                        backgroundSize: {width: '40%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top: '0%', left: '0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '10%', left: '5%'},
+                                html: "<p>We all got tipsy and had a good time.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_12.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -318,23 +410,150 @@ export default class Episode_Programmer extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: "<p>As I was walking home from the concert,<br>I saw one of the guys who had performed.</p>",
-                                sound: './assets/audio/speak/programmer/frame_pr_10.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_13.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
                                 html: "<p>I tried to greet him as I passed him, but he didn't respond.</p>",
-                                sound: './assets/audio/speak/programmer/frame_pr_11.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_14.mp3'
                             },
                             {
                                 index: 2,
                                 pos: {bottom: '15%', right: '10%'},
                                 html: "<p>There was something oddly familiar about his appearance.</p>",
-                                sound: './assets/audio/speak/programmer/frame_pr_12.mp3'
+                                sound: './assets/audio/speak/programmer/frame_pr_15.mp3'
                             },
                         ]
                     }
                 ]}/>
+
+                <Breaker ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} >
+                    <h1>... months later</h1>
+                </Breaker>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-4 window skew-4-left custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: gDigital1,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '80%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top: '0%', left: '0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: "<p>I had decided to leave my job, as I<br>wanted to explore the world<br> being a freelance web developer.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_16.mp3'
+
+                            },
+                            {
+                                index: 1,
+                                pos: {top: '18%', left: '5%'},
+                                html: "<p>I started my own one-man company called<br> Gaardbo Digital.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_17.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-8 window skew-4-left custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: actoEtpBG,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '90%'},
+                        foregroundSrc: actoEtpFG,
+                        foregroundPos: {top: '0%', left: '-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {bottom: '13%', left: '10%'},
+                                html: "<p>I managed to get a couple of clients. One was <br>a software company called Acto, and<br> the other one was an electrical<br>engineering company called ETP consult.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_18.mp3'
+                            }
+                        ],
+                        children:(
+                            <div className="interactive" style={{top: '23%',left: '3%'}}>
+                                <ModalElement
+                                    title={'Acto and ETP Consult'}
+                                    size={{}}
+                                    pos={{}}
+                                    className={"modal-dialog-centered modal-lg clearfix"}
+                                    buttonElement={<img style={{width:'200px'}} src={require('./assets/images/turquise.gif')} alt="Butterfly"/>}>
+                                    <p>
+                                        <a target="_blank" href="http://www.acto.dk">Acto Website link</a>
+                                    </p>
+                                    <p>
+                                        <a target="_blank" href="http://www.etp-consult.dk">ETP Consult Website link</a>
+                                    </p>
+                                </ModalElement>
+                            </div>
+                        )
+
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-6 window skew-2-right",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: acto,
+                        backgroundPos: {top: '0%', left: '-5%'},
+                        backgroundSize: {width: '75%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {bottom: '5%', left: '5%'},
+                                html: "<p>As time went by I almost became a part time<br> employee at Acto. And I worked on projects<br> for them for almost 2 years.<br> I primarily worked on their own website.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_19.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: gDigital2,
+                        backgroundPos: {top: '0%', left: '-15%'},
+                        backgroundSize: {width: '80%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top: '0%', left: '-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '6%', left: '6%'},
+                                html: "<p>When the projects stopped coming in, I needed to figure out what else I could do.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_20.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {bottom: '6%', right: '6%'},
+                                html: "<p>At that point I decided to go to university and study Medialogy.</p>",
+                                sound: './assets/audio/speak/programmer/frame_pr_21.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <BreakerBranch
+                    ref={this.getOrCreateRef('section-'+index)}
+                    index={index++}
+                    header={"Choose a path..."}
+                    routeoneTitle={'Creativity'}
+                    routetwoTitle={'Medialogy'}
+                    routeone={'/creativity'}
+                    routetwo={'/medialogy'}/>
         </main>
         )
     }
