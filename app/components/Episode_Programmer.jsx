@@ -7,9 +7,9 @@ import locationHTML24 from './assets/images/working/html24.png'
 import home from './assets/images/working/australiensvej2.png'
 
 import readyWorkFG from './assets/images/bg/readyWorkForeground.png';
-import readyWorkBG from './assets/images/bg/readyWorkBackground.png';
+import readyWorkBG from './assets/images/bg/readyWorkBackground2.png';
 
-import working from './assets/images/working/working.png'
+import working from './assets/images/working/working2.png'
 import workConvoBg from './assets/images/working/workConversation_bg.png'
 import workConvoMg from './assets/images/working/workConversation_mg.png'
 import workConvoFg from './assets/images/working/workConversation_fg.png'
@@ -176,7 +176,7 @@ export default class Episode_Programmer extends React.Component {
                         index: 0,
                         handleLock: this.handleLock,
                         backgroundSrc: readyWorkBG,
-                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundPos: {top: '-10%', left: '0%'},
                         backgroundSize: {width: '60%'},
                         foregroundSrc: readyWorkFG,
                         foregroundPos: {top: '-14%', right: '15%'},
@@ -190,7 +190,7 @@ export default class Episode_Programmer extends React.Component {
                             },
                             {
                                 index: 1,
-                                pos: {bottom: '12%', left: '5%'},
+                                pos: {top: '22%', left: '5%'},
                                 html: "<p>I was rethinking the tie. Usually I did not wear a tie...<br>and since I didn't have any client meetings today<br> I decided to skip it.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_1.mp3'
                             },
@@ -232,7 +232,7 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={90} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={100} handleDone={this.next} frames={[
                     {
                         className: "col-lg-4 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
@@ -305,7 +305,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
-                                html: "<p>In the late hours of my workday,<br> I received a strange email from <br>something called National Military Operations.</p>",
+                                html: "<p>Just before the end of my workday,<br> I received a strange email from <br>something called National Military Operations.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_7.mp3'
                             },
                             {

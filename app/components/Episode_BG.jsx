@@ -212,12 +212,6 @@ export default class Episode_BG extends React.Component {
                         text: [
                             {
                                 index: 0,
-                                pos: {top:'5%', left:'5%'},
-                                html: '<p>October 22th 1989</p>',
-                                color: 'yellow'
-                            },
-                            {
-                                index: 1,
                                 pos: {bottom:'15%', right:'5%'},
                                 html: '<p>The new member of the family<br> was resting in his crib.</p>',
                                 sound: './assets/audio/speak/background/frame_bg_2.mp3'

@@ -128,7 +128,7 @@ export default class Episode_Medialogy extends React.Component {
                 />
                 }
 
-                {/*<Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -155,7 +155,7 @@ export default class Episode_Medialogy extends React.Component {
                             }
                         ]
                     }
-                ]}/>*/}
+                ]}/>
 
                 <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/classroom.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
                     {
