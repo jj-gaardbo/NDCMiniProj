@@ -22,7 +22,7 @@ export default class Home extends React.Component {
     }
 
     redirectToStart(){
-        this.setState({ redirect: "/background" });
+        this.setState({ redirect: "/origin" });
     }
 
     clearLS(){

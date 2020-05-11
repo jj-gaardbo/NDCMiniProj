@@ -46,6 +46,9 @@ export default class Main extends React.Component {
                                 <Link to="/">Home</Link>
                             </li>
                             <li>
+                                <Link to="/origin">Origin</Link>
+                            </li>
+                            <li>
                                 <Link to="/creativity">Creativity</Link>
                             </li>
                             <li>
@@ -61,7 +64,7 @@ export default class Main extends React.Component {
                         <Route exact path="/">
                             <Home />
                         </Route>
-                        <Route path="/background">
+                        <Route path="/origin">
                             <Episode_BG/>
                         </Route>
                         <Route path="/computers">

@@ -14,7 +14,25 @@ import BreakerBranch from "./BreakerBranch.jsx";
 import AAU from "./assets/images/medialogy/aau.png"
 
 import classroom from "./assets/images/medialogy/meeting_bg.png"
+import bridge from "./assets/images/medialogy/bridge.png"
 import meeting from "./assets/images/medialogy/meeting_fg.png"
+import shake_bg from "./assets/images/medialogy/shake_bg.png"
+import shake_fg from "./assets/images/medialogy/shake_fg.png"
+import merge_ext from "./assets/images/medialogy/merge_ext.png"
+import merge_bg from "./assets/images/medialogy/merge_bg.png"
+import merge_fg from "./assets/images/medialogy/merge_fg.png"
+
+import backgroundBirth2 from './assets/images/bg/birth2.png'
+import prepareBG from "./assets/images/bg/prepareBackground.png";
+import prepareFG from "./assets/images/bg/prepareForeground.png";
+import working from './assets/images/working/working2.png'
+
+import noticingCops_fg from "./assets/images/medialogy/noticing_cops_fg.png"
+import raid_bg from "./assets/images/medialogy/raid_bg.png"
+import raid_fg from "./assets/images/medialogy/raid_fg.png"
+import attack_bg from "./assets/images/medialogy/attack_bg.png"
+import attack_mg from "./assets/images/medialogy/attack_mg.png"
+import attack_fg from "./assets/images/medialogy/attack_fg.png"
 
 const backgroundMusic = {
     bn: './assets/audio/building_nightmares.mp3',
@@ -157,13 +175,13 @@ export default class Episode_Medialogy extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/classroom.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/classroom.mp3'} ambianceVolume={10} handleDone={this.next} frames={[
                     {
                         className: "col-lg-3 window skew-4-left custom",
                         audioOn: this.state.audioOn,
                         index: 0,
                         handleLock: this.handleLock,
-                        backgroundSrc: classroom,
+                        backgroundSrc: bridge,
                         backgroundPos: {top: '0%', left: '-31%'},
                         backgroundSize: {width: '90%'},
                         foregroundSrc: dust,
@@ -217,6 +235,228 @@ export default class Episode_Medialogy extends React.Component {
                     }
                 ]}/>
 
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/classroom.mp3'} ambianceVolume={10} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: shake_bg,
+                        backgroundPos: {top: '0%', left: '-1%'},
+                        backgroundSize: {width: '80%'},
+                        foregroundSrc: shake_fg,
+                        foregroundPos: {top: '10%', left: '0%'},
+                        foregroundSize: {width: '70%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', left: '5%'},
+                                html: '<p>The moment we shook hands everything went bright.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_5.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-6 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: merge_ext,
+                        backgroundPos: {top: '3%', left: '-20%'},
+                        backgroundSize: {width: '80%'},
+                        foregroundSrc: smoke,
+                        foregroundPos: {top: '-10%', left: '0%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', right: '5%'},
+                                html: '<p>There was a massive electromagnetic explosion.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_6.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {top:'50%', left:'30%'},
+                                html: "<p>BOOOOM!</p>",
+                                sound: './assets/audio/speak/medialogy/frame_med_7.mp3',
+                                type: 'speech-bottom-right',
+                                color: 'yellow'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-4 window skew-4-left custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: backgroundBirth2,
+                        backgroundPos: {top: '0%', left: '-18%'},
+                        backgroundSize: {width: '71%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top: '0%', left: '-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {bottom: '7%', left: '5%'},
+                                html: '<p>Rapid memory flashes appeared before my eyes.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_8.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-4 window skew-4-left custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: prepareBG,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '96%'},
+                        foregroundSrc: prepareFG,
+                        foregroundPos: {top: '15%', left: '-6%'},
+                        foregroundSize: {width: '79%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', right: '5%'},
+                                html: "<p>Some of them were unrecognizable.<br> But still they felt like my own.</p>",
+                                sound: './assets/audio/speak/medialogy/frame_med_9.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-4 window skew-4-left custom",
+                        audioOn: this.state.audioOn,
+                        index: 2,
+                        handleLock: this.handleLock,
+                        backgroundSrc: working,
+                        backgroundPos: {top: '-10%', left: '-4%'},
+                        backgroundSize: {width: '88%'},
+                        foregroundSrc: dust,
+                        foregroundPos: {top: '0%', left: '-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', right: '5%'},
+                                html: "<p>It was an extreme rush!<br>And it felt as if everything fell into place.</p>",
+                                sound: './assets/audio/speak/medialogy/frame_med_10.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-12 window skew-2-right",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: merge_bg,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '96%'},
+                        foregroundSrc: merge_fg,
+                        foregroundPos: {top: '0%', left: '-10%'},
+                        foregroundSize: {width: '100%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', left: '5%'},
+                                html: '<p>When I regained consciousness it felt like I had been living two lives.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_11.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {bottom: '6%', left: '5%'},
+                                html: "<p>Suddenly, I felt complete and I discovered abilities, that I hadn't experienced before.</p>",
+                                sound: './assets/audio/speak/medialogy/frame_med_12.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/police.mp3'} ambianceVolume={20} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-3 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: classroom,
+                        backgroundPos: {top: '0%', left: '-1%'},
+                        backgroundSize: {width: '80%'},
+                        foregroundSrc: noticingCops_fg,
+                        foregroundPos: {top: '15%', left: '-10%'},
+                        foregroundSize: {width: '70%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', left: '5%'},
+                                html: '<p>In the distance I started to hear sirens.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_13.mp3'
+                            }
+                        ]
+                    },
+                    {
+                        className: "col-lg-9 window skew-2-right custom",
+                        audioOn: this.state.audioOn,
+                        index: 1,
+                        handleLock: this.handleLock,
+                        backgroundSrc: raid_bg,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '90%'},
+                        foregroundSrc: raid_fg,
+                        foregroundPos: {top: '-1%', left: '0%'},
+                        foregroundSize: {width: '87%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '30%', left: '5%'},
+                                html: '<p>You there inside! You are under arrest<br> and you need to come with us immediately!</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_14.mp3',
+                                type: 'speech-bottom-right',
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/electricity.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
+                    {
+                        className: "col-lg-12 window skew-4-left custom",
+                        audioOn: this.state.audioOn,
+                        index: 0,
+                        handleLock: this.handleLock,
+                        backgroundSrc: attack_bg,
+                        backgroundPos: {top: '0%', left: '0%'},
+                        backgroundSize: {width: '100%'},
+                        middlegroundSrc: attack_mg,
+                        middlegroundPos: {top: '0%', left: '0%'},
+                        middlegroundSize: {width: '100%'},
+                        foregroundSrc: attack_fg,
+                        foregroundPos: {top: '6%', left: '18%'},
+                        foregroundSize: {width: '75%'},
+                        text: [
+                            {
+                                index: 0,
+                                pos: {top: '7%', left: '5%'},
+                                html: '<p>Right now I felt more powerful than ever...</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_15.mp3'
+                            },
+                            {
+                                index: 1,
+                                pos: {bottom: '7%', right: '5%'},
+                                html: '<p>...and they could all just bring it the fuck on.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_16.mp3'
+                            }
+                        ]
+                    }
+                ]}/>
+
+                <Breaker ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} >
+                    <h1>The end</h1>
+                </Breaker>
 
         </main>
         )
