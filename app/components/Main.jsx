@@ -11,6 +11,7 @@ import Episode_Medialogy from "./Episode_Medialogy.jsx";
 import Home from "./Home.jsx";
 import Episode_BG from "./Episode_BG.jsx";
 import {setLS} from "./Common.jsx";
+import Credits from "./Credits.jsx";
 
 export default class Main extends React.Component {
 
@@ -57,6 +58,9 @@ export default class Main extends React.Component {
                             <li>
                                 <Link to="/medialogy">Medialogy</Link>
                             </li>
+                            <li>
+                                <Link to="/credits">Credits</Link>
+                            </li>
                         </ul>
                     </nav>
 
@@ -75,6 +79,9 @@ export default class Main extends React.Component {
                         </Route>
                         <Route path={"/medialogy"}>
                             <Episode_Medialogy/>
+                        </Route>
+                        <Route path={"/credits"}>
+                            <Credits/>
                         </Route>
                     </Switch>
                 </div>

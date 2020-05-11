@@ -43,7 +43,7 @@ export default class Breaker extends React.Component {
 
     render() {
         return (
-            <div data-panel-index={this.props.index} onMouseEnter={this.hold} className="breaker snap clearfix section">
+            <div data-panel-index={this.props.index} id={this.props.id} onMouseEnter={this.hold} className="breaker snap clearfix section">
                 {this.props.children}
 
                 <div className={`continue ${this.state.hasFinished ? " display" : ""}`} onClick={this.goToNextSection}>
