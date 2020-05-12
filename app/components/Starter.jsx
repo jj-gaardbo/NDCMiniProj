@@ -41,7 +41,7 @@ export default class Title extends React.Component {
                             <Link to="/creativity">Creativity</Link>
                         </li>
                         <li>
-                            <Link to="/computers">Programmer</Link>
+                            <Link to="/computing">Computing</Link>
                         </li>
                     </ul>
                 </nav>

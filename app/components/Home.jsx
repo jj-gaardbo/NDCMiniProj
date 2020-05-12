@@ -61,7 +61,7 @@ export default class Home extends React.Component {
         return (
             <main className={'home-wrapper'}>
                 <div className="title snap clearfix">
-                    <h1>"This is going to be the title"</h1>
+                    <h1>"The road to Medialogy"</h1>
                     <button style={{bottom:'40%', left:'50%', marginLeft:'-100px'}} type={'button'} onClick={this.handleSound} className={'start-sound'}>
                         <img src={butterfly2} alt="Blue butterfly"/>
                         <p>Sound</p>

@@ -20,7 +20,7 @@ export default class BreakerBranch extends React.Component {
     }
 
     componentDidMount() {
-        if(this.props.routeoneTitle === 'Computers' && !this.props.routetwoTitle){
+        if(this.props.routeoneTitle === 'Computing' && !this.props.routetwoTitle){
             this.setState({isCreativityPlayed:1});
             setLS('isCreativityPlayed', 'yes');
         } else if(this.props.routeoneTitle === 'Creativity' && !this.props.routetwoTitle){

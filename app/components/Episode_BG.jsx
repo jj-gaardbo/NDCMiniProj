@@ -541,9 +541,9 @@ export default class Episode_BG extends React.Component {
                     index={index++}
                     header={"Choose a path..."}
                     routeoneTitle={'Creativity'}
-                    routetwoTitle={'Computers'}
+                    routetwoTitle={'Computing'}
                     routeone={'/creativity'}
-                    routetwo={'/computers'}/>
+                    routetwo={'/computing'}/>
 
             </main>
         )

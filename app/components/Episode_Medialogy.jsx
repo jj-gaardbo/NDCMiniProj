@@ -60,7 +60,7 @@ export default class Episode_Medialogy extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 10
+            backgroundMusicVolume: 8
 
         };
 

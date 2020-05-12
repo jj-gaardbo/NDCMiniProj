@@ -53,7 +53,7 @@ export default class Main extends React.Component {
                                 <Link to="/creativity">Creativity</Link>
                             </li>
                             <li>
-                                <Link to="/computers">Computers</Link>
+                                <Link to="/computing">Computing</Link>
                             </li>
                             <li>
                                 <Link to="/medialogy">Medialogy</Link>
@@ -71,7 +71,7 @@ export default class Main extends React.Component {
                         <Route path="/origin">
                             <Episode_BG/>
                         </Route>
-                        <Route path="/computers">
+                        <Route path="/computing">
                             <Episode_Programmer/>
                         </Route>
                         <Route path={"/creativity"}>

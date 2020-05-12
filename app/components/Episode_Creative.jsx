@@ -285,7 +285,7 @@ export default class Episode_Creative extends React.Component {
                                     size={{}}
                                     pos={{}}
                                     className={"modal-dialog-centered modal-lg clearfix"}
-                                    buttonElement={<img style={{width:'100px'}} src={require('./assets/images/butter.gif')} alt="Butterfly"/>}>
+                                    buttonElement={<img style={{width:'300px'}} src={require('./assets/images/butter.gif')} alt="Butterfly"/>}>
                                     <p>
                                         <a href="https://soundcloud.com/flensop" target={"_blank"}>Flen$ O.P. projects</a>
                                     </p>
@@ -545,17 +545,17 @@ export default class Episode_Creative extends React.Component {
                         ref={this.getOrCreateRef('section-'+index)}
                         index={index++}
                         header={"Turn back time..."}
-                        routeoneTitle={'Computers'}
-                        routeone={'/computers'}/>
+                        routeoneTitle={'Computing'}
+                        routeone={'/computing'}/>
                 ) : (
                     <BreakerBranch
                         ref={this.getOrCreateRef('section-'+index)}
                         index={index++}
                         header={"Choose a path..."}
                         routetwoTitle={'Medialogy'}
-                        routeoneTitle={'Computers'}
+                        routeoneTitle={'Computing'}
                         routetwo={'/medialogy'}
-                        routeone={'/computers'}
+                        routeone={'/computing'}
                         bothPlayed={true}/>
                 )
                 }

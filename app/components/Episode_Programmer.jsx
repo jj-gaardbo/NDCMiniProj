@@ -58,7 +58,7 @@ export default class Episode_Programmer extends React.Component {
             ready: false,
             classNames: "App clearfix container-fluid no-scroll",
             sectionReferences: {},
-            backgroundMusicVolume: 15
+            backgroundMusicVolume: 8
 
         };
 
@@ -133,7 +133,7 @@ export default class Episode_Programmer extends React.Component {
         return (
             <main className={this.state.classNames}>
 
-                <Title begin={this.begin} title={"Computers"} />
+                <Title begin={this.begin} title={"Computing"} />
 
                 {this.state.audioOn &&
                 <Sound    url={backgroundMusic.so}
