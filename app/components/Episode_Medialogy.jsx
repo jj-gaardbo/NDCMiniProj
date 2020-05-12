@@ -278,11 +278,10 @@ export default class Episode_Medialogy extends React.Component {
                             },
                             {
                                 index: 1,
-                                pos: {top:'50%', left:'30%'},
+                                pos: {bottom:'32%', left:'30%'},
                                 html: "<p>BOOOOM!</p>",
                                 sound: './assets/audio/speak/medialogy/boom.mp3',
-                                type: 'speech-bottom-right',
-                                color: 'yellow'
+                                type: 'burst',
                             }
                         ]
                     }
@@ -424,7 +423,7 @@ export default class Episode_Medialogy extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/electricity.mp3'} ambianceVolume={5} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/electricity.mp3'} ambianceVolume={2} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left custom",
                         audioOn: this.state.audioOn,

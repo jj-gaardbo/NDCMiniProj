@@ -281,7 +281,7 @@ export default class Episode_Creative extends React.Component {
                         children:(
                             <div className="interactive" style={{left: '80%',top: '10%'}}>
                                 <ModalElement
-                                    title={'He has been making music for a long time now.'}
+                                    title={'Various music projects.'}
                                     size={{}}
                                     pos={{}}
                                     className={"modal-dialog-centered modal-lg clearfix"}
@@ -372,7 +372,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} ambiance={'./assets/audio/ambiance/streetwalking.mp3'} ambianceVolume={40} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,

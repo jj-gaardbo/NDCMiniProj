@@ -485,7 +485,7 @@ export default class Episode_BG extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)}  index={index++} handleDone={this.next} ambiance={'./assets/audio/ambiance/kids-classroom.mp3'} ambianceVolume={10} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-7 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
