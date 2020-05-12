@@ -33,6 +33,7 @@ build/
 node_modules/
 
 dist/
+dist.zip
 
 #OS
 .directory
