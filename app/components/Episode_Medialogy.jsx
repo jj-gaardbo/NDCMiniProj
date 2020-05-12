@@ -25,6 +25,8 @@ import merge_fg from "./assets/images/medialogy/merge_fg.png"
 import backgroundBirth2 from './assets/images/bg/birth2.png'
 import prepareBG from "./assets/images/bg/prepareBackground.png";
 import prepareFG from "./assets/images/bg/prepareForeground.png";
+import readyWorkFG from './assets/images/bg/readyWorkForeground.png';
+import readyWorkBG from './assets/images/bg/readyWorkBackground2.png';
 import working from './assets/images/working/working2.png'
 
 import noticingCops_fg from "./assets/images/medialogy/noticing_cops_fg.png"
@@ -146,7 +148,7 @@ export default class Episode_Medialogy extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds2.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -191,7 +193,7 @@ export default class Episode_Medialogy extends React.Component {
                             {
                                 index: 0,
                                 pos: {bottom: '7%', right: '5%'},
-                                html: '<p>I was curious about the people that I would be spending next couple of years with.</p>',
+                                html: '<p>I was curious about the people, that I would be spending next couple of years with.</p>',
                                 sound: './assets/audio/speak/medialogy/frame_med_1.mp3'
                             }
                         ]
@@ -278,7 +280,7 @@ export default class Episode_Medialogy extends React.Component {
                                 index: 1,
                                 pos: {top:'50%', left:'30%'},
                                 html: "<p>BOOOOM!</p>",
-                                sound: './assets/audio/speak/medialogy/frame_med_7.mp3',
+                                sound: './assets/audio/speak/medialogy/boom.mp3',
                                 type: 'speech-bottom-right',
                                 color: 'yellow'
                             }
@@ -303,7 +305,7 @@ export default class Episode_Medialogy extends React.Component {
                                 index: 0,
                                 pos: {bottom: '7%', left: '5%'},
                                 html: '<p>Rapid memory flashes appeared before my eyes.</p>',
-                                sound: './assets/audio/speak/medialogy/frame_med_8.mp3'
+                                sound: './assets/audio/speak/medialogy/frame_med_7.mp3'
                             }
                         ]
                     },
@@ -312,18 +314,18 @@ export default class Episode_Medialogy extends React.Component {
                         audioOn: this.state.audioOn,
                         index: 1,
                         handleLock: this.handleLock,
-                        backgroundSrc: prepareBG,
-                        backgroundPos: {top: '0%', left: '0%'},
-                        backgroundSize: {width: '96%'},
+                        backgroundSrc: readyWorkBG,
+                        backgroundPos: {top: '-56%', left: '-24%'},
+                        backgroundSize: {width: '104%'},
                         foregroundSrc: prepareFG,
-                        foregroundPos: {top: '15%', left: '-6%'},
+                        foregroundPos: {top: '25%', left: '-6%'},
                         foregroundSize: {width: '79%'},
                         text: [
                             {
                                 index: 0,
                                 pos: {top: '7%', right: '5%'},
                                 html: "<p>Some of them were unrecognizable.<br> But still they felt like my own.</p>",
-                                sound: './assets/audio/speak/medialogy/frame_med_9.mp3'
+                                sound: './assets/audio/speak/medialogy/frame_med_8.mp3'
                             }
                         ]
                     },
@@ -343,7 +345,7 @@ export default class Episode_Medialogy extends React.Component {
                                 index: 0,
                                 pos: {top: '7%', right: '5%'},
                                 html: "<p>It was an extreme rush!<br>And it felt as if everything fell into place.</p>",
-                                sound: './assets/audio/speak/medialogy/frame_med_10.mp3'
+                                sound: './assets/audio/speak/medialogy/frame_med_9.mp3'
                             }
                         ]
                     }
@@ -365,14 +367,14 @@ export default class Episode_Medialogy extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '7%', left: '5%'},
-                                html: '<p>When I regained consciousness it felt like I had been living two lives.</p>',
-                                sound: './assets/audio/speak/medialogy/frame_med_11.mp3'
+                                html: '<p>When I regained consciousness it seemed like I had been living two lives.</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_10.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '6%', left: '5%'},
-                                html: "<p>Suddenly, I felt complete and I discovered abilities, that I hadn't experienced before.</p>",
-                                sound: './assets/audio/speak/medialogy/frame_med_12.mp3'
+                                html: "<p>Suddenly, I was complete and I discovered abilities, that I hadn't experienced before.</p>",
+                                sound: './assets/audio/speak/medialogy/frame_med_11.mp3'
                             }
                         ]
                     }
@@ -395,7 +397,7 @@ export default class Episode_Medialogy extends React.Component {
                                 index: 0,
                                 pos: {top: '7%', left: '5%'},
                                 html: '<p>In the distance I started to hear sirens.</p>',
-                                sound: './assets/audio/speak/medialogy/frame_med_13.mp3'
+                                sound: './assets/audio/speak/medialogy/frame_med_12.mp3'
                             }
                         ]
                     },
@@ -415,7 +417,7 @@ export default class Episode_Medialogy extends React.Component {
                                 index: 0,
                                 pos: {top: '30%', left: '5%'},
                                 html: '<p>You there inside! You are under arrest<br> and you need to come with us immediately!</p>',
-                                sound: './assets/audio/speak/medialogy/frame_med_14.mp3',
+                                sound: './assets/audio/speak/medialogy/frame_med_13.mp3',
                                 type: 'speech-bottom-right',
                             }
                         ]
@@ -442,13 +444,13 @@ export default class Episode_Medialogy extends React.Component {
                                 index: 0,
                                 pos: {top: '7%', left: '5%'},
                                 html: '<p>Right now I felt more powerful than ever...</p>',
-                                sound: './assets/audio/speak/medialogy/frame_med_15.mp3'
+                                sound: './assets/audio/speak/medialogy/frame_med_14.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '7%', right: '5%'},
-                                html: '<p>...and they could all just bring it the fuck on.</p>',
-                                sound: './assets/audio/speak/medialogy/frame_med_16.mp3'
+                                html: '<p>...and I was ready for whatever the world would throw at me. <br>Just bring it the fuck on!</p>',
+                                sound: './assets/audio/speak/medialogy/frame_med_15.mp3'
                             }
                         ]
                     }

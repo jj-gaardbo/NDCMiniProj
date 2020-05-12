@@ -4,7 +4,7 @@ import $ from 'jquery';
 import butterfly2 from "./assets/images/blue2.gif";
 import butterfly from "./assets/images/green.gif";
 import butterfly3 from "./assets/images/orange2.gif";
-import {setLS} from "./Common.jsx";
+import {setLS, getLS} from "./Common.jsx";
 
 export default class Home extends React.Component {
 
@@ -22,6 +22,10 @@ export default class Home extends React.Component {
     }
 
     redirectToStart(){
+        if(getLS('isCreativityPlayed') === null && getLS('isProgrammerPlayed') === null){
+            setLS('isCreativityPlayed', 'no');
+            setLS('isProgrammerPlayed', 'no');
+        }
         this.setState({ redirect: "/origin" });
     }
 

@@ -156,7 +156,7 @@ export default class Credits extends React.Component {
                     <h2>Sound effects:</h2>
                     <p>freesound.org</p>
                     <hr/>
-                    <a href="https://www.linkedin.com/in/jjgaardbo/">LinkedIn</a>
+                    <a target={"_blank"} href="https://www.linkedin.com/in/jjgaardbo/">LinkedIn</a>
                 </Breaker>
 
         </main>

@@ -3,9 +3,27 @@
   top: 0;
   z-index: 9999;
   background-color: black;
+  min-height: 40px;
   padding: 20px;
   width: 100vw;
+  transition: all 0.4s ease;
+
+  &:before{
+    transition: opacity 0.4s ease;
+    content: "";
+    width: 100px;
+    height: 5px;
+    background-color: $white;
+    position: absolute;
+    border-radius: 5px;
+    top: 10px;
+    left: 50%;
+    margin-left: -50px;
+  }
+
   ul{
+    transition: margin-top 0.4s ease;
+    margin-top: -40px;
     display: inline-block;
     float: left;
     li{
@@ -15,6 +33,16 @@
       a{
         color: $white;
       }
+    }
+  }
+
+  &:hover{
+    border-bottom: 1px solid $white;
+    &:before{
+      opacity: 0;
+    }
+    ul{
+      margin-top: 0;
     }
   }
 

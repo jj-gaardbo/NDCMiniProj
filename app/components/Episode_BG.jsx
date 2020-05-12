@@ -138,7 +138,7 @@ export default class Episode_BG extends React.Component {
                 }
 
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={10} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/news.mp3'} ambianceVolume={4} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -242,12 +242,6 @@ export default class Episode_BG extends React.Component {
                                 html: '<p>Our camera has just returned <br>from service, so this is <br>the first ever footage of our son. <br> He is now 6 weeks old.</p>',
                                 type: 'speech-bottom-right',
                                 sound: './assets/audio/speak/background/frame_bg_4.mp3'
-                            },
-                            {
-                                index: 2,
-                                pos: {bottom:'8%', right:'5%'},
-                                html: "<p>For some weird reason his father<br> was being portrayed with a bad impression of a<br> british accent in this context</p>",
-                                sound: './assets/audio/speak/background/frame_bg_4m.mp3'
                             }
                         ]
                     }
@@ -391,7 +385,7 @@ export default class Episode_BG extends React.Component {
                         },{
                             index: 1,
                             pos: {bottom:'10%', left:'2%'},
-                            html: "<p>He liked watching cartoons and loved to draw himself.</p>",
+                            html: "<p>He enjoyed watching cartoons and loved to draw himself.</p>",
                             sound: './assets/audio/speak/background/frame_bg_13.mp3'
                         }]
                     },{

@@ -1,5 +1,5 @@
 import React from 'react';
-import {getLS} from "./Common.jsx";
+import {getLS, setLS} from "./Common.jsx";
 
 export default class Title extends React.Component {
 

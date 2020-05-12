@@ -14,7 +14,7 @@ export default class Frame extends React.Component {
         this.state = {
             active:true,
             index: props.index,
-            wait: 800,
+            wait: 1200,
             timeout: 500,
             timerID:0,
             imgViz: false,

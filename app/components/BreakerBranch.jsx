@@ -3,6 +3,7 @@ import $ from "jquery";
 import butterfly1 from "./assets/images/purple2.gif";
 import butterfly2 from "./assets/images/orange2.gif";
 import { Redirect } from "react-router-dom";
+import {setLS} from "./Common.jsx";
 
 export default class BreakerBranch extends React.Component {
 
@@ -10,10 +11,25 @@ export default class BreakerBranch extends React.Component {
         super(props);
 
         this.state = {
-            redirect: null
+            redirect: null,
+            isCreativityPlayed: 0,
+            isProgrammerPlayed: 0
         };
 
         this.redirect = this.redirect.bind(this);
+    }
+
+    componentDidMount() {
+        if(this.props.routeoneTitle === 'Computers' && !this.props.routetwoTitle){
+            this.setState({isCreativityPlayed:1});
+            setLS('isCreativityPlayed', 'yes');
+        } else if(this.props.routeoneTitle === 'Creativity' && !this.props.routetwoTitle){
+            this.setState({isProgrammerPlayed:1});
+            setLS('isProgrammerPlayed', 'yes');
+        } else if(this.props.bothPlayed){
+            setLS('isProgrammerPlayed', 'yes');
+            setLS('isCreativityPlayed', 'yes');
+        }
     }
 
     redirect(redirect){
@@ -35,10 +51,12 @@ export default class BreakerBranch extends React.Component {
                     <p>{this.props.routeoneTitle}</p>
                 </button>
 
-                <button className={'branch-redirect'} style={{bottom:'40%', right:'20%'}} type={'button'} onClick={() => this.redirect(this.props.routetwo)}>
-                    <img src={butterfly2} alt="Orange butterfly"/>
-                    <p>{this.props.routetwoTitle}</p>
-                </button>
+                {this.props.routetwoTitle && this.props.routetwo &&
+                    <button className={'branch-redirect'} style={{bottom:'40%', right:'20%'}} type={'button'} onClick={() => this.redirect(this.props.routetwo)}>
+                        <img src={butterfly2} alt="Orange butterfly"/>
+                        <p>{this.props.routetwoTitle}</p>
+                    </button>
+                }
 
             </div>
         )

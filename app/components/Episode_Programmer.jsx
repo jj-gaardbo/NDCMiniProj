@@ -146,7 +146,7 @@ export default class Episode_Programmer extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} id={'start'} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} id={'start'} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -169,7 +169,7 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
+               <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -191,7 +191,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 1,
                                 pos: {top: '22%', left: '5%'},
-                                html: "<p>I was rethinking the tie. Usually I did not wear a tie...<br>and since I didn't have any client meetings today<br> I decided to skip it.</p>",
+                                html: "<p>I was rethinking the tie. Usually I didn't wear a tie...<br>and since I didn't have any client meetings today<br> I decided to skip it.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_1.mp3'
                             },
                         ]
@@ -232,7 +232,7 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={100} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={60} handleDone={this.next} frames={[
                     {
                         className: "col-lg-4 window skew-4-left small-frame-center",
                         audioOn: this.state.audioOn,
@@ -383,7 +383,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 0,
                                 pos: {top: '10%', left: '5%'},
-                                html: "<p>We all got tipsy and had a good time.</p>",
+                                html: "<p>We all got a little tipsy and had a good time.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_12.mp3'
                             }
                         ]
@@ -415,7 +415,7 @@ export default class Episode_Programmer extends React.Component {
                             {
                                 index: 1,
                                 pos: {top: '14%', left: '5%'},
-                                html: "<p>I tried to greet him as I passed him, but he didn't respond.</p>",
+                                html: "<p>I tried to greet him as I passed him, but he didn't respond. <br> He just had this look on his face<br> like he just saw a ghost.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_14.mp3'
                             },
                             {
@@ -546,14 +546,25 @@ export default class Episode_Programmer extends React.Component {
                     }
                 ]}/>
 
-                <BreakerBranch
-                    ref={this.getOrCreateRef('section-'+index)}
-                    index={index++}
-                    header={"Choose a path..."}
-                    routeoneTitle={'Creativity'}
-                    routetwoTitle={'Medialogy'}
-                    routeone={'/creativity'}
-                    routetwo={'/medialogy'}/>
+                {getLS('isCreativityPlayed') === 'no' ? (
+                    <BreakerBranch
+                        ref={this.getOrCreateRef('section-'+index)}
+                        index={index++}
+                        header={"Turn back time..."}
+                        routeoneTitle={'Creativity'}
+                        routeone={'/creativity'}/>
+                ) : (
+                    <BreakerBranch
+                        ref={this.getOrCreateRef('section-'+index)}
+                        index={index++}
+                        header={"Choose a path..."}
+                        routetwoTitle={'Medialogy'}
+                        routeoneTitle={'Creativity'}
+                        routetwo={'/medialogy'}
+                        routeone={'/creativity'}
+                        bothPlayed={true}/>
+                    )
+                }
         </main>
         )
     }

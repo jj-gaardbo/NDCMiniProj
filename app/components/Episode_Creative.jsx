@@ -139,7 +139,7 @@ export default class Episode_Creative extends React.Component {
                 />
                 }
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} id={"start"} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/birds2.mp3'} ambianceVolume={40} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-4-left",
                         audioOn: this.state.audioOn,
@@ -182,7 +182,7 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {bottom: '12%', left: '5%'},
                                 html: '<p>Tonight we really were getting a taste<br> of being professional musicians,<br> even though we were still only<br> getting paid with a free bar for the night.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_2.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_1.mp3'
                             },
                         ]
                     },
@@ -202,13 +202,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', right: '5%'},
                                 html: '<p>It was definitely not a job that paid<br> the bills, and I’d recently been considering<br> getting a proper education.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_3.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_2.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '15%', right: '5%'},
                                 html: '<p>Maybe I wouldn’t have to struggle so much, if I had an actual job.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_4.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_3.mp3'
                             }
                         ]
                     }
@@ -231,13 +231,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: '<p>The thoughts were rushing through my head.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_5.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_4.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {top: '18%', left: '5%'},
-                                html: "<p>We'd put a band together, of very good<br> musicians, to play along to my beats.</p>",
-                                sound: './assets/audio/speak/creative/frame_cr_6.mp3'
+                                html: "<p>We'd put a band together, of very good<br> musicians, to play along to the beats that I produced.</p>",
+                                sound: './assets/audio/speak/creative/frame_cr_5.mp3'
                             }
                         ]
                     },
@@ -254,7 +254,7 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {bottom: '15%', left: '5%'},
                                 html: '<p>My nerves were starting to fuck with my head, and my hands were shaking, which made it difficult to tie my shoes.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_7.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_6.mp3'
                             }
                         ]
                     }
@@ -271,12 +271,12 @@ export default class Episode_Creative extends React.Component {
                             index: 0,
                             pos: {bottom:'30%', left:'5%'},
                             html: "<p>I was exited about how the crowd<br> would receive our latest release. <br> We'd spent the last couple of weeks<br> creating a music video for it.</p>",
-                            sound: './assets/audio/speak/creative/frame_cr_8.mp3'
+                            sound: './assets/audio/speak/creative/frame_cr_7.mp3'
                         },{
                             index: 1,
                             pos: {bottom:'12%', right:'5%'},
                             html: "<p>It was a mixture of live action video, 2D and 3D animation,<br> and our goal was to make it look and feel like<br> it was a comic book.</p>",
-                            sound: './assets/audio/speak/creative/frame_cr_8m.mp3'
+                            sound: './assets/audio/speak/creative/frame_cr_8.mp3'
                         }],
                         children:(
                             <div className="interactive" style={{left: '80%',top: '10%'}}>
@@ -305,7 +305,7 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} audioOn={this.state.audioOn} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} handleDone={this.next} ambiance={'./assets/audio/ambiance/streetwalking.mp3'} ambianceVolume={40} audioOn={this.state.audioOn} frames={[
                     {
                         className: "col-lg-12 window skew-2-right",
                         audioOn: this.state.audioOn,
@@ -447,7 +447,7 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top:'5%', right:'2%'},
                                 html: '<p>I fell asleep with all my clothes on and started to have weird dreams<br> about random objects in my apartment coming to life</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_16_17.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_16.mp3'
                             }
                         ]
                     }
@@ -487,13 +487,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', left: '5%'},
                                 html: '<p>I woke up with a massive hangover,<br> but I knew I needed to go to the unemployment office today</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_20.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_19.mp3'
                             }
                         ]
                     }
                 ]}/>
 
-                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={100} handleDone={this.next} frames={[
+                <Panel ref={this.getOrCreateRef('section-'+index)} index={index++} audioOn={this.state.audioOn} ambiance={'./assets/audio/ambiance/office.mp3'} ambianceVolume={60} handleDone={this.next} frames={[
                     {
                         className: "col-lg-12 window skew-2-right custom",
                         audioOn: this.state.audioOn,
@@ -513,13 +513,13 @@ export default class Episode_Creative extends React.Component {
                                 index: 0,
                                 pos: {top: '5%', right: '5%'},
                                 html: '<p>The counselor lady suggested an education for me, <br>based on the personal interests that I had presented,<br> and it was actually something, that I could see myself doing.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_21.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_20.mp3'
                             },
                             {
                                 index: 1,
                                 pos: {bottom: '8%', right: '5%'},
                                 html: '<p>It was something called Medialogy.</p>',
-                                sound: './assets/audio/speak/creative/frame_cr_22.mp3'
+                                sound: './assets/audio/speak/creative/frame_cr_21.mp3'
                             }
                         ],
                         children:(
@@ -539,14 +539,26 @@ export default class Episode_Creative extends React.Component {
                     }
                 ]}/>
 
-                <BreakerBranch
-                    ref={this.getOrCreateRef('section-'+index)}
-                    index={index++}
-                    header={"Choose a path..."}
-                    routeoneTitle={'Medialogy'}
-                    routetwoTitle={'Computers'}
-                    routeone={'/medialogy'}
-                    routetwo={'/computers'}/>
+
+                {getLS('isProgrammerPlayed') === 'no' ? (
+                    <BreakerBranch
+                        ref={this.getOrCreateRef('section-'+index)}
+                        index={index++}
+                        header={"Turn back time..."}
+                        routeoneTitle={'Computers'}
+                        routeone={'/computers'}/>
+                ) : (
+                    <BreakerBranch
+                        ref={this.getOrCreateRef('section-'+index)}
+                        index={index++}
+                        header={"Choose a path..."}
+                        routetwoTitle={'Medialogy'}
+                        routeoneTitle={'Computers'}
+                        routetwo={'/medialogy'}
+                        routeone={'/computers'}
+                        bothPlayed={true}/>
+                )
+                }
 
         </main>
         )
