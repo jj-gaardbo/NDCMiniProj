@@ -39,19 +39,10 @@
 
     &.branch-redirect{
       width: 300px;
-
-      &.hover{
-        img{
-          transform: translateX(75px);
-        }
-      }
       p{
         color: $white;
       }
       position: absolute;
-      img{
-        transform: translateX(75px);
-      }
     }
 
 

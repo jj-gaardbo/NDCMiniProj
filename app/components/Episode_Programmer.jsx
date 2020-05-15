@@ -512,8 +512,14 @@ export default class Episode_Programmer extends React.Component {
                         text: [
                             {
                                 index: 0,
+                                pos: {top: '5%', left: '5%'},
+                                html: '<p>Almost a year later. <br>Acto offices.</p>',
+                                color: 'yellow'
+                            },
+                            {
+                                index: 1,
                                 pos: {bottom: '5%', left: '5%'},
-                                html: "<p>As time went by I almost became a part time<br> employee at Acto. And I worked on projects<br> for them for almost 2 years.<br> I primarily worked on their own website.</p>",
+                                html: "<p>As time went by I almost became a part time<br> employee at Acto. I primarily worked on their own website.</p>",
                                 sound: './assets/audio/speak/programmer/frame_pr_19.mp3'
                             }
                         ]
